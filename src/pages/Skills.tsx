@@ -2,8 +2,13 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Navbar } from '@/components/Navbar';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { useState } from 'react';
+import { CustomCursor } from '@/components/CustomCursor';
+import { FloatingParticles } from '@/components/FloatingParticles';
+import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 
 const skillCategories = {
   Frontend: [
@@ -58,8 +63,28 @@ const skillCategories = {
 };
 
 export default function Skills() {
+  useSmoothScroll();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const filteredCategories = Object.entries(skillCategories).reduce((acc, [category, skills]) => {
+    const filteredSkills = skills.filter(skill => 
+      skill.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    if (filteredSkills.length > 0) {
+      acc[category] = filteredSkills;
+    }
+    return acc;
+  }, {} as Record<string, string[]>);
+
+  const displayCategories = selectedCategory
+    ? { [selectedCategory]: skillCategories[selectedCategory] }
+    : filteredCategories;
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <FloatingParticles />
+      <CustomCursor />
       <Navbar />
       
       <main className="pt-24 pb-12">
@@ -83,13 +108,54 @@ export default function Skills() {
               <span className="text-neon-blue text-glow-blue">Complete</span>{' '}
               <span className="text-neon-violet text-glow-violet">Tech Stack</span>
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mb-8">
               A comprehensive overview of my technical skills across multiple domains
             </p>
+
+            {/* Search and Filter */}
+            <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neon-cyan" size={20} />
+                <Input
+                  type="text"
+                  placeholder="Search technologies..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 bg-space-deeper border-neon-blue/30 focus:border-neon-cyan text-foreground placeholder:text-muted-foreground"
+                />
+              </div>
+              {selectedCategory && (
+                <Button
+                  onClick={() => setSelectedCategory(null)}
+                  variant="outline"
+                  className="border-neon-violet text-neon-violet hover:bg-neon-violet/10"
+                >
+                  Clear Filter
+                </Button>
+              )}
+            </div>
+
+            {/* Category Pills */}
+            <div className="flex flex-wrap justify-center gap-2 mt-6">
+              {Object.keys(skillCategories).map((category) => (
+                <Button
+                  key={category}
+                  onClick={() => setSelectedCategory(selectedCategory === category ? null : category)}
+                  size="sm"
+                  variant={selectedCategory === category ? 'default' : 'outline'}
+                  className={selectedCategory === category
+                    ? 'bg-neon-blue text-space-dark border-neon-blue'
+                    : 'border-neon-cyan/50 text-neon-cyan hover:bg-neon-cyan/10'
+                  }
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
           </motion.div>
 
           <div className="grid gap-8">
-            {Object.entries(skillCategories).map(([category, skills], categoryIndex) => (
+            {Object.entries(displayCategories).map(([category, skills], categoryIndex) => (
               <motion.div
                 key={category}
                 initial={{ opacity: 0, y: 30 }}

@@ -40,16 +40,38 @@ export const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="relative text-foreground hover:text-neon-cyan transition-colors duration-300 group"
-              >
-                {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-neon-cyan group-hover:w-full transition-all duration-300"></span>
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = typeof window !== 'undefined' && 
+                (link.href === '/' ? window.location.pathname === '/' : 
+                 window.location.pathname === link.href || 
+                 window.location.hash === link.href);
+              
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`relative transition-colors duration-300 group ${
+                    isActive ? 'text-neon-cyan' : 'text-foreground hover:text-neon-cyan'
+                  }`}
+                >
+                  {link.name}
+                  <motion.span
+                    className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-neon-cyan to-neon-blue"
+                    initial={{ width: 0 }}
+                    animate={{ width: isActive ? '100%' : 0 }}
+                    transition={{ duration: 0.3 }}
+                  ></motion.span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-neon-cyan group-hover:w-full transition-all duration-300"></span>
+                  {isActive && (
+                    <motion.span
+                      layoutId="navbar-glow"
+                      className="absolute inset-0 -z-10 blur-xl bg-neon-cyan/20 rounded-lg"
+                      transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                </a>
+              );
+            })}
           </div>
 
           {/* Mobile Menu Button */}

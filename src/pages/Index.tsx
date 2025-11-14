@@ -2,17 +2,51 @@ import { Starfield } from '@/components/Starfield';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { TechStackGalaxy } from '@/components/TechStackGalaxy';
+import { AnimatedStats } from '@/components/AnimatedStats';
 import { Projects } from '@/components/Projects';
 import { Hackathons } from '@/components/Hackathons';
 import { Contact } from '@/components/Contact';
+import { CustomCursor } from '@/components/CustomCursor';
+import { FloatingParticles } from '@/components/FloatingParticles';
+import { useSmoothScroll } from '@/hooks/useSmoothScroll';
+
+// Project and tech data
+const projects = [
+  { title: 'AI Code Assistant', category: 'AI' },
+  { title: 'DeFi Trading Platform', category: 'Web3' },
+  { title: 'Neural Style Transfer', category: 'AI' },
+  { title: 'Blockchain Supply Chain', category: 'Web3' },
+  { title: 'Cloud Infrastructure Manager', category: 'Full Stack' },
+  { title: 'IoT Smart Home', category: 'IoT' },
+];
+
+const hackathons = [
+  'Smart India Hackathon 2025',
+  'Roomigo – PG Finder (TechTrek)',
+  'ETHGlobal 2024',
+  'Google Cloud Hackathon',
+  'Meta XR Challenge',
+  'AWS BuildOn',
+];
+
+const techStack = 50; // Number of technologies
 
 const Index = () => {
+  useSmoothScroll();
+
   return (
     <div className="relative min-h-screen">
       <Starfield />
+      <FloatingParticles />
+      <CustomCursor />
       <Navbar />
       <Hero />
       <TechStackGalaxy />
+      <AnimatedStats 
+        projectsCount={projects.length}
+        hackathonsCount={hackathons.length}
+        techCount={techStack}
+      />
       <Projects />
       <Hackathons />
       <Contact />
