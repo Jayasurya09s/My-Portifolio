@@ -75,6 +75,13 @@ All colors MUST be HSL.
   body {
     @apply bg-space-dark text-foreground font-rajdhani overflow-x-hidden;
     background: linear-gradient(180deg, hsl(var(--space-deeper)) 0%, hsl(var(--space-dark)) 50%, hsl(240 40% 8%) 100%);
+    cursor: none;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      cursor: auto;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -119,5 +126,21 @@ All colors MUST be HSL.
     border: 2px solid hsl(var(--neon-blue));
     box-shadow: 0 0 10px hsl(var(--neon-blue) / 0.5),
                 inset 0 0 10px hsl(var(--neon-blue) / 0.2);
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  /* Smooth parallax scrolling */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Card hover 3D effect */
+  .group:hover .card-3d {
+    transform: rotateY(5deg) rotateX(5deg);
   }
 }
