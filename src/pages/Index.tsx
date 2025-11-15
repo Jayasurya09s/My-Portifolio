@@ -3,11 +3,13 @@ import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { AnimatedStats } from '@/components/AnimatedStats';
 import { Projects } from '@/components/Projects';
+import { SkillsPreview } from '@/components/SkillsPreview';
 import { Hackathons } from '@/components/Hackathons';
 import { Contact } from '@/components/Contact';
 import { CustomCursor } from '@/components/CustomCursor';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
+import { technologies } from '@/data/technologies';
 
 // Project and tech data
 const projects = [
@@ -28,7 +30,7 @@ const hackathons = [
   'AWS BuildOn',
 ];
 
-const techStack = 50; // Number of technologies mastered
+const techStack = technologies.length; // Number of technologies mastered
 
 const Index = () => {
   useSmoothScroll();
@@ -46,6 +48,7 @@ const Index = () => {
         techCount={techStack}
       />
       <Projects />
+      <SkillsPreview />
       <Hackathons />
       <Contact />
       
