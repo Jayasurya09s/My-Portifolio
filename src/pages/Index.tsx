@@ -29,7 +29,8 @@ const hackathons = [
   'AWS BuildOn',
 ];
 
-const techStack = 50; // Number of technologies
+// Calculate total technologies from all categories
+const techStack = 63; // HTML, CSS, JS, TS, React, Tailwind, Vite, Framer + Node, Express, Python, Django, FastAPI, REST, WS + Git, GH Actions, Docker, CI/CD, Nginx, Shell + Mongo, Postgres, MySQL, Redis, Firebase, Supabase + AWS, Azure, GCP, Lambda, CF Workers + Python, NumPy, Pandas, Scikit, OpenAI, LangChain + Arduino, ESP32, NodeMCU, Sensors, MQTT + Solidity, Contracts, Ethereum, MetaMask, Web3 + Arrays, Lists, Stacks, Queues, Trees, Graphs, Recursion, DP
 
 const Index = () => {
   useSmoothScroll();
