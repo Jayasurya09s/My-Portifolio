@@ -1,7 +1,6 @@
 import { Starfield } from '@/components/Starfield';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
-import { TechStackGalaxy } from '@/components/TechStackGalaxy';
 import { AnimatedStats } from '@/components/AnimatedStats';
 import { Projects } from '@/components/Projects';
 import { Hackathons } from '@/components/Hackathons';
@@ -29,8 +28,7 @@ const hackathons = [
   'AWS BuildOn',
 ];
 
-// Calculate total technologies from all categories
-const techStack = 63; // HTML, CSS, JS, TS, React, Tailwind, Vite, Framer + Node, Express, Python, Django, FastAPI, REST, WS + Git, GH Actions, Docker, CI/CD, Nginx, Shell + Mongo, Postgres, MySQL, Redis, Firebase, Supabase + AWS, Azure, GCP, Lambda, CF Workers + Python, NumPy, Pandas, Scikit, OpenAI, LangChain + Arduino, ESP32, NodeMCU, Sensors, MQTT + Solidity, Contracts, Ethereum, MetaMask, Web3 + Arrays, Lists, Stacks, Queues, Trees, Graphs, Recursion, DP
+const techStack = 50; // Number of technologies mastered
 
 const Index = () => {
   useSmoothScroll();
@@ -42,8 +40,7 @@ const Index = () => {
       <CustomCursor />
       <Navbar />
       <Hero />
-      <TechStackGalaxy />
-      <AnimatedStats 
+      <AnimatedStats
         projectsCount={projects.length}
         hackathonsCount={hackathons.length}
         techCount={techStack}
