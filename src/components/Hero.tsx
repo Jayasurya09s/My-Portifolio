@@ -4,19 +4,18 @@ import { OrbitControls, Float, MeshDistortMaterial } from '@react-three/drei';
 import { Download, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-function HolographicCube() {
+function ProfileOrb() {
   return (
-    <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
+    <Float speed={2} rotationIntensity={0.3} floatIntensity={0.4}>
       <mesh>
-        <boxGeometry args={[2, 2, 2]} />
+        <sphereGeometry args={[2, 64, 64]} />
         <MeshDistortMaterial
           color="#00f0ff"
           attach="material"
-          distort={0.4}
-          speed={2}
-          wireframe
+          distort={0.2}
+          speed={1.5}
           transparent
-          opacity={0.6}
+          opacity={0.3}
         />
       </mesh>
     </Float>
@@ -107,23 +106,49 @@ export const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Side - 3D Holographic Cube */}
+
+          {/* Right Side - Profile Picture */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="h-[400px] sm:h-[500px] lg:h-[600px] relative"
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative flex items-center justify-center h-[400px] sm:h-[500px] lg:h-[600px]"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 to-neon-violet/20 rounded-full blur-3xl"></div>
-            <Canvas camera={{ position: [0, 0, 5] }}>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} intensity={1} color="#00f0ff" />
-              <pointLight position={[-10, -10, -10]} intensity={1} color="#b300ff" />
-              <HolographicCube />
-              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
-            </Canvas>
-            
-            {/* Particle Effects */}
+            {/* Glowing rings */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute w-64 h-64 border-2 border-neon-blue/30 rounded-full animate-spin-slower"></div>
+              <div className="absolute w-80 h-80 border-2 border-neon-violet/20 rounded-full animate-spin-slow"></div>
+              <div className="absolute w-96 h-96 border border-neon-cyan/10 rounded-full animate-spin-slower" style={{ animationDirection: 'reverse' }}></div>
+            </div>
+
+            {/* Profile Picture Container */}
+            <div className="relative z-10 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+              {/* 3D Background Orb */}
+              <div className="absolute inset-0">
+                <Canvas className="w-full h-full">
+                  <ambientLight intensity={0.5} />
+                  <pointLight position={[10, 10, 10]} intensity={1} color="#00f0ff" />
+                  <pointLight position={[-10, -10, -10]} intensity={0.5} color="#b77bff" />
+                  <ProfileOrb />
+                  <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
+                </Canvas>
+              </div>
+
+              {/* Profile Picture */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden neon-border group">
+                  {/* Placeholder - Replace with actual image */}
+                  <div className="w-full h-full bg-gradient-to-br from-neon-blue/20 via-neon-violet/20 to-neon-cyan/20 flex items-center justify-center backdrop-blur-sm">
+                    <span className="text-6xl sm:text-7xl lg:text-8xl font-bold text-glow-blue">MJ</span>
+                  </div>
+                  
+                  {/* Glow effect on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-neon-blue/0 via-neon-violet/0 to-neon-cyan/0 group-hover:from-neon-blue/20 group-hover:via-neon-violet/20 group-hover:to-neon-cyan/20 transition-all duration-500"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Animated particles */}
             <div className="absolute inset-0 pointer-events-none">
               {[...Array(20)].map((_, i) => (
                 <motion.div
@@ -134,13 +159,13 @@ export const Hero = () => {
                     top: `${Math.random() * 100}%`,
                   }}
                   animate={{
-                    y: [0, -100],
+                    y: [0, -30, 0],
                     opacity: [0, 1, 0],
                   }}
                   transition={{
-                    duration: 3 + Math.random() * 2,
+                    duration: 3,
                     repeat: Infinity,
-                    delay: Math.random() * 2,
+                    delay: i * 0.2,
                   }}
                 />
               ))}
