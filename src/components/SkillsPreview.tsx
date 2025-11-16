@@ -3,145 +3,69 @@ import { ArrowRight, Code2, Cpu, Database } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { technologies } from '@/data/technologies';
-import { SplineScene } from './SplineScene';
 
 export const SkillsPreview = () => {
   const navigate = useNavigate();
   
-  // Select technologies for border display
-  const topTechs = technologies.slice(0, 8);
-  const rightTechs = technologies.slice(8, 14);
-  const bottomTechs = technologies.slice(14, 22);
-  const leftTechs = technologies.slice(22, 28);
+  const topSkills = technologies.slice(0, 12);
   
   return (
     <section className="relative py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Tech Display Area */}
-        <div className="relative w-full max-w-7xl mx-auto min-h-[600px] md:min-h-[700px] mb-12">
-          {/* Top Border - Tech Boxes */}
-          <div className="absolute top-0 left-0 right-0 flex justify-around gap-2 px-4">
-            {topTechs.map((tech, index) => (
-              <motion.div
-                key={`top-${tech.name}`}
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                className="glass-panel p-3 rounded-lg border border-border/30 hover:border-neon-blue/50 transition-all duration-300 group w-20 sm:w-24"
-              >
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl mb-1 group-hover:scale-110 transition-transform duration-300">
-                    {tech.icon}
-                  </div>
-                  <h3 
-                    className="text-xs font-medium truncate"
-                    style={{ color: tech.color }}
-                  >
-                    {tech.name}
-                  </h3>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+            <span className="text-glow-blue">Tech</span>{' '}
+            <span className="text-glow-violet">Arsenal</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            A glimpse into my technological expertise spanning {technologies.length}+ technologies
+          </p>
+        </motion.div>
 
-          {/* Right Border - Tech Boxes */}
-          <div className="absolute top-16 right-0 bottom-16 flex flex-col justify-around gap-2 pr-4">
-            {rightTechs.map((tech, index) => (
-              <motion.div
-                key={`right-${tech.name}`}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                className="glass-panel p-3 rounded-lg border border-border/30 hover:border-neon-violet/50 transition-all duration-300 group w-20 sm:w-24"
-              >
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl mb-1 group-hover:scale-110 transition-transform duration-300">
-                    {tech.icon}
-                  </div>
-                  <h3 
-                    className="text-xs font-medium truncate"
-                    style={{ color: tech.color }}
-                  >
-                    {tech.name}
-                  </h3>
+        {/* Featured Skills Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12">
+          {topSkills.map((tech, index) => (
+            <motion.div
+              key={tech.name}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              viewport={{ once: true }}
+              className="glass-panel p-6 rounded-xl border border-border/30 hover:border-neon-blue/50 transition-all duration-300 group"
+            >
+              <div className="text-center">
+                <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                  {tech.icon}
                 </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Bottom Border - Tech Boxes */}
-          <div className="absolute bottom-0 left-0 right-0 flex justify-around gap-2 px-4">
-            {bottomTechs.map((tech, index) => (
-              <motion.div
-                key={`bottom-${tech.name}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                className="glass-panel p-3 rounded-lg border border-border/30 hover:border-neon-cyan/50 transition-all duration-300 group w-20 sm:w-24"
-              >
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl mb-1 group-hover:scale-110 transition-transform duration-300">
-                    {tech.icon}
-                  </div>
-                  <h3 
-                    className="text-xs font-medium truncate"
-                    style={{ color: tech.color }}
-                  >
-                    {tech.name}
-                  </h3>
+                <h3 
+                  className="text-sm font-medium group-hover:text-glow-blue transition-colors"
+                  style={{ color: tech.color }}
+                >
+                  {tech.name}
+                </h3>
+                
+                {/* Progress bar */}
+                <div className="mt-3 h-1.5 bg-background/50 rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${tech.mastery}%` }}
+                    transition={{ duration: 1, delay: index * 0.05 }}
+                    viewport={{ once: true }}
+                    className="h-full rounded-full"
+                    style={{ 
+                      background: `linear-gradient(90deg, ${tech.color}80, ${tech.color})`
+                    }}
+                  />
                 </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Left Border - Tech Boxes */}
-          <div className="absolute top-16 left-0 bottom-16 flex flex-col justify-around gap-2 pl-4">
-            {leftTechs.map((tech, index) => (
-              <motion.div
-                key={`left-${tech.name}`}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                className="glass-panel p-3 rounded-lg border border-border/30 hover:border-neon-blue/50 transition-all duration-300 group w-20 sm:w-24"
-              >
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl mb-1 group-hover:scale-110 transition-transform duration-300">
-                    {tech.icon}
-                  </div>
-                  <h3 
-                    className="text-xs font-medium truncate"
-                    style={{ color: tech.color }}
-                  >
-                    {tech.name}
-                  </h3>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Center - Spline Robot */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="absolute inset-0 flex items-center justify-center pointer-events-auto"
-          >
-            {/* Glow effect behind robot */}
-            <div className="absolute w-96 h-96 bg-neon-blue/10 rounded-full blur-3xl" />
-            
-            {/* Robot */}
-            <div className="relative w-[60%] h-[60%] max-w-md max-h-md z-10">
-              <SplineScene
-                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                className="w-full h-full"
-              />
-            </div>
-          </motion.div>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         {/* Category highlights */}
@@ -177,7 +101,7 @@ export const SkillsPreview = () => {
           </div>
         </motion.div>
 
-        {/* CTA Button */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -188,10 +112,10 @@ export const SkillsPreview = () => {
           <Button
             onClick={() => navigate('/skills')}
             size="lg"
-            className="bg-gradient-to-r from-neon-blue to-neon-violet hover:from-neon-violet hover:to-neon-blue text-white group"
+            className="bg-neon-violet text-white hover:bg-neon-violet/80 border-2 border-neon-violet hover:border-neon-cyan transition-all duration-300 neon-border font-semibold group"
           >
             Explore Full Skills Universe
-            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
           </Button>
         </motion.div>
       </div>
