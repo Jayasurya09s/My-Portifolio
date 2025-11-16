@@ -1,228 +1,230 @@
-import { motion } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { motion, useInView } from 'framer-motion';
 import { Navbar } from '@/components/Navbar';
-import { ArrowLeft, Search } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Search, Rocket, Trophy, Brain } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { CustomCursor } from '@/components/CustomCursor';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
+import { NebulaBackground } from '@/components/NebulaBackground';
+import { technologies, categories } from '@/data/technologies';
+import { CounterStat } from '@/components/CounterStat';
 
-const skillCategories = {
-  Frontend: [
-    'React', 'Next.js', 'Vue.js', 'Angular', 'TypeScript', 'JavaScript',
-    'HTML5', 'CSS3', 'Tailwind CSS', 'Material-UI', 'Bootstrap', 
-    'Sass/SCSS', 'Redux', 'Zustand', 'React Query', 'Framer Motion',
-    'Three.js', 'D3.js', 'WebGL', 'Progressive Web Apps'
-  ],
-  Backend: [
-    'Node.js', 'Express.js', 'Python', 'Django', 'Flask', 'FastAPI',
-    'Java', 'Spring Boot', 'Go', 'Rust', 'GraphQL', 'REST APIs',
-    'Socket.io', 'WebSockets', 'Microservices', 'Serverless'
-  ],
-  'AI/ML': [
-    'TensorFlow', 'PyTorch', 'Keras', 'Scikit-learn', 'OpenCV',
-    'Natural Language Processing', 'Computer Vision', 'Deep Learning',
-    'Neural Networks', 'Transformers', 'Hugging Face', 'LangChain',
-    'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'YOLO', 'GPT Models'
-  ],
-  Blockchain: [
-    'Ethereum', 'Solidity', 'Web3.js', 'Ethers.js', 'Hardhat',
-    'Truffle', 'Smart Contracts', 'DeFi', 'NFTs', 'IPFS',
-    'Hyperledger', 'Polygon', 'BSC', 'Layer 2 Solutions'
-  ],
-  'Cloud/DevOps': [
-    'AWS', 'Azure', 'Google Cloud Platform', 'Docker', 'Kubernetes',
-    'Jenkins', 'GitHub Actions', 'GitLab CI/CD', 'Terraform',
-    'Ansible', 'Nginx', 'Apache', 'Linux', 'CI/CD Pipelines',
-    'Monitoring & Logging', 'CloudFormation'
-  ],
-  Database: [
-    'PostgreSQL', 'MongoDB', 'MySQL', 'Redis', 'Cassandra',
-    'DynamoDB', 'Firebase', 'Supabase', 'Elasticsearch',
-    'Neo4j', 'SQLite', 'Oracle', 'SQL Server'
-  ],
-  Mobile: [
-    'React Native', 'Flutter', 'Swift', 'SwiftUI', 'Kotlin',
-    'Android Studio', 'Xcode', 'Expo', 'Ionic',
-    'Mobile UI/UX', 'App Store Deployment'
-  ],
-  Cybersecurity: [
-    'Penetration Testing', 'Ethical Hacking', 'OWASP Top 10',
-    'Network Security', 'Cryptography', 'Security Auditing',
-    'Vulnerability Assessment', 'Burp Suite', 'Metasploit',
-    'Wireshark', 'Kali Linux', 'Security Best Practices'
-  ],
-  'Tools & Others': [
-    'Git', 'GitHub', 'GitLab', 'Bitbucket', 'VS Code',
-    'IntelliJ IDEA', 'Postman', 'Figma', 'Adobe XD',
-    'Jira', 'Confluence', 'Slack', 'Notion', 'Agile/Scrum'
-  ]
-};
+const projects = [
+  { title: 'AI Code Assistant', category: 'AI' },
+  { title: 'DeFi Trading Platform', category: 'Web3' },
+  { title: 'Neural Style Transfer', category: 'AI' },
+  { title: 'Blockchain Supply Chain', category: 'Web3' },
+  { title: 'Cloud Infrastructure Manager', category: 'Full Stack' },
+  { title: 'IoT Smart Home', category: 'IoT' },
+];
+
+const hackathons = [
+  'Smart India Hackathon 2025',
+  'Roomigo – PG Finder (TechTrek)',
+  'ETHGlobal 2024',
+  'Google Cloud Hackathon',
+  'Meta XR Challenge',
+  'AWS BuildOn',
+];
 
 export default function Skills() {
   useSmoothScroll();
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
-  const filteredCategories = Object.entries(skillCategories).reduce((acc, [category, skills]) => {
-    const filteredSkills = skills.filter(skill => 
-      skill.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    if (filteredSkills.length > 0) {
-      acc[category] = filteredSkills;
-    }
-    return acc;
-  }, {} as Record<string, string[]>);
-
-  const displayCategories = selectedCategory
-    ? { [selectedCategory]: skillCategories[selectedCategory] }
-    : filteredCategories;
+  const filteredTechnologies = technologies.filter(tech => {
+    const matchesSearch = tech.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = selectedCategory === 'All' || tech.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <div className="min-h-screen relative">
+      <NebulaBackground />
       <FloatingParticles />
       <CustomCursor />
       <Navbar />
       
       <main className="pt-24 pb-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-8"
+            className="text-center mb-16"
           >
-            <Button
-              variant="outline"
-              className="border-neon-blue text-neon-blue hover:bg-neon-blue/10 mb-6"
-              onClick={() => window.history.back()}
-            >
-              <ArrowLeft className="mr-2" size={18} />
-              Back
-            </Button>
-            
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="text-neon-blue text-glow-blue">Complete</span>{' '}
-              <span className="text-neon-violet text-glow-violet">Tech Stack</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-neon-violet via-neon-cyan to-neon-violet bg-clip-text text-transparent">
+                My Skills Universe
+              </span>
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mb-8">
-              A comprehensive overview of my technical skills across multiple domains
+            <p className="text-muted-foreground text-lg mb-12">
+              Explore my technological galaxy of expertise
             </p>
 
-            {/* Search and Filter */}
-            <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neon-cyan" size={20} />
-                <Input
-                  type="text"
-                  placeholder="Search technologies..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-space-deeper border-neon-blue/30 focus:border-neon-cyan text-foreground placeholder:text-muted-foreground"
-                />
-              </div>
-              {selectedCategory && (
-                <Button
-                  onClick={() => setSelectedCategory(null)}
-                  variant="outline"
-                  className="border-neon-violet text-neon-violet hover:bg-neon-violet/10"
-                >
-                  Clear Filter
-                </Button>
-              )}
+            {/* Animated Counter Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+              <CounterStat
+                end={projects.length}
+                label="Projects Completed"
+                icon={Rocket}
+                color="hsl(var(--neon-cyan))"
+              />
+              <CounterStat
+                end={hackathons.length}
+                label="Hackathons Participated"
+                icon={Trophy}
+                color="hsl(var(--neon-violet))"
+              />
+              <CounterStat
+                end={technologies.length}
+                label="Technologies Mastered"
+                icon={Brain}
+                color="hsl(var(--neon-blue))"
+              />
+            </div>
+          </motion.div>
+
+          {/* Search & Filter Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-12"
+          >
+            <div className="relative max-w-2xl mx-auto mb-6">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
+              <Input
+                type="text"
+                placeholder="Search technologies..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-12 h-14 glass-panel border-primary/30 focus:border-primary text-foreground placeholder:text-muted-foreground text-lg"
+              />
             </div>
 
-            {/* Category Pills */}
-            <div className="flex flex-wrap justify-center gap-2 mt-6">
-              {Object.keys(skillCategories).map((category) => (
-                <Button
+            {/* Category Filter Buttons */}
+            <div className="flex flex-wrap justify-center gap-3 px-4">
+              {categories.map((category) => (
+                <button
                   key={category}
-                  onClick={() => setSelectedCategory(selectedCategory === category ? null : category)}
-                  size="sm"
-                  variant={selectedCategory === category ? 'default' : 'outline'}
-                  className={selectedCategory === category
-                    ? 'bg-neon-blue text-space-dark border-neon-blue'
-                    : 'border-neon-cyan/50 text-neon-cyan hover:bg-neon-cyan/10'
-                  }
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                    selectedCategory === category
+                      ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/50'
+                      : 'glass-panel border-border/50 hover:border-primary/50 hover:bg-primary/10 text-foreground'
+                  }`}
                 >
                   {category}
-                </Button>
+                </button>
               ))}
             </div>
           </motion.div>
 
-          <div className="grid gap-8">
-            {Object.entries(displayCategories).map(([category, skills], categoryIndex) => (
-              <motion.div
-                key={category}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              >
-                <Card className="glass-panel border-border/50 hover:border-neon-cyan/30 transition-all duration-300">
-                  <CardHeader>
-                    <CardTitle className="text-2xl sm:text-3xl">
-                      <span 
-                        className="text-neon-cyan"
-                        style={{ textShadow: '0 0 20px hsl(var(--neon-cyan))' }}
-                      >
-                        {category}
-                      </span>
-                      <span className="text-muted-foreground text-lg ml-4">
-                        ({skills.length} skills)
-                      </span>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-3">
-                      {skills.map((skill, skillIndex) => (
-                        <motion.div
-                          key={skill}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ 
-                            duration: 0.3, 
-                            delay: categoryIndex * 0.1 + skillIndex * 0.02 
-                          }}
-                        >
-                          <Badge
-                            variant="outline"
-                            className="text-sm sm:text-base py-2 px-4 border-neon-blue/50 text-neon-blue hover:bg-neon-blue/10 hover:border-neon-cyan/70 transition-all duration-300 cursor-default"
-                          >
-                            {skill}
-                          </Badge>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.6 }}
-            className="mt-12 text-center"
-          >
-            <Card className="glass-panel border-neon-violet/30 max-w-2xl mx-auto">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-neon-violet mb-4">
-                  Always Learning
-                </h3>
-                <p className="text-muted-foreground text-lg">
-                  Technology never stops evolving, and neither do I. 
-                  Currently exploring emerging technologies in Web3, Quantum Computing, and Advanced AI.
-                </p>
-              </CardContent>
-            </Card>
-          </motion.div>
+          {/* Skills Grid */}
+          {filteredTechnologies.length > 0 ? (
+            <motion.div
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              {filteredTechnologies.map((tech, index) => (
+                <TechCard key={tech.name} tech={tech} index={index} />
+              ))}
+            </motion.div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-20"
+            >
+              <p className="text-2xl text-muted-foreground mb-4">No technologies found</p>
+              <p className="text-muted-foreground">Try searching for something else or select a different category</p>
+            </motion.div>
+          )}
         </div>
       </main>
     </div>
+  );
+}
+
+interface TechCardProps {
+  tech: {
+    name: string;
+    icon: string;
+    category: string;
+    color: string;
+    mastery: number;
+  };
+  index: number;
+}
+
+function TechCard({ tech, index }: TechCardProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+      animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+      transition={{ 
+        duration: 0.5, 
+        delay: index * 0.03,
+        ease: [0.22, 0.9, 0.35, 1]
+      }}
+      whileHover={{ 
+        scale: 1.1, 
+        rotateY: 10,
+        transition: { duration: 0.3 }
+      }}
+      className="glass-panel p-6 rounded-2xl relative group cursor-pointer"
+      style={{
+        borderColor: `${tech.color}30`,
+        perspective: '1000px',
+      }}
+    >
+      {/* Tech Icon */}
+      <motion.div
+        className="text-5xl mb-4 text-center"
+        whileHover={{ scale: 1.1 }}
+        transition={{ duration: 0.2 }}
+      >
+        {tech.icon}
+      </motion.div>
+
+      {/* Tech Name */}
+      <h3 
+        className="text-center font-bold mb-3 group-hover:text-glow transition-all"
+        style={{ color: tech.color }}
+      >
+        {tech.name}
+      </h3>
+
+      {/* Mastery Progress Bar */}
+      <div className="relative h-2 bg-background/50 rounded-full overflow-hidden">
+        <motion.div
+          initial={{ width: 0 }}
+          animate={isInView ? { width: `${tech.mastery}%` } : {}}
+          transition={{ duration: 1, delay: index * 0.03 + 0.3, ease: 'easeOut' }}
+          className="h-full rounded-full"
+          style={{
+            background: `linear-gradient(90deg, ${tech.color}, ${tech.color}dd)`,
+          }}
+        />
+      </div>
+      <p className="text-xs text-center mt-2 text-muted-foreground">{tech.mastery}% Mastery</p>
+
+      {/* Hover Glow Effect */}
+      <div 
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+        style={{
+          boxShadow: `0 0 30px ${tech.color}40`,
+        }}
+      />
+    </motion.div>
   );
 }
