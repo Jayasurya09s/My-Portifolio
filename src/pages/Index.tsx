@@ -6,6 +6,7 @@ import { Projects } from '@/components/Projects';
 import { SkillsPreview } from '@/components/SkillsPreview';
 import { Hackathons } from '@/components/Hackathons';
 import { Contact } from '@/components/Contact';
+import { TechArsenal } from '@/components/TechArsenal';
 import { CustomCursor } from '@/components/CustomCursor';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
@@ -49,6 +50,7 @@ const Index = () => {
       />
       <Projects />
       <SkillsPreview />
+      <TechArsenal />
       <Hackathons />
       <Contact />
       
