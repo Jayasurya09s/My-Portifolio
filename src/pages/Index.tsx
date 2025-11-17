@@ -6,7 +6,6 @@ import { Projects } from '@/components/Projects';
 import { SkillsPreview } from '@/components/SkillsPreview';
 import { Hackathons } from '@/components/Hackathons';
 import { Contact } from '@/components/Contact';
-import { TechArsenal } from '@/components/TechArsenal';
 import { TechShowcase } from '@/components/TechShowcase';
 import { CustomCursor } from '@/components/CustomCursor';
 import { FloatingParticles } from '@/components/FloatingParticles';
@@ -52,7 +51,6 @@ const Index = () => {
       <Projects />
       <SkillsPreview />
       <TechShowcase />
-      <TechArsenal />
       <Hackathons />
       <Contact />
       
