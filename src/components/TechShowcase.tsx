@@ -19,7 +19,6 @@ const frontendTechs = [
 export function TechShowcase() {
   return (
     <section className="relative py-32 overflow-hidden min-h-screen">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
       
       <div className="container mx-auto px-4 relative">
         <motion.div
