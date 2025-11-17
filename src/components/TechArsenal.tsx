@@ -197,15 +197,6 @@ export function TechArsenal() {
             })}
           </motion.div>
 
-          {/* 3D Spline Robot - Center */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-auto">
-            <div className="w-[50%] h-[50%] md:w-[40%] md:h-[40%]">
-              <SplineScene
-                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                className="w-full h-full"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>
