@@ -3,7 +3,6 @@ import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { AnimatedStats } from '@/components/AnimatedStats';
 import { Projects } from '@/components/Projects';
-import { SkillsPreview } from '@/components/SkillsPreview';
 import { Hackathons } from '@/components/Hackathons';
 import { Contact } from '@/components/Contact';
 import { TechShowcase } from '@/components/TechShowcase';
@@ -49,7 +48,6 @@ const Index = () => {
         techCount={techStack}
       />
       <Projects />
-      <SkillsPreview />
       <TechShowcase />
       <Hackathons />
       <Contact />
