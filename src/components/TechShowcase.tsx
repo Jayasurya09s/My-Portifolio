@@ -49,44 +49,27 @@ const techItems = [
 ];
 
 /* ---------------------------------------------
-   GENERATE 32 SQUARE POSITIONS
+   GENERATE 32 CIRCULAR POSITIONS (CLOCKWISE)
 --------------------------------------------- */
-function generateSquarePositions(size = 380) {
+function generateCircularPositions(radius = 380, count = 32) {
   const positions = [];
-
-  const topY = -size;
-  const bottomY = size;
-  const leftX = -size;
-  const rightX = size;
-
-  // TOP (9)
-  for (let i = 0; i < 9; i++) {
-    const x = leftX + (i * (2 * size)) / 8;
-    positions.push({ x, y: topY });
-  }
-
-  // RIGHT (7)
-  for (let i = 1; i <= 7; i++) {
-    const y = topY + (i * (2 * size)) / 8;
-    positions.push({ x: rightX, y });
-  }
-
-  // BOTTOM (9)
-  for (let i = 8; i >= 0; i--) {
-    const x = leftX + (i * (2 * size)) / 8;
-    positions.push({ x, y: bottomY });
-  }
-
-  // LEFT (7)
-  for (let i = 7; i >= 1; i--) {
-    const y = topY + (i * (2 * size)) / 8;
-    positions.push({ x: leftX, y });
+  
+  // Start from top (270 degrees or -90 degrees) and go clockwise
+  for (let i = 0; i < count; i++) {
+    // Calculate angle in radians, starting from top and going clockwise
+    // -90 degrees = top, then increase angle for clockwise rotation
+    const angle = (-Math.PI / 2) + (i * (2 * Math.PI) / count);
+    
+    const x = radius * Math.cos(angle);
+    const y = radius * Math.sin(angle);
+    
+    positions.push({ x, y });
   }
 
   return positions;
 }
 
-const positions = generateSquarePositions();
+const positions = generateCircularPositions();
 
 /* ---------------------------------------------
    ORBIT ANIMATION COMPONENT
@@ -136,9 +119,9 @@ function OrbitingTech({ items }) {
             y: motionPoints[i].y
           }}
         >
-          <div className="glass-panel p-4 rounded-xl border-2 border-neon-violet/40">
-            <div className="text-4xl text-center">{tech.icon}</div>
-            <div className="text-sm font-semibold text-neon-violet text-center">
+          <div className="glass-panel p-4 rounded-full border-2 border-neon-violet/40 w-24 h-24 flex flex-col items-center justify-center hover:scale-110 transition-transform duration-300 group">
+            <div className="text-3xl text-center mb-1">{tech.icon}</div>
+            <div className="text-[10px] font-semibold text-neon-violet text-center opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 whitespace-nowrap">
               {tech.name}
             </div>
           </div>
