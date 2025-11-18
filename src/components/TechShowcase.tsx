@@ -1,5 +1,5 @@
 import { motion, useMotionValue, animate } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { SplineScene } from "./SplineScene";
 import { ArrowRight, Code2, Cpu, Database } from 'lucide-react';
@@ -69,35 +69,81 @@ function generateCircularPositions(radius = 380, count = 32) {
   return positions;
 }
 
-const positions = generateCircularPositions();
+/* ---------------------------------------------
+   GENERATE 32 SQUARE POSITIONS (CLOCKWISE)
+--------------------------------------------- */
+function generateSquarePositions(size = 380) {
+  const positions = [];
+
+  const topY = -size;
+  const bottomY = size;
+  const leftX = -size;
+  const rightX = size;
+
+  // TOP (9)
+  for (let i = 0; i < 9; i++) {
+    const x = leftX + (i * (2 * size)) / 8;
+    positions.push({ x, y: topY });
+  }
+
+  // RIGHT (7)
+  for (let i = 1; i <= 7; i++) {
+    const y = topY + (i * (2 * size)) / 8;
+    positions.push({ x: rightX, y });
+  }
+
+  // BOTTOM (9)
+  for (let i = 8; i >= 0; i--) {
+    const x = leftX + (i * (2 * size)) / 8;
+    positions.push({ x, y: bottomY });
+  }
+
+  // LEFT (7)
+  for (let i = 7; i >= 1; i--) {
+    const y = topY + (i * (2 * size)) / 8;
+    positions.push({ x: leftX, y });
+  }
+
+  return positions;
+}
+
+const circularPositions = generateCircularPositions();
+const squarePositions = generateSquarePositions();
 
 /* ---------------------------------------------
    ORBIT ANIMATION COMPONENT
 --------------------------------------------- */
-function OrbitingTech({ items }) {
+function OrbitingTech({ items, positions }) {
   const currentIndex = useRef(items.map((_, i) => i));
   const motionPoints = items.map(() => ({
     x: useMotionValue(0),
     y: useMotionValue(0)
   }));
+  const animationRefs = useRef([]);
 
   useEffect(() => {
+    // Cancel any existing animations
+    animationRefs.current.forEach(control => control?.stop?.());
+    animationRefs.current = [];
+
     items.forEach((_, i) => {
       const loop = () => {
         const next = (currentIndex.current[i] + 1) % positions.length;
         currentIndex.current[i] = next;
 
-        Promise.all([
-          animate(motionPoints[i].x, positions[next].x, {
-            duration: 1.5,
-            ease: "linear"
-          }).finished,
+        const xControl = animate(motionPoints[i].x, positions[next].x, {
+          duration: 1.5,
+          ease: "linear"
+        });
+        
+        const yControl = animate(motionPoints[i].y, positions[next].y, {
+          duration: 1.5,
+          ease: "linear"
+        });
 
-          animate(motionPoints[i].y, positions[next].y, {
-            duration: 1.5,
-            ease: "linear"
-          }).finished
-        ]).then(loop);
+        animationRefs.current.push(xControl, yControl);
+
+        Promise.all([xControl.finished, yControl.finished]).then(loop);
       };
 
       // Initialize
@@ -106,7 +152,11 @@ function OrbitingTech({ items }) {
 
       loop();
     });
-  }, []);
+
+    return () => {
+      animationRefs.current.forEach(control => control?.stop?.());
+    };
+  }, [positions]);
 
   return (
     <>
@@ -136,6 +186,12 @@ function OrbitingTech({ items }) {
 --------------------------------------------- */
 export function TechShowcase() {
   const navigate = useNavigate();
+  const [isCircular, setIsCircular] = useState(true);
+  const currentPositions = isCircular ? circularPositions : squarePositions;
+
+  const handleDoubleClick = () => {
+    setIsCircular(prev => !prev);
+  };
   
   return (
     <section className="relative py-32 overflow-hidden min-h-screen">
@@ -158,10 +214,13 @@ export function TechShowcase() {
           </div>
 
           {/* ⭐ ORBIT ⭐ */}
-          <OrbitingTech items={techItems} />
+          <OrbitingTech items={techItems} positions={currentPositions} />
 
           {/* Center Spline */}
-          <div className="relative w-[480px] h-[480px] flex items-center justify-center z-10">
+          <div 
+            className="relative w-[480px] h-[480px] flex items-center justify-center z-10 cursor-pointer"
+            onDoubleClick={handleDoubleClick}
+          >
             <SplineScene
               scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
               className="w-full h-full"
