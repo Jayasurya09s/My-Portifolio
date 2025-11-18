@@ -152,6 +152,8 @@ function OrbitingTech({ items }) {
    MAIN COMPONENT
 --------------------------------------------- */
 export function TechShowcase() {
+  const navigate = useNavigate();
+  
   return (
     <section className="relative py-32 overflow-hidden min-h-screen">
       <div className="container mx-auto px-4 relative">
