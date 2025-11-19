@@ -51,7 +51,9 @@ const techItems = [
 /* ---------------------------------------------
    GENERATE 32 CIRCULAR POSITIONS (CLOCKWISE)
 --------------------------------------------- */
-function generateCircularPositions(radius = 380, count = 32) {
+function generateCircularPositions(radius = 380, count = 32, isMobile = false) {
+  // Adjust radius for mobile
+  const adjustedRadius = isMobile ? radius * 0.4 : radius;
   const positions = [];
   
   // Start from top (270 degrees or -90 degrees) and go clockwise
@@ -60,8 +62,8 @@ function generateCircularPositions(radius = 380, count = 32) {
     // -90 degrees = top, then increase angle for clockwise rotation
     const angle = (-Math.PI / 2) + (i * (2 * Math.PI) / count);
     
-    const x = radius * Math.cos(angle);
-    const y = radius * Math.sin(angle);
+    const x = adjustedRadius * Math.cos(angle);
+    const y = adjustedRadius * Math.sin(angle);
     
     positions.push({ x, y });
   }
@@ -72,43 +74,44 @@ function generateCircularPositions(radius = 380, count = 32) {
 /* ---------------------------------------------
    GENERATE 32 SQUARE POSITIONS (CLOCKWISE)
 --------------------------------------------- */
-function generateSquarePositions(size = 380) {
+function generateSquarePositions(size = 380, isMobile = false) {
+  // Adjust size for mobile
+  const adjustedSize = isMobile ? size * 0.4 : size;
   const positions = [];
 
-  const topY = -size;
-  const bottomY = size;
-  const leftX = -size;
-  const rightX = size;
+  const topY = -adjustedSize;
+  const bottomY = adjustedSize;
+  const leftX = -adjustedSize;
+  const rightX = adjustedSize;
 
   // TOP (9)
   for (let i = 0; i < 9; i++) {
-    const x = leftX + (i * (2 * size)) / 8;
+    const x = leftX + (i * (2 * adjustedSize)) / 8;
     positions.push({ x, y: topY });
   }
 
   // RIGHT (7)
   for (let i = 1; i <= 7; i++) {
-    const y = topY + (i * (2 * size)) / 8;
+    const y = topY + (i * (2 * adjustedSize)) / 8;
     positions.push({ x: rightX, y });
   }
 
   // BOTTOM (9)
   for (let i = 8; i >= 0; i--) {
-    const x = leftX + (i * (2 * size)) / 8;
+    const x = leftX + (i * (2 * adjustedSize)) / 8;
     positions.push({ x, y: bottomY });
   }
 
   // LEFT (7)
   for (let i = 7; i >= 1; i--) {
-    const y = topY + (i * (2 * size)) / 8;
+    const y = topY + (i * (2 * adjustedSize)) / 8;
     positions.push({ x: leftX, y });
   }
 
   return positions;
 }
 
-const circularPositions = generateCircularPositions();
-const squarePositions = generateSquarePositions();
+// Will be generated with isMobile flag in component
 
 /* ---------------------------------------------
    ORBIT ANIMATION COMPONENT
@@ -169,9 +172,9 @@ function OrbitingTech({ items, positions }) {
             y: motionPoints[i].y
           }}
         >
-          <div className="glass-panel p-4 rounded-full border-2 border-neon-violet/40 w-24 h-24 flex flex-col items-center justify-center hover:scale-110 transition-transform duration-300 group">
-            <div className="text-3xl text-center mb-1">{tech.icon}</div>
-            <div className="text-[10px] font-semibold text-neon-violet text-center opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 whitespace-nowrap">
+          <div className="glass-panel p-2 sm:p-4 rounded-full border-2 border-neon-violet/40 w-14 h-14 sm:w-20 sm:h-20 lg:w-24 lg:h-24 flex flex-col items-center justify-center hover:scale-110 transition-transform duration-300 group">
+            <div className="text-lg sm:text-2xl lg:text-3xl text-center mb-0 sm:mb-1">{tech.icon}</div>
+            <div className="text-[8px] sm:text-[10px] font-semibold text-neon-violet text-center opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-6 sm:-bottom-8 whitespace-nowrap">
               {tech.name}
             </div>
           </div>
@@ -187,30 +190,43 @@ function OrbitingTech({ items, positions }) {
 export function TechShowcase() {
   const navigate = useNavigate();
   const [isCircular, setIsCircular] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const circularPositions = generateCircularPositions(380, 32, isMobile);
+  const squarePositions = generateSquarePositions(380, isMobile);
   const currentPositions = isCircular ? circularPositions : squarePositions;
 
-  const handleDoubleClick = () => {
+  const handleInteraction = () => {
     setIsCircular(prev => !prev);
   };
   
   return (
-    <section className="relative py-32 overflow-hidden min-h-screen">
+    <section className="relative py-16 sm:py-24 lg:py-32 overflow-hidden min-h-screen">
       <div className="container mx-auto px-4 relative">
 
         {/* TITLE */}
-        <div className="text-center mb-20">
-          <h2 className="text-6xl font-bold bg-gradient-to-r from-neon-violet via-neon-cyan to-neon-violet bg-clip-text text-transparent">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-neon-violet via-neon-cyan to-neon-violet bg-clip-text text-transparent">
             Tech Arsenal
           </h2>
-          <p className="text-muted-foreground text-lg">Infinite Orbit Edition</p>
+          <p className="text-muted-foreground text-sm sm:text-base lg:text-lg mt-2">Infinite Orbit Edition</p>
         </div>
 
         {/* MAIN CONTENT */}
-        <div className="relative w-full max-w-7xl mx-auto min-h-[900px] flex items-center justify-center">
+        <div className="relative w-full max-w-7xl mx-auto min-h-[500px] sm:min-h-[700px] lg:min-h-[900px] flex items-center justify-center">
 
           {/* Glow */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-[650px] h-[650px] bg-neon-blue/20 rounded-full blur-3xl" />
+            <div className="w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] lg:w-[650px] lg:h-[650px] bg-neon-blue/20 rounded-full blur-3xl" />
           </div>
 
           {/* ⭐ ORBIT ⭐ */}
@@ -218,8 +234,19 @@ export function TechShowcase() {
 
           {/* Center Spline */}
           <div 
-            className="relative w-[480px] h-[480px] flex items-center justify-center z-10 cursor-pointer"
-            onDoubleClick={handleDoubleClick}
+            className="relative w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] lg:w-[480px] lg:h-[480px] flex items-center justify-center z-10 cursor-pointer touch-manipulation"
+            onDoubleClick={handleInteraction}
+            onTouchEnd={(e) => {
+              // Handle double-tap on mobile
+              const now = Date.now();
+              const DOUBLE_TAP_DELAY = 300;
+              if (e.currentTarget.dataset.lastTap && now - parseInt(e.currentTarget.dataset.lastTap) < DOUBLE_TAP_DELAY) {
+                handleInteraction();
+                e.currentTarget.dataset.lastTap = '0';
+              } else {
+                e.currentTarget.dataset.lastTap = now.toString();
+              }
+            }}
           >
             <SplineScene
               scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
