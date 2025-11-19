@@ -36,13 +36,13 @@ export const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Text Content */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left Side - Text Content (order-2 on mobile to appear after image) */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center lg:text-left space-y-6"
+            className="text-center lg:text-left space-y-4 sm:space-y-6 order-2 lg:order-1"
           >
             <motion.div
               initial={{ scale: 0.5, opacity: 0 }}
@@ -109,12 +109,12 @@ export const Hero = () => {
           </motion.div>
 
 
-          {/* Right Side - Profile Picture */}
+          {/* Right Side - Profile Picture (order-1 on mobile to appear first) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative flex items-center justify-center h-[400px] sm:h-[500px] lg:h-[600px]"
+            className="relative flex items-center justify-center h-[300px] sm:h-[400px] lg:h-[600px] order-1 lg:order-2"
           >
             {/* Glowing rings */}
             <div className="absolute inset-0 flex items-center justify-center">
