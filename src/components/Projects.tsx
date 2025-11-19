@@ -7,49 +7,19 @@ import { useState } from 'react';
 
 const projects = [
   {
-    title: 'AI-Powered Code Assistant',
-    description: 'An intelligent code completion and suggestion tool using GPT-4 and fine-tuned models for multiple programming languages.',
-    tags: ['Python', 'TensorFlow', 'React', 'FastAPI'],
+    title: 'EcoAI',
+    description: 'Sustainable AI platform that optimizes user prompts to save tokens, time, and reduce carbon footprint — includes a Chrome extension and server-side optimizer.',
+    tags: ['Prompt Optimization', 'Chrome Ext', 'Node.js', 'Firebase'],
     category: 'AI',
     github: '#',
     demo: '#',
     caseStudy: '#',
-    gradient: 'from-neon-blue to-neon-cyan',
+    gradient: 'from-neon-green to-neon-cyan',
   },
   {
-    title: 'DeFi Trading Platform',
-    description: 'Decentralized finance platform for cryptocurrency trading with smart contract integration and real-time analytics.',
-    tags: ['Solidity', 'Web3.js', 'React', 'Node.js'],
-    category: 'Web3',
-    github: '#',
-    demo: '#',
-    caseStudy: '#',
-    gradient: 'from-neon-violet to-neon-pink',
-  },
-  {
-    title: 'Neural Style Transfer App',
-    description: 'Mobile application that applies artistic styles to photos using deep learning neural networks.',
-    tags: ['PyTorch', 'React Native', 'Flask', 'AWS'],
-    category: 'AI',
-    github: '#',
-    demo: '#',
-    caseStudy: '#',
-    gradient: 'from-neon-cyan to-neon-blue',
-  },
-  {
-    title: 'Blockchain Supply Chain',
-    description: 'Enterprise-grade supply chain tracking system using blockchain for transparency and immutability.',
-    tags: ['Ethereum', 'Next.js', 'GraphQL', 'Docker'],
-    category: 'Web3',
-    github: '#',
-    demo: '#',
-    caseStudy: '#',
-    gradient: 'from-neon-pink to-neon-violet',
-  },
-  {
-    title: 'Cloud Infrastructure Manager',
-    description: 'Multi-cloud management dashboard for monitoring and optimizing resource usage across AWS, Azure, and GCP.',
-    tags: ['Go', 'Kubernetes', 'React', 'Terraform'],
+    title: 'User-Level Custom CPU Scheduler',
+    description: 'Web-based scheduler visualizer showing live processes, ready queue, Gantt charts, CPU graphs and scheduler comparison with multiple algorithms.',
+    tags: ['React', 'Socket.IO', 'Gantt', 'MERN'],
     category: 'Full Stack',
     github: '#',
     demo: '#',
@@ -57,18 +27,78 @@ const projects = [
     gradient: 'from-neon-blue to-neon-violet',
   },
   {
-    title: 'IoT Smart Home System',
-    description: 'Automated home control system with voice commands, energy monitoring, and predictive maintenance.',
-    tags: ['Python', 'MQTT', 'React', 'Raspberry Pi'],
+    title: 'StudyAI',
+    description: 'AI-powered study assistant that organizes notes, extracts insights and helps students learn more effectively (summaries, Q&A, flashcards).',
+    tags: ['React', 'Node.js', 'Tailwind', 'MongoDB', 'Firebase'],
+    category: 'Full Stack',
+    github: '#',
+    demo: '#',
+    caseStudy: '#',
+    gradient: 'from-neon-cyan to-neon-blue',
+  },
+  {
+    title: 'NeroBot',
+    description: 'Jellyfish-inspired underwater robot to detect and collect marine plastic pollution using on-board perception and basic grasping.',
+    tags: ['YOLO', 'OpenCV', 'Arduino', 'Robotics'],
+    category: 'Robotics',
+    github: '#',
+    demo: '#',
+    caseStudy: '#',
+    gradient: 'from-neon-teal to-neon-green',
+  },
+  {
+    title: 'Glider',
+    description: 'Autonomous stabilization system for a model glider using MPU6050 for real-time stabilization and control.',
+    tags: ['Arduino', 'MPU6050', 'Control Systems', 'Embedded'],
+    category: 'Robotics',
+    github: '#',
+    demo: '#',
+    caseStudy: '#',
+    gradient: 'from-neon-yellow to-neon-orange',
+  },
+  {
+    title: 'PCFR (Protecting Clothes From Rain)',
+    description: 'IoT solution that automatically retracts or protects drying clothes when rain is detected using rain sensors and servo control.',
+    tags: ['Arduino', 'Rain Sensor', 'Servo', 'IoT'],
     category: 'IoT',
     github: '#',
     demo: '#',
     caseStudy: '#',
     gradient: 'from-neon-cyan to-neon-pink',
   },
+  {
+    title: 'AI Artwork Ownership System',
+    description: 'System for verifying and protecting AI-generated artwork: fingerprinting, private-proof mode, watermarking, and uniqueness checks.',
+    tags: ['Fingerprinting', 'Watermarking', 'Web App', 'Blockchain-ready'],
+    category: 'AI',
+    github: '#',
+    demo: '#',
+    caseStudy: '#',
+    gradient: 'from-neon-pink to-neon-violet',
+  },
+  {
+    title: 'MyNotes (Deployed App)',
+    description: 'Notes/web app deployed on Vercel with authentication, storage and a responsive frontend — part of your deployed portfolio work.',
+    tags: ['React', 'Vercel', 'Auth', 'Frontend'],
+    category: 'Full Stack',
+    github: '#',
+    demo: '#',
+    caseStudy: '#',
+    gradient: 'from-neon-blue to-neon-cyan',
+  },
+  {
+    title: 'RAAHI Platform Frontend',
+    description: 'Disaster-aware AI frontend (RAAHI): accessibility, dual-theme support, voice features and dashboards for situational awareness.',
+    tags: ['React', 'Tailwind', 'Accessibility', 'Dashboard'],
+    category: 'Full Stack',
+    github: '#',
+    demo: '#',
+    caseStudy: '#',
+    gradient: 'from-neon-violet to-neon-blue',
+  },
 ];
 
-const categories = ['All', 'AI', 'Full Stack', 'Web3', 'IoT'];
+const categories = ['All', 'AI', 'Full Stack', 'Robotics', 'IoT'];
 
 export const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -119,7 +149,7 @@ export const Projects = () => {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
               viewport={{ once: true }}
             >
               <Card 
@@ -138,17 +168,17 @@ export const Projects = () => {
                       key={i}
                       className="absolute w-1 h-1 bg-neon-cyan rounded-full"
                       style={{
-                        left: `${20 + i * 20}%`,
-                        top: `${10 + i * 20}%`,
+                        left: `${15 + i * 18}%`,
+                        top: `${8 + i * 18}%`,
                       }}
                       animate={{
-                        y: [0, -20, 0],
+                        y: [0, -18, 0],
                         opacity: [0, 0.5, 0],
                       }}
                       transition={{
-                        duration: 2 + i * 0.5,
+                        duration: 2 + i * 0.4,
                         repeat: Infinity,
-                        delay: i * 0.3,
+                        delay: i * 0.25,
                       }}
                     />
                   ))}
@@ -183,7 +213,7 @@ export const Projects = () => {
                       className="flex-1 border-neon-violet text-neon-violet hover:bg-neon-violet/10"
                       asChild
                     >
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} GitHub`}>
                         <Github size={16} />
                       </a>
                     </Button>
@@ -203,7 +233,7 @@ export const Projects = () => {
                       className="flex-1 border-neon-cyan text-neon-cyan hover:bg-neon-cyan/10"
                       asChild
                     >
-                      <a href={project.caseStudy} target="_blank" rel="noopener noreferrer">
+                      <a href={project.caseStudy} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} Case Study`}>
                         <FileText size={16} />
                       </a>
                     </Button>

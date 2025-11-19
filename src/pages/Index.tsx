@@ -61,7 +61,7 @@ const Index = () => {
               <span className="text-neon-violet font-bold">Midde Jayanth</span>
             </p>
             <p className="text-sm">
-              © 2024 • Powered by React, Three.js & Framer Motion
+              © 2025 • Powered by React, Three.js & Framer Motion
             </p>
           </div>
         </div>

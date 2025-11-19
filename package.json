@@ -87,5 +87,18 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^5.4.19"
-  }
+  },
+  "description": "**URL**: https://lovable.dev/projects/7749a7e5-b8f7-4d74-98cc-4a3582d7df38",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jayasurya09s/jayanth-galaxy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jayasurya09s/jayanth-galaxy/issues"
+  },
+  "homepage": "https://github.com/Jayasurya09s/jayanth-galaxy#readme"
 }

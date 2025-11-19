@@ -9,9 +9,9 @@ const hackathons = [
     title: 'Smart India Hackathon 2025',
     position: 'Internal Round Selection',
     status: 'Qualified for Nationals',
-    project: 'Team Project',
-    date: 'January 2025',
-    description: 'Selected for national finals after winning internal rounds with innovative solution',
+    project: 'Problem Solving — Team Project',
+    date: '2025',
+    description: 'Qualified for national-level SIH finals through college internal rounds.',
     icon: Trophy,
     color: 'neon-blue',
     type: 'Qualified',
@@ -22,14 +22,62 @@ const hackathons = [
     }
   },
   {
-    title: 'Roomigo – PG Finder',
-    position: 'TechTrek Hackathon',
-    status: 'Certificate of Participation',
-    project: 'PG/Accommodation Finder Platform',
-    date: 'December 2024',
-    description: 'Built a comprehensive platform for finding and managing PG accommodations with real-time availability',
+    title: 'CodeUtsava 9.0 — NIT Raipur',
+    position: 'Certificate of Participation',
+    status: 'National Level Hackathon',
+    project: 'Live Demo — Problem Solving',
+    date: '2024',
+    description: 'Participated in India’s top-tier national hackathon with a live project demo.',
     icon: Award,
     color: 'neon-violet',
+    type: 'Certified',
+    links: {
+      project: 'https://brahmacoders.vercel.app/',
+      demo: '#',
+      certificate: '#',
+    }
+  },
+  {
+    title: 'CypherQuest Hackathon',
+    position: 'EcoAI — Participant',
+    status: 'Certificate of Participation',
+    project: 'EcoAI — AI Prompt Optimizer',
+    date: '2024',
+    description: 'Developed EcoAI, a sustainable prompt optimization tool to reduce token cost & carbon.',
+    icon: Medal,
+    color: 'neon-cyan',
+    type: 'Certified',
+    links: {
+      project: 'https://github.com/anshu2k24/enhanced-prompt',
+      demo: '#',
+      certificate: '#',
+    }
+  },
+  {
+    title: 'MakerBlitz Hackathon',
+    position: 'Appreciation Prize',
+    status: '🥇 Hardware Innovation',
+    project: 'Glider — Autonomous Stabilization',
+    date: '2024',
+    description: 'Built an autonomous stabilization system for a custom-designed glider.',
+    icon: Trophy,
+    color: 'neon-green',
+    type: 'Winner',
+    links: {
+      project: '#',
+      demo: '#',
+      certificate: '#',
+    }
+  },
+  {
+    title: 'ByteXync Hackathon',
+    position: 'Certificate of Participation',
+    status: 'Tech Innovation',
+    project: 'UniTech — Team Project',
+    date: '2024',
+    description: 'Developed UniTech, a unified student productivity/utility solution.',
+    icon: Award,
+    color: 'neon-pink',
     type: 'Certified',
     links: {
       project: '#',
@@ -38,47 +86,15 @@ const hackathons = [
     }
   },
   {
-    title: 'ETHGlobal 2024',
-    position: '1st Place - DeFi Track',
-    status: 'Winner',
-    project: 'Decentralized Lending Protocol',
-    date: 'March 2024',
-    description: 'Built an innovative lending protocol with AI-powered risk assessment',
-    icon: Trophy,
-    color: 'neon-cyan',
-    type: 'Winner',
-    links: {
-      project: '#',
-      demo: '#',
-      certificate: '#',
-    }
-  },
-  {
-    title: 'Google Cloud Hackathon',
-    position: '2nd Place - AI/ML Category',
-    status: 'Runner Up',
-    project: 'Smart City Analytics',
-    date: 'February 2024',
-    description: 'Real-time city infrastructure optimization using ML models',
-    icon: Award,
-    color: 'neon-pink',
-    type: 'Winner',
-    links: {
-      project: '#',
-      demo: '#',
-      certificate: '#',
-    }
-  },
-  {
-    title: 'Meta XR Challenge',
-    position: 'Top 10 Finalist',
-    status: 'Finalist',
-    project: 'VR Education Platform',
-    date: 'January 2024',
-    description: 'Immersive learning experience with spatial computing',
+    title: 'Confluence Hackathon',
+    position: 'Certificate of Participation',
+    status: 'Tech Event',
+    project: 'StudyAI — Learning Assistant',
+    date: '2023',
+    description: 'Created StudyAI, an AI-powered note analyzer and study companion.',
     icon: Medal,
     color: 'neon-cyan',
-    type: 'Finalist',
+    type: 'Certified',
     links: {
       project: '#',
       demo: '#',
@@ -86,15 +102,15 @@ const hackathons = [
     }
   },
   {
-    title: 'AWS BuildOn',
-    position: 'Winner - Best Use of AWS',
-    status: 'Winner',
-    project: 'Serverless IoT Platform',
-    date: 'December 2023',
-    description: 'Scalable IoT data processing with AWS Lambda and DynamoDB',
-    icon: Trophy,
-    color: 'neon-blue',
-    type: 'Winner',
+    title: 'TechTrek Hackathon',
+    position: 'Certificate of Participation',
+    status: 'Tech Event',
+    project: 'Roomigo — PG Finder',
+    date: '2024',
+    description: 'Built Roomigo — PG/Hostel accommodation finder with real-time listing features.',
+    icon: Award,
+    color: 'neon-violet',
+    type: 'Certified',
     links: {
       project: '#',
       demo: '#',
@@ -119,7 +135,7 @@ export const Hackathons = () => {
             <span className="text-neon-cyan text-glow-cyan">Achievements</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Winning projects and innovations from global competitions
+            Real-world innovations & team accomplishments across major hackathons
           </p>
         </motion.div>
 
@@ -135,10 +151,8 @@ export const Hackathons = () => {
                 viewport={{ once: true }}
               >
                 <Card className="h-full glass-panel border-border/50 hover:border-neon-cyan/50 transition-all duration-300 group relative overflow-hidden">
-                  {/* Holographic glow effect */}
                   <div className={`absolute inset-0 bg-gradient-to-br from-${hackathon.color}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                  
-                  {/* Floating particles */}
+
                   <div className="absolute inset-0 pointer-events-none">
                     {[...Array(4)].map((_, i) => (
                       <motion.div
@@ -166,7 +180,6 @@ export const Hackathons = () => {
                       <Icon 
                         size={44} 
                         className={`text-${hackathon.color} group-hover:scale-110 transition-transform`}
-                        style={{ filter: `drop-shadow(0 0 15px hsl(var(--${hackathon.color})))` }}
                       />
                       <div className="text-right">
                         <Badge variant="outline" className={`border-${hackathon.color}/50 text-${hackathon.color} mb-2`}>
@@ -177,59 +190,39 @@ export const Hackathons = () => {
                         </Badge>
                       </div>
                     </div>
-                    <CardTitle className="text-xl sm:text-2xl text-foreground mb-2 group-hover:text-neon-cyan transition-colors">
+
+                    <CardTitle className="text-xl sm:text-2xl text-foreground mb-2">
                       {hackathon.title}
                     </CardTitle>
+
                     <CardDescription className={`text-${hackathon.color} font-semibold text-base mb-1`}>
                       {hackathon.position}
                     </CardDescription>
+
                     <Badge variant="outline" className="w-fit border-neon-cyan/40 text-neon-cyan">
                       {hackathon.status}
                     </Badge>
                   </CardHeader>
-                  
+
                   <CardContent className="space-y-4 relative z-10">
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">Project:</p>
                       <p className="text-neon-cyan font-medium">{hackathon.project}</p>
                     </div>
-                    <p className="text-sm text-muted-foreground">
-                      {hackathon.description}
-                    </p>
 
-                    {/* Action buttons */}
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className={`flex-1 border-${hackathon.color} text-${hackathon.color} hover:bg-${hackathon.color}/10`}
-                        asChild
-                      >
-                        <a href={hackathon.links.project} target="_blank" rel="noopener noreferrer">
-                          <Code className="mr-1" size={14} />
-                          Project
-                        </a>
+                    <p className="text-sm text-muted-foreground">{hackathon.description}</p>
+
+                    <div className="flex gap-2 pt-2">
+                      <Button size="sm" variant="outline" className={`flex-1 border-${hackathon.color} text-${hackathon.color}`} asChild>
+                        <a href={hackathon.links.project} target="_blank"><Code size={14}/> Project</a>
                       </Button>
-                      <Button
-                        size="sm"
-                        className={`flex-1 bg-neon-blue text-space-dark hover:bg-neon-cyan`}
-                        asChild
-                      >
-                        <a href={hackathon.links.demo} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="mr-1" size={14} />
-                          Demo
-                        </a>
+
+                      <Button size="sm" className="flex-1 bg-neon-blue text-space-dark hover:bg-neon-cyan" asChild>
+                        <a href={hackathon.links.demo} target="_blank"><ExternalLink size={14}/> Demo</a>
                       </Button>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="flex-1 border-neon-violet text-neon-violet hover:bg-neon-violet/10"
-                        asChild
-                      >
-                        <a href={hackathon.links.certificate} target="_blank" rel="noopener noreferrer">
-                          <FileText className="mr-1" size={14} />
-                          Cert
-                        </a>
+
+                      <Button size="sm" variant="outline" className="flex-1 border-neon-violet text-neon-violet" asChild>
+                        <a href={hackathon.links.certificate} target="_blank"><FileText size={14}/> Cert</a>
                       </Button>
                     </div>
                   </CardContent>
