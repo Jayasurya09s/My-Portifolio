@@ -292,7 +292,7 @@ export function TechShowcase() {
           
           <div className="glass-panel p-6 rounded-xl border border-neon-cyan/30 group hover:border-neon-cyan/60 transition-all">
             <Database className="w-8 h-8 text-neon-cyan mb-3" />
-            <h3 className="text-xl font-bold text-neon-cyan mb-2">Cloud & DevOps</h3>
+            <h3 className="text-xl font-bold text-neon-cyan mb-2">Blockchain & cloud</h3>
             <p className="text-sm text-muted-foreground">
               AWS, Docker, Kubernetes, and CI/CD pipelines
             </p>

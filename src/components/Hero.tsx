@@ -138,16 +138,25 @@ export const Hero = () => {
 
               {/* Profile Picture */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden neon-border group">
-                  {/* Placeholder - Replace with actual image */}
-                  <div className="w-full h-full bg-gradient-to-br from-neon-blue/20 via-neon-violet/20 to-neon-cyan/20 flex items-center justify-center backdrop-blur-sm">
-                    <span className="text-6xl sm:text-7xl lg:text-8xl font-bold text-glow-blue">MJ</span>
-                  </div>
-                  
-                  {/* Glow effect on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-neon-blue/0 via-neon-violet/0 to-neon-cyan/0 group-hover:from-neon-blue/20 group-hover:via-neon-violet/20 group-hover:to-neon-cyan/20 transition-all duration-500"></div>
-                </div>
-              </div>
+  <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden neon-border group">
+    
+    {/* Actual Profile Image */}
+    <img 
+      src="/profile.jpg" 
+      alt="Profile" 
+      className="w-full h-full object-cover"
+    />
+
+    {/* Glow Hover Layer */}
+    <div className="absolute inset-0 bg-gradient-to-br from-neon-blue/0 via-neon-violet/0 to-neon-cyan/0 
+      group-hover:from-neon-blue/20 
+      group-hover:via-neon-violet/20 
+      group-hover:to-neon-cyan/20 
+      transition-all duration-500">
+    </div>
+  </div>
+</div>
+
             </div>
 
             {/* Animated particles */}
