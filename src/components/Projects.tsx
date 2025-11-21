@@ -6,6 +6,40 @@ import { ExternalLink, Github, FileText } from 'lucide-react';
 import { useState } from 'react';
 
 const projects = [
+    {
+  title: 'JAR - AI Artwork Ownership System',
+  description:
+    'A blockchain-ready verification framework ensuring authorship and originality of AI-generated content. Includes fingerprinting, private-proof mode, prompt-to-identity binding, and watermarking. Designed for secure proof-of-human + proof-of-art validation.',
+  tags: ['Blockchain-ready', 'Fingerprinting', 'Watermarking', 'AI Verification'],
+  category: 'AI',
+  github: 'https://github.com/Jayasurya09s/BrahmaCoders',
+  demo: 'https://brahmacoders.vercel.app/',
+  
+  gradient: 'from-neon-pink to-neon-violet',
+},
+
+   {
+  title: 'MyNotes — Full Stack Notes Application',
+  description:
+    'A modern full-stack notes application built with React, Node.js, Express, and MongoDB. Allows users to create, edit, and manage notes with cloud sync for authenticated users and local storage for guests.',
+  tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Vercel'],
+  category: 'Full Stack',
+  github: 'https://github.com/Jayasurya09s/MyNotes',
+  demo: 'https://my-notes-jka8.vercel.app/',
+  caseStudy: '#',
+  gradient: 'from-neon-blue to-neon-cyan',
+},
+{
+  title: 'NeroBot — Underwater Robotics System',
+  description:
+    'A jellyfish-inspired underwater robot built to detect and collect marine plastic pollution using YOLO-based object detection, Arduino-driven actuation, and a lightweight SG90-servo grasping mechanism. Developed as part of the Tritonexus team to showcase sustainable robotics with recycled materials.',
+  tags: ['YOLO', 'OpenCV', 'Arduino Uno', 'SG90 Servo', 'Robotics'],
+  category: 'Robotics',
+  github: '#',
+  demo: 'https://anshumanpati.vercel.app/projects/nerobot',
+  caseStudy: '#',
+  gradient: 'from-neon-teal to-neon-green',
+},
   {
     title: 'EcoAI',
     description: 'Sustainable AI platform that optimizes user prompts to save tokens, time, and reduce carbon footprint — includes a Chrome extension and server-side optimizer.',
@@ -16,16 +50,17 @@ const projects = [
     caseStudy: '#',
     gradient: 'from-neon-green to-neon-cyan',
   },
-  {
-    title: 'User-Level Custom CPU Scheduler',
-    description: 'Web-based scheduler visualizer showing live processes, ready queue, Gantt charts, CPU graphs and scheduler comparison with multiple algorithms.',
-    tags: ['React', 'Socket.IO', 'Gantt', 'MERN'],
-    category: 'Full Stack',
-    github: '#',
-    demo: '#',
-    caseStudy: '#',
-    gradient: 'from-neon-blue to-neon-violet',
-  },
+{
+  title: 'Glider — Autonomous Flight Stabilization',
+  description:
+    'An autonomous stabilization system for a custom-built glider using the MPU6050 IMU to compute real-time pitch and roll, with SG90 servos correcting flight control surfaces. Awarded an Appreciation Prize at MakerBlitz for successfully implementing avionics and real-time stabilization.',
+  tags: ['Arduino Uno', 'MPU6050', 'SG90 Servo', 'Control Systems', 'Embedded'],
+  category: 'Robotics',
+  github: '#',
+  demo: '#',
+  caseStudy: '#',
+  gradient: 'from-neon-yellow to-neon-orange',
+},
   {
     title: 'StudyAI',
     description: 'AI-powered study assistant that organizes notes, extracts insights and helps students learn more effectively (summaries, Q&A, flashcards).',
@@ -37,65 +72,30 @@ const projects = [
     gradient: 'from-neon-cyan to-neon-blue',
   },
   {
-    title: 'NeroBot',
-    description: 'Jellyfish-inspired underwater robot to detect and collect marine plastic pollution using on-board perception and basic grasping.',
-    tags: ['YOLO', 'OpenCV', 'Arduino', 'Robotics'],
-    category: 'Robotics',
-    github: '#',
-    demo: '#',
-    caseStudy: '#',
-    gradient: 'from-neon-teal to-neon-green',
-  },
-  {
-    title: 'Glider',
-    description: 'Autonomous stabilization system for a model glider using MPU6050 for real-time stabilization and control.',
-    tags: ['Arduino', 'MPU6050', 'Control Systems', 'Embedded'],
-    category: 'Robotics',
-    github: '#',
-    demo: '#',
-    caseStudy: '#',
-    gradient: 'from-neon-yellow to-neon-orange',
-  },
-  {
-    title: 'PCFR (Protecting Clothes From Rain)',
-    description: 'IoT solution that automatically retracts or protects drying clothes when rain is detected using rain sensors and servo control.',
-    tags: ['Arduino', 'Rain Sensor', 'Servo', 'IoT'],
-    category: 'IoT',
-    github: '#',
-    demo: '#',
-    caseStudy: '#',
-    gradient: 'from-neon-cyan to-neon-pink',
-  },
-  {
-    title: 'AI Artwork Ownership System',
-    description: 'System for verifying and protecting AI-generated artwork: fingerprinting, private-proof mode, watermarking, and uniqueness checks.',
-    tags: ['Fingerprinting', 'Watermarking', 'Web App', 'Blockchain-ready'],
-    category: 'AI',
-    github: '#',
-    demo: '#',
-    caseStudy: '#',
-    gradient: 'from-neon-pink to-neon-violet',
-  },
-  {
-    title: 'MyNotes (Deployed App)',
-    description: 'Notes/web app deployed on Vercel with authentication, storage and a responsive frontend — part of your deployed portfolio work.',
-    tags: ['React', 'Vercel', 'Auth', 'Frontend'],
+    title: 'User-Level Custom CPU Scheduler',
+    description: 'Web-based scheduler visualizer showing live processes, ready queue, Gantt charts, CPU graphs and scheduler comparison with multiple sheduler algorithms.',
+    tags: ['React', 'Socket.IO', 'Gantt', 'MERN'],
     category: 'Full Stack',
     github: '#',
     demo: '#',
     caseStudy: '#',
-    gradient: 'from-neon-blue to-neon-cyan',
+    gradient: 'from-neon-blue to-neon-violet',
   },
   {
-    title: 'RAAHI Platform Frontend',
-    description: 'Disaster-aware AI frontend (RAAHI): accessibility, dual-theme support, voice features and dashboards for situational awareness.',
-    tags: ['React', 'Tailwind', 'Accessibility', 'Dashboard'],
-    category: 'Full Stack',
-    github: '#',
-    demo: '#',
-    caseStudy: '#',
-    gradient: 'from-neon-violet to-neon-blue',
-  },
+  title: 'PCFR — Protecting Clothes From Rain (IoT)',
+  description:
+    'An IoT system that automatically protects drying clothes when rain is detected. Uses a rain sensor for real-time detection and an SG90 servo controlled by Arduino to pull the drying rod under a protective cover. Built as a low-cost home-automation prototype.',
+  tags: ['Arduino Uno', 'Rain Sensor', 'SG90 Servo', 'IoT'],
+  category: 'IoT',
+  github: '#',
+  demo: '#',
+  caseStudy: '#',
+  gradient: 'from-neon-cyan to-neon-pink',
+},
+
+
+
+ 
 ];
 
 const categories = ['All', 'AI', 'Full Stack', 'Robotics', 'IoT'];

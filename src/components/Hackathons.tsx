@@ -16,9 +16,9 @@ const hackathons = [
     color: 'neon-blue',
     type: 'Qualified',
     links: {
-      project: '#',
-      demo: '#',
-      certificate: '#',
+      project: 'https://github.com/Jayasurya09s/AntarAtmaa',
+      demo: 'https://ganiai.vercel.app/',
+      
     }
   },
   {
@@ -33,8 +33,8 @@ const hackathons = [
     type: 'Certified',
     links: {
       project: 'https://brahmacoders.vercel.app/',
-      demo: '#',
-      certificate: '#',
+      demo: 'https://brahmacoders.vercel.app/',
+      certificate: '/nit raipur.png',
     }
   },
   {
@@ -49,8 +49,8 @@ const hackathons = [
     type: 'Certified',
     links: {
       project: 'https://github.com/anshu2k24/enhanced-prompt',
-      demo: '#',
-      certificate: '#',
+      demo: 'https://anshumanpati.vercel.app/projects/ecoai',
+      certificate: '/dsatm ecoai certificate.jpg',
     }
   },
   {
@@ -64,9 +64,9 @@ const hackathons = [
     color: 'neon-green',
     type: 'Winner',
     links: {
-      project: '#',
-      demo: '#',
-      certificate: '#',
+      
+      demo: 'https://anshumanpati.vercel.app/projects/glider',
+      certificate: '/aero certificate.jpg',
     }
   },
   {
@@ -80,9 +80,9 @@ const hackathons = [
     color: 'neon-pink',
     type: 'Certified',
     links: {
-      project: '#',
-      demo: '#',
-      certificate: '#',
+      project: 'https://github.com/Jayasurya09s/ByteXync-Hunter_Squad',
+      demo: 'https://anshumanpati.vercel.app/projects/unitech',
+      certificate: '/hackathon1 dsce participation certificate.jpg',
     }
   },
   {
@@ -96,9 +96,9 @@ const hackathons = [
     color: 'neon-cyan',
     type: 'Certified',
     links: {
-      project: '#',
-      demo: '#',
-      certificate: '#',
+      
+      demo: 'https://anshumanpati.vercel.app/projects/studyai',
+      certificate: '/hackathon @pes in 1st sem.png',
     }
   },
   {
@@ -112,11 +112,43 @@ const hackathons = [
     color: 'neon-violet',
     type: 'Certified',
     links: {
-      project: '#',
-      demo: '#',
-      certificate: '#',
+      
+      certificate: '/techtrack dsce 8hr certificate.jpg',
     }
   },
+   {
+    title: 'Ctrl + Alt + Compete — RV College of Engineering',
+    position: 'Participants — Team Achievement',
+    status: 'AI Innovation',
+    project: 'RAAHI — Real-time AI Assistant for Hazard-Informed Routing',
+    date: '2025',
+    description:
+      'RAAHI is an AI-powered disaster-aware navigation system providing hazard-informed routing, real-time alerts, emergency hotspots, offline mode, and a multilingual voice safety assistant. Built using React, Tailwind, Google Maps API, FastAPI/Flask, and IMD weather data.',
+    icon: Award,
+    color: 'neon-cyan',
+    type: 'Participation',
+    links: {
+      
+      certificate: '/rvce participation certificate 12.png',
+    }
+  },
+  {
+    title: 'HackMan — Dayananda Sagar College of Engineering',
+    position: 'Participants — Team Achievement',
+    status: 'AI + IoT Innovation',
+    project: 'Crop Mentor — AI-driven Agritech Platform',
+    date: '2024',
+    description:
+      'Crop Mentor is an AI-driven agritech system offering soil analysis, crop selection, IoT sensors, fertilizer optimization, voice IVR, yield prediction, and market insights using React PWA, FastAPI, Firebase, and ML models.',
+    icon: Medal,
+    color: 'neon-green',
+    type: 'Participation',
+    links: {
+      project: 'https://github.com/Jayasurya09s/Yodha',
+      
+      certificate: 'hackman sem iii.pdf',
+    }
+  }
 ];
 
 export const Hackathons = () => {

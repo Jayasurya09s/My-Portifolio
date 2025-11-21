@@ -10,40 +10,50 @@ import { useNavigate  }  from "react-router-dom";
    FULL 32-TECH LIST 
 --------------------------------------------- */
 const techItems = [
+  // Frontend
+  { name: "React.js", icon: "⚛️" },
+  { name: "Next.js", icon: "▲" },
+  { name: "Tailwind CSS", icon: "💨" },
   { name: "HTML5", icon: "🌐" },
   { name: "CSS3", icon: "🎨" },
-  { name: "JavaScript", icon: "⚡" },
-  { name: "TypeScript", icon: "📘" },
-  { name: "React", icon: "⚛️" },
-  { name: "Next.js", icon: "▲" },
-  { name: "Vue.js", icon: "💚" },
-  { name: "Angular", icon: "🅰️" },
-  { name: "TailwindCSS", icon: "💨" },
-
-  { name: "Bootstrap", icon: "🥾" },
-  { name: "Redux", icon: "🔄" },
   { name: "Framer Motion", icon: "🎬" },
-  { name: "Vite", icon: "⚡" },
-  { name: "Webpack", icon: "📦" },
+
+  // Backend
   { name: "Node.js", icon: "🟢" },
   { name: "Express.js", icon: "🚀" },
+  { name: "FastAPI", icon: "⚡" },
+  { name: "REST APIs", icon: "🔗" },
 
+  // Authentication & Cloud
+  { name: "Firebase Auth", icon: "🛡️" },
+  { name: "JWT Authentication", icon: "🔐" },
   { name: "MongoDB", icon: "🍃" },
-  { name: "Firebase", icon: "🔥" },
-  { name: "GraphQL", icon: "🔺" },
-  { name: "PostgreSQL", icon: "🐘" },
-  { name: "Docker", icon: "🐳" },
-  { name: "Git & GitHub", icon: "🐙" },
-  { name: "Three.js", icon: "🌌" },
-  { name: "Spline 3D", icon: "🤖" },
-  { name: "Figma", icon: "🎨" },
+  { name: "Firebase Firestore", icon: "🔥" },
+  { name: "SQLite", icon: "🗄️" },
+  { name: "Vercel", icon: "▲" },
 
-  // Blockchain 7 (Truffle removed)
-  { name: "Ethereum", icon: "💎" },
+  // AI & ML
+  { name: "scikit-learn", icon: "📊" },
+  { name: "TensorFlow Lite", icon: "🧠" },
+  { name: "YOLO (Object Detection)", icon: "🎯" },
+  { name: "OpenCV", icon: "👁️" },
+  { name: "TorchScript", icon: "🔥" },
+  
+
+  // IoT & Embedded
+  { name: "Arduino Uno", icon: "🛠️" },
+  { name: "ESP32", icon: "📡" },
+  { name: "IoT Sensors (DHT11, Rain, Soil)", icon: "🧪" },
+  { name: "MPU6050", icon: "📐" },
+  { name: "SG90 Servo", icon: "⚙️" },
+
+  // Tools & DevOps
+  { name: "Chrome Extensions", icon: "🧩" },
+  { name: "Git & GitHub", icon: "🐙" },
+  { name: "Postman", icon: "📮" },
+
+  // Web3
   { name: "Solidity", icon: "⚙️" },
-  { name: "Web3.js", icon: "🌐" },
-  { name: "Smart Contracts", icon: "📜" },
-  { name: "MetaMask", icon: "🦊" },
   { name: "Hardhat", icon: "⛏️" },
   { name: "IPFS", icon: "📦" }
 ];
