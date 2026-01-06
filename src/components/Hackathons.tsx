@@ -18,6 +18,7 @@ const hackathons = [
     links: {
       project: 'https://github.com/Jayasurya09s/AntarAtmaa',
       demo: 'https://ganiai.vercel.app/',
+      certificate: '/nocertificate.png',
       
     }
   },
@@ -49,7 +50,7 @@ const hackathons = [
     type: 'Certified',
     links: {
       project: 'https://github.com/anshu2k24/enhanced-prompt',
-      demo: 'https://anshumanpati.vercel.app/projects/ecoai',
+      demo: '/projects/ecoai',
       certificate: '/dsatm ecoai certificate.jpg',
     }
   },
@@ -64,8 +65,8 @@ const hackathons = [
     color: 'neon-green',
     type: 'Winner',
     links: {
-      
-      demo: 'https://anshumanpati.vercel.app/projects/glider',
+      project: '/hardwarehack.png',
+      demo: '/projects/glider',
       certificate: '/aero certificate.jpg',
     }
   },
@@ -77,11 +78,11 @@ const hackathons = [
     date: '2024',
     description: 'Developed UniTech, a unified student productivity/utility solution.',
     icon: Award,
-    color: 'neon-pink',
+    color: 'neon-yellow',
     type: 'Certified',
     links: {
       project: 'https://github.com/Jayasurya09s/ByteXync-Hunter_Squad',
-      demo: 'https://anshumanpati.vercel.app/projects/unitech',
+      demo: '/projects/unitech',
       certificate: '/hackathon1 dsce participation certificate.jpg',
     }
   },
@@ -96,8 +97,8 @@ const hackathons = [
     color: 'neon-cyan',
     type: 'Certified',
     links: {
-      
-      demo: 'https://anshumanpati.vercel.app/projects/studyai',
+      project: '/pendingproject.png',
+      demo: '/projects/studyai',
       certificate: '/hackathon @pes in 1st sem.png',
     }
   },
@@ -107,12 +108,13 @@ const hackathons = [
     status: 'Tech Event',
     project: 'Roomigo — PG Finder',
     date: '2024',
-    description: 'Built Roomigo — PG/Hostel accommodation finder with real-time listing features.',
+    description: 'Built Roomigo — PG/Hostel accommodation finder with real-time listing features. A comprehensive PG/Hostel accommodation finder platform with verified listings, real-time updates, and direct owner communication.',
     icon: Award,
     color: 'neon-violet',
     type: 'Certified',
     links: {
-      
+      project: '/pendingproject.png',
+      demo: '/projects/roomigo',
       certificate: '/techtrack dsce 8hr certificate.jpg',
     }
   },
@@ -128,7 +130,8 @@ const hackathons = [
     color: 'neon-cyan',
     type: 'Participation',
     links: {
-      
+      project: 'https://github.com/Jayasurya09s/Raahi-hazard',
+      demo: '/projects/raahi',
       certificate: '/rvce participation certificate 12.png',
     }
   },
@@ -145,7 +148,7 @@ const hackathons = [
     type: 'Participation',
     links: {
       project: 'https://github.com/Jayasurya09s/Yodha',
-      
+      demo: '/projects/cropmentor',
       certificate: 'hackman sem iii.pdf',
     }
   }

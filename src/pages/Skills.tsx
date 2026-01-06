@@ -21,12 +21,16 @@ const projects = [
 
 const hackathons = [
   'Smart India Hackathon 2025',
-  'Roomigo – PG Finder (TechTrek)',
-  'ETHGlobal 2024',
-  'Google Cloud Hackathon',
-  'Meta XR Challenge',
-  'AWS BuildOn',
+  'CodeUtsava 9.0',
+  'CypherQuest Hackathon',
+  'MakerBlitz Hackathon',
+  'ByteXync Hackathon',
+  'Confluence Hackathon',
+  'TechTrek Hackathon',
+  'Ctrl + Alt + Compete',
+  'HackMan',
 ];
+
 
 export default function Skills() {
   useSmoothScroll();
