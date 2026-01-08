@@ -112,7 +112,7 @@ export const projectsData = [
   {
     title: 'Roomigo — PG Finder',
     description:
-      'A comprehensive PG/Hostel accommodation finder platform with verified listings, real-time updates, and direct owner communication for students and working professionals.',
+      ' A comprehensive PG/Hostel accommodation finder platform with verified listings, real-time updates, and direct owner communication for students and working professionals.',
     tags: ['React', 'Firebase', 'Maps API', 'Real-time', 'Location'],
     category: 'Full Stack',
     github: '#',

@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail, Github, Linkedin, Twitter, Send } from 'lucide-react';
+import { Mail, Github, Linkedin, Twitter, Send, ExternalLink } from 'lucide-react';
 
 const socialLinks = [
   { icon: Github, label: 'GitHub', href: 'https://github.com/Jayasurya09s', color: 'neon-blue' },
@@ -21,42 +21,15 @@ export const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
 
   // ----------------------------
-  // SUBMIT HANDLER
+  // EMAIL CLIENT HANDLER
   // ----------------------------
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!name || !email || !message) {
-      alert("Please fill all fields");
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const res = await fetch("http://localhost:5000/send-mail", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
-      });
-
-      if (res.ok) {
-        alert("Message sent successfully!");
-        setName("");
-        setEmail("");
-        setMessage("");
-      } else {
-        alert("Failed to send message.");
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Server error. Check your backend.");
-    }
-
-    setLoading(false);
+  const handleEmailClient = () => {
+    const subject = encodeURIComponent(`Portfolio Contact from ${name || 'Visitor'}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    const mailtoLink = `mailto:jayanthjay751@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
   };
 
   return (
@@ -92,11 +65,11 @@ export const Contact = () => {
             <Card className="glass-panel border-border/50">
               <CardHeader>
                 <CardTitle className="text-2xl text-neon-blue">Send a Message</CardTitle>
-                <CardDescription>Fill out the form and I'll get back to you soon</CardDescription>
+                <CardDescription>Choose how you want to reach out</CardDescription>
               </CardHeader>
               <CardContent>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-6">
                   
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-foreground">
@@ -139,21 +112,43 @@ export const Contact = () => {
                     />
                   </div>
 
-                  <Button
-                    type="submit"
-                    size="lg"
-                    disabled={loading}
-                    className="w-full bg-neon-blue text-space-dark hover:bg-neon-cyan border-2 border-neon-blue hover:border-neon-cyan neon-border font-semibold"
-                  >
-                    {loading ? "Sending..." : (
-                      <>
-                        <Send className="mr-2" size={20} />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
+                  <div className="flex flex-col gap-3">
+                    <Button
+                      type="button"
+                      onClick={handleEmailClient}
+                      size="lg"
+                      className="w-full bg-neon-blue text-space-dark hover:bg-neon-cyan border-2 border-neon-blue hover:border-neon-cyan neon-border font-semibold"
+                    >
+                      <Mail className="mr-2" size={20} />
+                      Open in Gmail/Outlook
+                    </Button>
 
-                </form>
+                    <div className="relative">
+                      <div className="absolute inset-0 flex items-center">
+                        <span className="w-full border-t border-border/50" />
+                      </div>
+                      <div className="relative flex justify-center text-xs uppercase">
+                        <span className="bg-card px-2 text-muted-foreground">or use direct email</span>
+                      </div>
+                    </div>
+
+                    <a
+                      href="mailto:jayanthjay751@gmail.com"
+                      className="w-full"
+                    >
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="lg"
+                        className="w-full border-neon-violet/30 hover:border-neon-violet hover:bg-neon-violet/10"
+                      >
+                        <ExternalLink className="mr-2" size={20} />
+                        jayanthjay751@gmail.com
+                      </Button>
+                    </a>
+                  </div>
+
+                </div>
 
               </CardContent>
             </Card>

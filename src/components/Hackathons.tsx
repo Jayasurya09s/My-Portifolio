@@ -122,10 +122,10 @@ const hackathons = [
     title: 'Ctrl + Alt + Compete — RV College of Engineering',
     position: 'Participants — Team Achievement',
     status: 'AI Innovation',
-    project: 'RAAHI — Real-time AI Assistant for Hazard-Informed Routing',
+    project: 'RAAHI — Real-time Assistant for Hazard-Informed Routing',
     date: '2025',
     description:
-      'RAAHI is an AI-powered disaster-aware navigation system providing hazard-informed routing, real-time alerts, emergency hotspots, offline mode, and a multilingual voice safety assistant. Built using React, Tailwind, Google Maps API, FastAPI/Flask, and IMD weather data.',
+      'RAAHI is an AI-powered disaster-aware navigation system providing hazard-informed routing, real-time alerts, emergency hotspots, offline mode, and a voice safety assistant. Built using React,  Google Maps API, FastAPI, and IMD weather data.',
     icon: Award,
     color: 'neon-cyan',
     type: 'Participation',
