@@ -4,108 +4,18 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, FileText } from 'lucide-react';
 import { useState } from 'react';
-
-const projects = [
-    {
-  title: 'JAR - AI Artwork Ownership System',
-  description:
-    'A blockchain-ready verification framework ensuring authorship and originality of AI-generated content. Includes fingerprinting, private-proof mode, prompt-to-identity binding, and watermarking. Designed for secure proof-of-human + proof-of-art validation.',
-  tags: ['Blockchain-ready', 'Fingerprinting', 'Watermarking', 'AI Verification'],
-  category: 'AI',
-  github: 'https://github.com/Jayasurya09s/BrahmaCoders',
-  demo: 'https://brahmacoders.vercel.app/',
-  
-  gradient: 'from-neon-pink to-neon-violet',
-},
-
-   {
-  title: 'MyNotes — Full Stack Notes Application',
-  description:
-    'A modern full-stack notes application built with React, Node.js, Express, and MongoDB. Allows users to create, edit, and manage notes with cloud sync for authenticated users and local storage for guests.',
-  tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Vercel'],
-  category: 'Full Stack',
-  github: 'https://github.com/Jayasurya09s/MyNotes',
-  demo: 'https://my-notes-jka8.vercel.app/',
-  caseStudy: '#',
-  gradient: 'from-neon-blue to-neon-cyan',
-},
-{
-  title: 'NeroBot — Underwater Robotics System',
-  description:
-    'A jellyfish-inspired underwater robot built to detect and collect marine plastic pollution using YOLO-based object detection, Arduino-driven actuation, and a lightweight SG90-servo grasping mechanism. Developed as part of the Tritonexus team to showcase sustainable robotics with recycled materials.',
-  tags: ['YOLO', 'OpenCV', 'Arduino Uno', 'SG90 Servo', 'Robotics'],
-  category: 'Robotics',
-  github: '#',
-  demo: 'https://anshumanpati.vercel.app/projects/nerobot',
-  caseStudy: '#',
-  gradient: 'from-neon-teal to-neon-green',
-},
-  {
-    title: 'EcoAI',
-    description: 'Sustainable AI platform that optimizes user prompts to save tokens, time, and reduce carbon footprint — includes a Chrome extension and server-side optimizer.',
-    tags: ['Prompt Optimization', 'Chrome Ext', 'Node.js', 'Firebase'],
-    category: 'AI',
-    github: 'https://github.com/Jayasurya09s/enhanced-prompt',
-    demo: '/projects/ecoai',
-    caseStudy: '#',
-    gradient: 'from-neon-green to-neon-cyan',
-  },
-{
-  title: 'Glider — Autonomous Flight Stabilization',
-  description:
-    'An autonomous stabilization system for a custom-built glider using the MPU6050 IMU to compute real-time pitch and roll, with SG90 servos correcting flight control surfaces. Awarded an Appreciation Prize at MakerBlitz for successfully implementing avionics and real-time stabilization.',
-  tags: ['Arduino Uno', 'MPU6050', 'SG90 Servo', 'Control Systems', 'Embedded'],
-  category: 'Robotics',
-  github: '/pendingproject.png',
-  demo: '/projects/glider',
-  caseStudy: '#',
-  gradient: 'from-neon-yellow to-neon-orange',
-},
-  {
-    title: 'StudyAI',
-    description: 'AI-powered study assistant that organizes notes, extracts insights and helps students learn more effectively (summaries, Q&A, flashcards).',
-    tags: ['React', 'Node.js', 'Tailwind', 'MongoDB', 'Firebase'],
-    category: 'Full Stack',
-    github: '/pendingproject.png',
-    demo: '/projects/studyai',
-    caseStudy: '#',
-    gradient: 'from-neon-cyan to-neon-blue',
-  },
-  {
-    title: 'User-Level Custom CPU Scheduler',
-    description: 'Web-based scheduler visualizer showing live processes, ready queue, Gantt charts, CPU graphs and scheduler comparison with multiple sheduler algorithms.',
-    tags: ['React', 'Socket.IO', 'Gantt', 'MERN'],
-    category: 'Full Stack',
-    github: '#',
-    demo: '#',
-    caseStudy: '#',
-    gradient: 'from-neon-blue to-neon-violet',
-  },
-  {
-  title: 'PCFR — Protecting Clothes From Rain (IoT)',
-  description:
-    'An IoT system that automatically protects drying clothes when rain is detected. Uses a rain sensor for real-time detection and an SG90 servo controlled by Arduino to pull the drying rod under a protective cover. Built as a low-cost home-automation prototype.',
-  tags: ['Arduino Uno', 'Rain Sensor', 'SG90 Servo', 'IoT'],
-  category: 'IoT',
-  github: '#',
-  demo: '#',
-  caseStudy: '#',
-  gradient: 'from-neon-cyan to-neon-pink',
-},
-
-
-
- 
-];
-
-const categories = ['All', 'AI', 'Full Stack', 'Robotics', 'IoT'];
+import { projectsData, categories } from '@/data/projects';
 
 export const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const filteredProjects = selectedCategory === 'All' 
-    ? projects 
-    : projects.filter(p => p.category === selectedCategory);
+    ? projectsData 
+    : projectsData.filter(p => 
+        Array.isArray(p.category) 
+          ? p.category.includes(selectedCategory) 
+          : p.category === selectedCategory
+      );
 
   return (
     <section id="projects" className="relative py-20">
@@ -158,8 +68,8 @@ export const Projects = () => {
                   transform: 'perspective(1000px)',
                 }}
               >
-                {/* Gradient Overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+                {/* Gradient Overlay - ensure it doesn't block clicks */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none`}></div>
                 
                 {/* Glow particles */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -184,7 +94,7 @@ export const Projects = () => {
                   ))}
                 </div>
                 
-                <CardHeader>
+                <CardHeader className="relative z-10">
                   <CardTitle className="text-xl sm:text-2xl text-neon-cyan group-hover:text-glow-cyan transition-all">
                     {project.title}
                   </CardTitle>
@@ -193,7 +103,7 @@ export const Projects = () => {
                   </CardDescription>
                 </CardHeader>
                 
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 relative z-10">
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, i) => (
                       <Badge 
@@ -207,36 +117,58 @@ export const Projects = () => {
                   </div>
                   
                   <div className="flex gap-2 pt-4">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 border-neon-violet text-neon-violet hover:bg-neon-violet/10"
-                      asChild
-                    >
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} GitHub`}>
-                        <Github size={16} />
-                      </a>
-                    </Button>
-                    <Button
-                      size="sm"
-                      className="flex-1 bg-neon-blue text-space-dark hover:bg-neon-cyan border-neon-blue"
-                      asChild
-                    >
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-1" size={16} />
-                        Demo
-                      </a>
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 border-neon-cyan text-neon-cyan hover:bg-neon-cyan/10"
-                      asChild
-                    >
-                      <a href={project.caseStudy} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} Case Study`}>
-                        <FileText size={16} />
-                      </a>
-                    </Button>
+                    {project.github !== '#' && (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="flex-1 border-neon-violet text-neon-violet hover:bg-neon-violet/10"
+                        asChild
+                      >
+                        <a 
+                          href={project.github} 
+                          target={project.github.startsWith('http') ? "_blank" : undefined}
+                          rel={project.github.startsWith('http') ? "noopener noreferrer" : undefined}
+                          aria-label={`${project.title} GitHub`}
+                        >
+                          <Github size={16} />
+                        </a>
+                      </Button>
+                    )}
+                    
+                    {project.demo !== '#' && (
+                      <Button
+                        size="sm"
+                        className="flex-1 bg-neon-blue text-space-dark hover:bg-neon-cyan border-neon-blue"
+                        asChild
+                      >
+                        <a 
+                          href={project.demo}
+                          target={project.demo.startsWith('http') ? "_blank" : undefined}
+                          rel={project.demo.startsWith('http') ? "noopener noreferrer" : undefined}
+                        >
+                          <ExternalLink className="mr-1" size={16} />
+                          Demo
+                        </a>
+                      </Button>
+                    )}
+                    
+                    {project.caseStudy !== '#' && (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="flex-1 border-neon-cyan text-neon-cyan hover:bg-neon-cyan/10"
+                        asChild
+                      >
+                        <a 
+                          href={project.caseStudy}
+                          target={project.caseStudy.startsWith('http') ? "_blank" : undefined}
+                          rel={project.caseStudy.startsWith('http') ? "noopener noreferrer" : undefined}
+                          aria-label={`${project.title} Case Study`}
+                        >
+                          <FileText size={16} />
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>

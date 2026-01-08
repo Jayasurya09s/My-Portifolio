@@ -10,27 +10,8 @@ import { CustomCursor } from '@/components/CustomCursor';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 import { technologies } from '@/data/technologies';
-
-// Project and tech data
-const projects = [
-  { title: 'AI Code Assistant', category: 'AI' },
-  { title: 'DeFi Trading Platform', category: 'Web3' },
-  { title: 'Neural Style Transfer', category: 'AI' },
-  { title: 'Blockchain Supply Chain', category: 'Web3' },
-  { title: 'Cloud Infrastructure Manager', category: 'Full Stack' },
-  { title: 'IoT Smart Home', category: 'IoT' },
-];
-
-const hackathons = [
-  'Smart India Hackathon 2025',
-  'Roomigo – PG Finder (TechTrek)',
-  'ETHGlobal 2024',
-  'Google Cloud Hackathon',
-  'Meta XR Challenge',
-  'AWS BuildOn',
-];
-
-const techStack = technologies.length; // Number of technologies mastered
+import { projectsData } from '@/data/projects';
+import { hackathonsData } from '@/data/hackathons';
 
 const Index = () => {
   useSmoothScroll();
@@ -43,9 +24,9 @@ const Index = () => {
       <Navbar />
       <Hero />
       <AnimatedStats
-        projectsCount={projects.length}
-        hackathonsCount={hackathons.length}
-        techCount={techStack}
+        projectsCount={projectsData.length}
+        hackathonsCount={hackathonsData.length}
+        techCount={technologies.length}
       />
       <Projects />
       <TechShowcase />

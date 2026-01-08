@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { Navbar } from '@/components/Navbar';
-import { Search, Rocket, Trophy, Brain } from 'lucide-react';
+import { Search, Rocket, Trophy, Brain, Home } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { useState, useRef } from 'react';
 import { CustomCursor } from '@/components/CustomCursor';
@@ -8,29 +8,63 @@ import { FloatingParticles } from '@/components/FloatingParticles';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 import { NebulaBackground } from '@/components/NebulaBackground';
 import { technologies, categories } from '@/data/technologies';
+import { projectsData } from '@/data/projects';
+import { hackathonsData } from '@/data/hackathons';
 import { CounterStat } from '@/components/CounterStat';
-
-const projects = [
-  { title: 'AI Code Assistant', category: 'AI' },
-  { title: 'DeFi Trading Platform', category: 'Web3' },
-  { title: 'Neural Style Transfer', category: 'AI' },
-  { title: 'Blockchain Supply Chain', category: 'Web3' },
-  { title: 'Cloud Infrastructure Manager', category: 'Full Stack' },
-  { title: 'IoT Smart Home', category: 'IoT' },
-];
-
-const hackathons = [
-  'Smart India Hackathon 2025',
-  'CodeUtsava 9.0',
-  'CypherQuest Hackathon',
-  'MakerBlitz Hackathon',
-  'ByteXync Hackathon',
-  'Confluence Hackathon',
-  'TechTrek Hackathon',
-  'Ctrl + Alt + Compete',
-  'HackMan',
-];
-
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiAngular,
+  SiTailwindcss,
+  SiBootstrap,
+  SiJquery,
+  SiFramer,
+  SiThreedotjs,
+  SiVite,
+  SiNodedotjs,
+  SiExpress,
+  SiPython,
+  SiC,
+  SiCplusplus,
+  SiFastapi,
+  SiFlask,
+  SiOpenapiinitiative,
+  SiGraphql,
+  SiTensorflow,
+  SiPytorch,
+  SiScikitlearn,
+  SiPandas,
+  SiNumpy,
+  SiOpencv,
+  SiOpenai,
+  SiHuggingface,
+  SiEthereum,
+  SiSolidity,
+  SiIpfs,
+  SiArduino,
+  SiEspressif,
+  SiRaspberrypi,
+  SiMqtt,
+  SiMongodb,
+  SiPostgresql,
+  SiMysql,
+  SiFirebase,
+  SiSupabase,
+  SiSqlite,
+  SiPycharm,
+  SiPostman,
+  SiFigma,
+  SiJira,
+  SiSlack,
+  SiNotion,
+  SiGithubcopilot,
+  SiGoogle,
+} from 'react-icons/si';
 
 export default function Skills() {
   useSmoothScroll();
@@ -52,6 +86,24 @@ export default function Skills() {
       
       <main className="pt-24 pb-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Back to Home Button */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
+            <Link to="/">
+              <Button 
+                variant="outline" 
+                className="group border-neon-cyan/30 hover:border-neon-cyan hover:bg-neon-cyan/10 transition-all duration-300"
+              >
+                <Home className="w-4 h-4 mr-2 group-hover:text-neon-cyan transition-colors" />
+                <span className="group-hover:text-neon-cyan transition-colors">Back to Home</span>
+              </Button>
+            </Link>
+          </motion.div>
+
           {/* Header Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -71,13 +123,13 @@ export default function Skills() {
             {/* Animated Counter Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
               <CounterStat
-                end={projects.length}
+                end={projectsData.length}
                 label="Projects Completed"
                 icon={Rocket}
                 color="hsl(var(--neon-cyan))"
               />
               <CounterStat
-                end={hackathons.length}
+                end={hackathonsData.length}
                 label="Hackathons Participated"
                 icon={Trophy}
                 color="hsl(var(--neon-violet))"
@@ -166,6 +218,108 @@ interface TechCardProps {
   index: number;
 }
 
+function getTechIcon(name: string, category: string, color: string) {
+  const p = { size: 48, style: { color }, className: 'mx-auto' } as const;
+  // Frontend
+  if (category === 'Frontend') {
+    switch (name) {
+      case 'HTML': return <SiHtml5 {...p} />;
+      case 'CSS': return <SiCss3 {...p} />;
+      case 'JavaScript': return <SiJavascript {...p} />;
+      case 'TypeScript': return <SiTypescript {...p} />;
+      case 'React': return <SiReact {...p} />;
+      case 'Angular': return <SiAngular {...p} />;
+      case 'TailwindCSS': return <SiTailwindcss {...p} />;
+      case 'Bootstrap': return <SiBootstrap {...p} />;
+      case 'jQuery': return <SiJquery {...p} />;
+      case 'Framer Motion': return <SiFramer {...p} />;
+      case 'Three.js': return <SiThreedotjs {...p} />;
+      case 'Vite': return <SiVite {...p} />;
+    }
+  }
+  // Backend
+  if (category === 'Backend') {
+    switch (name) {
+      case 'Node.js': return <SiNodedotjs {...p} />;
+      case 'Express.js': return <SiExpress {...p} />;
+      case 'Python': return <SiPython {...p} />;
+      case 'C': return <SiC {...p} />;
+      case 'C++': return <SiCplusplus {...p} />;
+      case 'FastAPI': return <SiFastapi {...p} />;
+      case 'Flask': return <SiFlask {...p} />;
+      case 'REST APIs': return <SiOpenapiinitiative {...p} />;
+      case 'GraphQL': return <SiGraphql {...p} />;
+      // WebSockets, Java, Spring Boot, Go -> fallback
+    }
+  }
+  // AI/ML
+  if (category === 'AI/ML') {
+    switch (name) {
+      case 'TensorFlow': return <SiTensorflow {...p} />;
+      case 'PyTorch': return <SiPytorch {...p} />;
+      case 'Scikit-learn': return <SiScikitlearn {...p} />;
+      case 'Pandas': return <SiPandas {...p} />;
+      case 'NumPy': return <SiNumpy {...p} />;
+      case 'OpenCV': return <SiOpencv {...p} />;
+      case 'OpenAI API': return <SiOpenai {...p} />;
+      case 'Hugging Face': return <SiHuggingface {...p} />;
+      // Generative AI, LangChain -> fallback
+    }
+  }
+  // Blockchain
+  if (category === 'Blockchain') {
+    switch (name) {
+      case 'Ethereum': return <SiEthereum {...p} />;
+      case 'Solidity': return <SiSolidity {...p} />;
+      case 'IPFS': return <SiIpfs {...p} />;
+      // Web3.js, Smart Contracts -> fallback
+    }
+  }
+  // IoT & Robotics
+  if (category === 'IoT & Robotics') {
+    switch (name) {
+      case 'Arduino': return <SiArduino {...p} />;
+      case 'ESP32': return <SiEspressif {...p} />;
+      case 'Raspberry Pi': return <SiRaspberrypi {...p} />;
+      case 'MQTT': return <SiMqtt {...p} />;
+      // Sensors -> fallback
+    }
+  }
+  // Databases
+  if (category === 'Databases') {
+    switch (name) {
+      case 'MongoDB': return <SiMongodb {...p} />;
+      case 'PostgreSQL': return <SiPostgresql {...p} />;
+      case 'MySQL': return <SiMysql {...p} />;
+      case 'Firebase': return <SiFirebase {...p} />;
+      case 'Supabase': return <SiSupabase {...p} />;
+      case 'SQLite': return <SiSqlite {...p} />;
+      // Redis, DynamoDB -> fallback
+    }
+  }
+  // Tools & IDEs
+  if (category === 'Tools & IDEs') {
+    switch (name) {
+      case 'PyCharm': return <SiPycharm {...p} />;
+      case 'Postman': return <SiPostman {...p} />;
+      case 'Figma': return <SiFigma {...p} />;
+      case 'Jira': return <SiJira {...p} />;
+      case 'Slack': return <SiSlack {...p} />;
+      case 'Notion': return <SiNotion {...p} />;
+    }
+  }
+  // GenAI Tools
+  if (category === 'GenAI Tools') {
+    switch (name) {
+      case 'GitHub Copilot': return <SiGithubcopilot {...p} />;
+      case 'ChatGPT': return <SiOpenai {...p} />;
+      case 'Gemini': return <SiGoogle {...p} />;
+      // Cursor, Gemini, Lovable, Prompt Engineering, Vibecoding -> fallback
+    }
+  }
+  return null;
+}
+
 function TechCard({ tech, index }: TechCardProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
@@ -197,12 +351,12 @@ function TechCard({ tech, index }: TechCardProps) {
         whileHover={{ scale: 1.1 }}
         transition={{ duration: 0.2 }}
       >
-        {tech.icon}
+        {getTechIcon(tech.name, tech.category, tech.color) ?? <span>{tech.icon}</span>}
       </motion.div>
 
       {/* Tech Name */}
       <h3 
-        className="text-center font-bold mb-3 group-hover:text-glow transition-all"
+        className="text-center font-bold mb-3 group-hover:text-glow transition-all text-neon-cyan"
         style={{ color: tech.color }}
       >
         {tech.name}

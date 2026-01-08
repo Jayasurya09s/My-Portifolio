@@ -98,7 +98,7 @@ export const AnimatedStats = ({ projectsCount, hackathonsCount, techCount }: Ani
           />
           <AnimatedCounter
             end={hackathonsCount}
-            label="Hackathons Won"
+            label="Hackathons Participated"
             suffix="+"
             color="neon-violet"
           />
