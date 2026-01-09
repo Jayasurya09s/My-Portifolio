@@ -205,16 +205,21 @@ export const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm mb-1 text-neon-violet">Education</p>
-                  <p className="font-medium text-foreground">BTech in Information Science & Engineering (ISE)</p>
+                  <p className="font-medium text-foreground">B.E. in Information Science & Engineering (ISE)</p>
                   <p className="font-medium text-foreground">Dayananda Sagar College of Engineering (DSCE)</p>
                 </div>
                 <div>
+                  <p className="text-sm mb-1 text-neon-pink">Academic Performance</p>
+                  <p className="font-medium text-foreground">Semester 1 GPA: 9.70</p>
+                  <p className="font-medium text-foreground">Semester 2 GPA: 9.65</p>
+                </div>
+                <div>
                   <p className="text-sm mb-1 text-neon-blue">Current Status</p>
-                  <p className="font-medium text-foreground">3rd Semester Student</p>
+                  <p className="font-medium text-foreground">3rd Semester Undergraduate Student</p>
                 </div>
                 <div>
                   <p className="text-sm mb-1 text-neon-cyan">Availability</p>
-                  <p className="font-medium text-foreground">Open to opportunities / internships</p>
+                  <p className="font-medium text-foreground">Actively seeking internships and learning-oriented opportunities</p>
                 </div>
               </CardContent>
             </Card>
