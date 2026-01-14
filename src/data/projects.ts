@@ -1,4 +1,23 @@
-export const projectsData = [
+  export const projectsData = [
+    {
+    title: 'Gmail → Google Sheets Automation',
+    description:
+      'A production-grade Python automation that reads real unread Gmail emails via Gmail API, extracts structured data, logs them into Google Sheets, prevents duplicates using persistent state, and securely authenticates using OAuth 2.0.',
+    tags: [
+      'Python',
+      'Gmail API',
+      'Google Sheets API',
+      'OAuth 2.0',
+      'Automation',
+      'FastAPI',
+      'State Management'
+    ],
+    category: 'Backend / Automation',
+    github: 'https://github.com/Jayasurya09s/gmail-to-sheets',
+    demo: '/projects/gmail-to-sheets',
+    caseStudy: '#',
+    gradient: 'from-neon-cyan to-neon-blue',
+  },
   {
     title: 'User-Level Custom CPU Scheduler',
     description:

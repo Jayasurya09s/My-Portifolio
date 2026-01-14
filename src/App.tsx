@@ -16,6 +16,7 @@ import CpuScheduler from "./pages/CpuScheduler";
 import NeroBot from "./pages/NeroBot";
 import NotFound from "./pages/NotFound";
 import PCFR from "./pages/PCFR";
+import GmailToSheets from "./pages/GmailToSheets";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/projects/cpu-scheduler" element={<CpuScheduler />} />
           <Route path="/projects/nerobot" element={<NeroBot />} />
           <Route path="/projects/pcfr" element={<PCFR />} />
+            <Route path="/projects/gmail-to-sheets" element={<GmailToSheets />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
