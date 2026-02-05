@@ -1,5 +1,26 @@
   export const projectsData = [
     {
+  title: 'Phoenix AI Call Agent – Resilience System',
+  description:
+    'A production-grade AI-powered call processing system with built-in resilience patterns including circuit breakers, retry policies, health checks, real-time monitoring, and multi-channel alerting for reliable communication workflows.',
+  tags: [
+    'Node.js',
+    'React',
+    'Socket.io',
+    'Docker',
+    'System Design',
+    'Monitoring',
+    'Resilience Engineering',
+    'APIs',
+    'DevOps'
+  ],
+  category: 'Full Stack / System Engineering',
+  github: 'https://github.com/Jayasurya09s/Phoenix-System',
+  demo: '/projects/phoenix-system',
+  caseStudy: '#',
+  gradient: 'from-neon-purple to-neon-pink',
+},
+    {
     title: 'Gmail → Google Sheets Automation',
     description:
       'A production-grade Python automation that reads real unread Gmail emails via Gmail API, extracts structured data, logs them into Google Sheets, prevents duplicates using persistent state, and securely authenticates using OAuth 2.0.',

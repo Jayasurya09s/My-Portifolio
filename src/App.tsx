@@ -17,6 +17,7 @@ import NeroBot from "./pages/NeroBot";
 import NotFound from "./pages/NotFound";
 import PCFR from "./pages/PCFR";
 import GmailToSheets from "./pages/GmailToSheets";
+import PhoenixSystem from "./pages/PhoenixSystem";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/projects/nerobot" element={<NeroBot />} />
           <Route path="/projects/pcfr" element={<PCFR />} />
             <Route path="/projects/gmail-to-sheets" element={<GmailToSheets />} />
+            <Route path="/projects/phoenix-system" element={<PhoenixSystem />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
