@@ -1,11 +1,36 @@
   export const projectsData = [
     {
+  title: 'TaskEngine – Intelligent Task Management Platform',
+  description:
+    'A production-ready task management platform with a premium, white-themed frontend and a backend-first architecture. Built with secure JWT authentication, MongoDB persistence, structured APIs, pagination, filtering, and robust validation to deliver a scalable and polished productivity experience.',
+  tags: [
+    'React',
+    'Vite',
+    'Tailwind CSS',
+    'Framer Motion',
+    'Frontend',
+    'Node.js',
+    'Express',
+    'MongoDB',
+    'JWT Authentication',
+    'REST APIs',
+    'Pagination',
+    'System Design'
+  ],
+  category: ['Frontend', 'Full Stack Web Application'],
+  github: 'https://github.com/Jayasurya09s/TaskEngine',
+  demo: 'https://task-engine-three.vercel.app/',
+  caseStudy: '#',
+  gradient: 'from-slate-900 to-indigo-600',
+},
+    {
   title: 'Phoenix AI Call Agent – Resilience System',
   description:
     'A production-grade AI-powered call processing system with built-in resilience patterns including circuit breakers, retry policies, health checks, real-time monitoring, and multi-channel alerting for reliable communication workflows.',
   tags: [
     'Node.js',
     'React',
+    'AI',
     'Socket.io',
     'Docker',
     'System Design',
@@ -14,7 +39,7 @@
     'APIs',
     'DevOps'
   ],
-  category: 'Full Stack / System Engineering',
+  category: ['AI', 'Full Stack / System Engineering'],
   github: 'https://github.com/Jayasurya09s/Phoenix-System',
   demo: '/projects/phoenix-system',
   caseStudy: '#',
@@ -31,9 +56,10 @@
       'OAuth 2.0',
       'Automation',
       'FastAPI',
-      'State Management'
+      'State Management',
+      'AI'
     ],
-    category: 'Backend / Automation',
+    category: ['AI', 'Backend / Automation'],
     github: 'https://github.com/Jayasurya09s/gmail-to-sheets',
     demo: '/projects/gmail-to-sheets',
     caseStudy: '#',
