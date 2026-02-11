@@ -1,5 +1,29 @@
   export const projectsData = [
     {
+  title: 'SocialX – Full-Stack Social Feed Platform',
+  description:
+    'A production-ready social feed platform featuring secure JWT authentication, real-time post interactions, and a responsive, modern UI. SocialX enables users to create posts with text, images, emojis, and polls, interact through likes, comments, and shares, and explore dynamic feeds with advanced filtering and auto-refresh for live engagement.',
+  tags: [
+    'React',
+    'Material UI',
+    'Frontend',
+    'Node.js',
+    'Express',
+    'MongoDB',
+    'JWT Authentication',
+    'REST APIs',
+    'Social Feed',
+    'Pagination',
+    'Auto Refresh',
+    'System Design'
+  ],
+  category: ['Frontend', 'Full Stack Web Application'],
+  github: 'https://github.com/Jayasurya09s/SocialX',
+  demo: 'https://socialx-seven.vercel.app/',
+  caseStudy: '#',
+  gradient: 'from-blue-600 to-indigo-700',
+},
+    {
   title: 'TaskEngine – Intelligent Task Management Platform',
   description:
     'A production-ready task management platform with a premium, white-themed frontend and a backend-first architecture. Built with secure JWT authentication, MongoDB persistence, structured APIs, pagination, filtering, and robust validation to deliver a scalable and polished productivity experience.',
