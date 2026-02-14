@@ -1,78 +1,149 @@
-  export const projectsData = [
-    {
-  title: 'SocialX – Full-Stack Social Feed Platform',
+export const projectsData = [
+  {
+  title: 'Indian Chess Academy (ICA) – AI-Powered Academy Management Platform',
   description:
-    'A production-ready social feed platform featuring secure JWT authentication, real-time post interactions, and a responsive, modern UI. SocialX enables users to create posts with text, images, emojis, and polls, interact through likes, comments, and shares, and explore dynamic feeds with advanced filtering and auto-refresh for live engagement.',
+    'Full-stack academy management platform that automates onboarding, enrollment, and payments with RBAC, event-driven workflows, and a RAG-based assistant for role-aware support and operations insight.',
   tags: [
+    'Next.js',
     'React',
-    'Material UI',
-    'Frontend',
-    'Node.js',
-    'Express',
     'MongoDB',
-    'JWT Authentication',
-    'REST APIs',
-    'Social Feed',
-    'Pagination',
-    'Auto Refresh',
-    'System Design'
+    'JWT',
+    'RBAC',
+    'RAG Chatbot',
+    'Razorpay',
+    'Vercel'
   ],
-  category: ['Frontend', 'Full Stack Web Application'],
-  github: 'https://github.com/Jayasurya09s/SocialX',
-  demo: 'https://socialx-seven.vercel.app/',
+  category: ['Full Stack Development', 'AI Integration'],
+  github: 'https://github.com/Jayasurya09s/Indian-Chess-Academy',
+  demo: 'https://ica.vercel.app/',
   caseStudy: '#',
-  gradient: 'from-blue-600 to-indigo-700',
+  gradient: 'from-blue-600 to-indigo-600',
 },
-    {
-  title: 'TaskEngine – Intelligent Task Management Platform',
+  {
+    title: 'PromptPilot – Deterministic Multi-Agent AI UI Generator',
+    description:
+      'Deterministic AI UI generator that turns prompts into validated component trees with live preview, multi-agent planning, strict registry rules, Zod validation, injection defense, version diffs, and fallback handling.',
+    tags: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'MongoDB',
+      'JWT',
+      'Zod',
+      'OpenRouter',
+      'Multi-Agent'
+    ],
+    category: ['AI Application', 'Full Stack Web Application'],
+    github: 'https://github.com/Jayasurya09s/PromptPilot',
+    demo: 'https://promptpilotstudio.vercel.app/',
+    caseStudy: '#',
+    gradient: 'from-purple-600 to-pink-700',
+  },
+  {
+    title: 'SentimentAlpha – Trader Behavior Intelligence Engine',
+    description:
+      'Sentiment-aware trading analytics that aligns Hyperliquid activity with Bitcoin fear/greed regimes, compares statistical performance, engineers risk metrics, and segments trader archetypes to produce behavior-driven strategy guidance.',
+    tags: [
+      'Python',
+      'Pandas',
+      'NumPy',
+      'SciPy',
+      'Time-Series',
+      'Statistical Testing',
+      'Behavioral Finance',
+      'Quantitative Analysis'
+    ],
+    category: ['Data Science', 'Quantitative Finance', 'AI/ML Application'],
+    github: 'https://github.com/Jayasurya09s/EmitionTrade',
+    demo: '#',
+    caseStudy: '#',
+    gradient: 'from-blue-600 to-indigo-700',
+  },
+  {
+    title: 'SocialX – Full-Stack Social Feed Platform',
+    description:
+      'Full-stack social feed with JWT auth, posts, media, emojis, polls, and real-time engagement; includes filtering, pagination, and auto-refresh to keep interactions fast and responsive across devices.',
+    tags: [
+      'React',
+      'Material UI',
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'JWT',
+      'REST APIs',
+      'Real-Time'
+    ],
+    category: ['Frontend', 'Full Stack Web Application'],
+    github: 'https://github.com/Jayasurya09s/SocialX',
+    demo: 'https://socialx-seven.vercel.app/',
+    caseStudy: '#',
+    gradient: 'from-blue-600 to-indigo-700',
+  },
+  {
+    title: 'TaskEngine – Intelligent Task Management Platform',
+    description:
+      'Task management platform with premium UI and backend-first design, featuring JWT auth, MongoDB persistence, structured APIs, pagination, filtering, and validation for a scalable, polished productivity workflow.',
+    tags: [
+      'React',
+      'Vite',
+      'Tailwind CSS',
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'JWT',
+      'REST APIs'
+    ],
+    category: ['Frontend', 'Full Stack Web Application'],
+    github: 'https://github.com/Jayasurya09s/TaskEngine',
+    demo: 'https://task-engine-three.vercel.app/',
+    caseStudy: '#',
+    gradient: 'from-slate-900 to-indigo-600',
+  },
+  {
+    title: 'Phoenix AI Call Agent – Resilience System',
+    description:
+      'AI call processing system built for resilience with circuit breakers, retries, health checks, monitoring, and multi-channel alerts, supporting reliable real-time communication workflows under failure conditions.',
+    tags: [
+      'Node.js',
+      'React',
+      'Socket.io',
+      'Docker',
+      'Monitoring',
+      'Resilience',
+      'APIs',
+      'DevOps'
+    ],
+    category: ['AI', 'Full Stack / System Engineering'],
+    github: 'https://github.com/Jayasurya09s/Phoenix-System',
+    demo: '/projects/phoenix-system',
+    caseStudy: '#',
+    gradient: 'from-neon-purple to-neon-pink',
+  },
+  {
+  title: 'ProxyPlay – API-First Secure Video Streaming Platform',
   description:
-    'A production-ready task management platform with a premium, white-themed frontend and a backend-first architecture. Built with secure JWT authentication, MongoDB persistence, structured APIs, pagination, filtering, and robust validation to deliver a scalable and polished productivity experience.',
+    'API-first mobile video platform with a thin-client design, JWT auth, rate limits, short-lived playback tokens, and admin video control, built for secure streaming at scale.',
   tags: [
-    'React',
-    'Vite',
-    'Tailwind CSS',
-    'Framer Motion',
-    'Frontend',
-    'Node.js',
-    'Express',
+    'React Native',
+    'Expo',
+    'Flask',
     'MongoDB',
-    'JWT Authentication',
-    'REST APIs',
-    'Pagination',
-    'System Design'
-  ],
-  category: ['Frontend', 'Full Stack Web Application'],
-  github: 'https://github.com/Jayasurya09s/TaskEngine',
-  demo: 'https://task-engine-three.vercel.app/',
-  caseStudy: '#',
-  gradient: 'from-slate-900 to-indigo-600',
-},
-    {
-  title: 'Phoenix AI Call Agent – Resilience System',
-  description:
-    'A production-grade AI-powered call processing system with built-in resilience patterns including circuit breakers, retry policies, health checks, real-time monitoring, and multi-channel alerting for reliable communication workflows.',
-  tags: [
-    'Node.js',
-    'React',
-    'AI',
-    'Socket.io',
+    'JWT',
+    'Rate Limiting',
     'Docker',
-    'System Design',
-    'Monitoring',
-    'Resilience Engineering',
-    'APIs',
-    'DevOps'
+    'Render'
   ],
-  category: ['AI', 'Full Stack / System Engineering'],
-  github: 'https://github.com/Jayasurya09s/Phoenix-System',
-  demo: '/projects/phoenix-system',
+  category: ['Full Stack Development', 'Mobile Application'],
+  github: 'https://github.com/Jayasurya09s/ProxyPlay',
+  demo: 'https://proxyplay.onrender.com',
   caseStudy: '#',
-  gradient: 'from-neon-purple to-neon-pink',
-},
-    {
+  gradient: 'from-purple-600 to-pink-600',
+}
+,
+  {
     title: 'Gmail → Google Sheets Automation',
     description:
-      'A production-grade Python automation that reads real unread Gmail emails via Gmail API, extracts structured data, logs them into Google Sheets, prevents duplicates using persistent state, and securely authenticates using OAuth 2.0.',
+      'Python automation that ingests unread Gmail via API, extracts structured fields, writes to Google Sheets, avoids duplicates with persistent state, and uses secure OAuth 2.0 authentication.',
     tags: [
       'Python',
       'Gmail API',
@@ -92,8 +163,17 @@
   {
     title: 'User-Level Custom CPU Scheduler',
     description:
-      'A web based CPU scheduling visualizer that simulates live processes ready queues Gantt charts CPU utilization graphs and enables comparison across multiple scheduling algorithms in real time for educational analysis.',
-    tags: ['C','React', 'Socket.IO', 'Gantt', 'OS', 'Visualization' ,'Node.js','Sqlite 3'],
+      'Web-based CPU scheduling visualizer that simulates ready queues, Gantt charts, and utilization graphs, comparing multiple algorithms in real time for clear, interactive learning and analysis.',
+    tags: [
+      'C',
+      'React',
+      'Socket.IO',
+      'Gantt',
+      'OS',
+      'Visualization',
+      'Node.js',
+      'SQLite'
+    ],
     category: 'Full Stack',
     github: 'https://github.com/Jayasurya09s/User-Level-CPU-sheduler',
     demo: '/projects/cpu-scheduler',
@@ -103,8 +183,17 @@
   {
     title: 'JAR - AI Artwork Ownership System',
     description:
-      'A blockchain ready verification system for AI generated artwork ensuring authorship originality through fingerprinting watermarking prompt identity binding and secure proof mechanisms for digital creators worldwide usage scenarios and protection.',
-    tags: ['Blockchain-ready', 'Fingerprinting', 'Watermarking', 'AI Verification'],
+      'Artwork ownership system for AI-generated media that fingerprints, watermarks, binds prompts to identity, and issues secure proofs, enabling verifiable originality and protection for digital creators.',
+    tags: [
+      'AI Verification',
+      'Fingerprinting',
+      'Watermarking',
+      'Prompt Binding',
+      'Proof System',
+      'Blockchain-Ready',
+      'Digital Art',
+      'Security'
+    ],
     category: 'AI',
     github: 'https://github.com/Jayasurya09s/BrahmaCoders',
     demo: 'https://brahmacoders.vercel.app/',
@@ -114,8 +203,17 @@
   {
     title: 'MyNotes — Full Stack Notes Application',
     description:
-      'A full stack notes management application allowing users to create edit organize notes with authentication based cloud synchronization and secure local storage support for guest usage across multiple devices seamlessly.',
-    tags: ['React','Node.js', 'Express', 'MongoDB', 'Vercel','Render','Firebase'],
+      'Full-stack notes app with authentication, cloud sync, and secure storage, enabling users to create, edit, and organize notes across devices with guest support and reliable access.',
+    tags: [
+      'React',
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'Firebase',
+      'Auth',
+      'Sync',
+      'Notes'
+    ],
     category: 'Full Stack',
     github: 'https://github.com/Jayasurya09s/MyNotes',
     demo: 'https://my-notes-jka8.vercel.app/',
@@ -125,8 +223,17 @@
   {
     title: 'NeroBot — Underwater Robotics System',
     description:
-      'A jellyfish inspired underwater robotic system designed to detect collect marine plastic waste using YOLO based vision Arduino controlled actuation and servo driven grasping mechanism for sustainable ocean cleanup missions.',
-    tags: ['YOLO', 'OpenCV', 'Arduino Uno', 'SG90 Servo', 'Robotics'],
+      'Jellyfish-inspired underwater robot that detects and collects marine plastic using YOLO-based vision, Arduino control, and servo grasping, targeting sustainable cleanup missions in aquatic environments.',
+    tags: [
+      'YOLO',
+      'OpenCV',
+      'Arduino Uno',
+      'SG90 Servo',
+      'Robotics',
+      'Vision',
+      'Marine Cleanup',
+      'Embedded'
+    ],
     category: 'Robotics',
     github: '#',
     demo: '/projects/nerobot',
@@ -136,8 +243,17 @@
   {
     title: 'EcoAI',
     description:
-      'A sustainable AI platform that optimizes user prompts to reduce token usage save computation time and minimize environmental impact through intelligent backend processing and browser integration for everyday AI usage.',
-    tags: ['Prompt Optimization', 'Chrome Ext', 'Node.js', 'Firebase'],
+      'Sustainable AI platform that optimizes prompts to reduce tokens and compute, pairing backend intelligence with browser integration to lower cost and environmental impact in daily AI usage.',
+    tags: [
+      'Prompt Optimization',
+      'Chrome Extension',
+      'Node.js',
+      'Firebase',
+      'Efficiency',
+      'Sustainability',
+      'AI',
+      'Backend'
+    ],
     category: 'AI',
     github: 'https://github.com/Jayasurya09s/enhanced-prompt',
     demo: '/projects/ecoai',
@@ -147,8 +263,17 @@
   {
     title: 'Glider — Autonomous Flight Stabilization',
     description:
-      'An autonomous flight stabilization system for a custom built glider computing real time orientation data using IMU sensors and correcting control surfaces through servo feedback loops during autonomous flight testing.',
-    tags: ['Arduino Uno', 'MPU6050', 'SG90 Servo', 'Control Systems', 'Embedded'],
+      'Autonomous flight stabilization for a custom glider using IMU sensing and servo feedback to correct control surfaces in real time, improving orientation tracking during test flights.',
+    tags: [
+      'Arduino Uno',
+      'MPU6050',
+      'SG90 Servo',
+      'Control Systems',
+      'Embedded',
+      'IMU',
+      'Flight',
+      'Autonomy'
+    ],
     category: 'Robotics',
     github: '/hardwarehack.png',
     demo: '/projects/glider',
@@ -158,8 +283,17 @@
   {
     title: 'StudyAI',
     description:
-      'An AI powered study assistant that organizes notes generates summaries answers questions and creates flashcards helping students learn efficiently with personalized academic support features for modern digital education platforms globally.',
-    tags: ['React', 'Node.js', 'Tailwind', 'MongoDB', 'Firebase'],
+      'AI study assistant that organizes notes, generates summaries, answers questions, and builds flashcards, delivering personalized learning support and efficient revision workflows for students.',
+    tags: [
+      'React',
+      'Node.js',
+      'Tailwind',
+      'MongoDB',
+      'Firebase',
+      'AI',
+      'Summarization',
+      'Flashcards'
+    ],
     category: 'Full Stack',
     github: '#',
     demo: '/projects/studyai',
@@ -169,8 +303,17 @@
   {
     title: 'PCFR — Protecting Clothes From Rain (IoT)',
     description:
-      'A low cost IoT based home automation system detecting rainfall in real time and automatically protecting drying clothes using sensors Arduino control and servo mechanisms for residential household safety applications.',
-    tags: ['Arduino Uno', 'Rain Sensor', 'SG90 Servo', 'IoT'],
+      'IoT home automation that detects rainfall and protects drying clothes using sensors and Arduino-driven servos, providing reliable, low-cost safety for everyday household use.',
+    tags: [
+      'Arduino Uno',
+      'Rain Sensor',
+      'SG90 Servo',
+      'IoT',
+      'Automation',
+      'Home Safety',
+      'Sensors',
+      'Embedded'
+    ],
     category: 'IoT',
     github: '#',
     demo: '/projects/pcfr',
@@ -180,9 +323,18 @@
   {
     title: 'AntarAtmaa — AI Rockfall Prediction System',
     description:
-      'AI-Based Rockfall Prediction and Alert System for Open-Pit Mines. A Smart India Hackathon 2025 project leveraging machine learning for real-time hazard detection and worker safety in mining operations.',
-    tags: ['AI', 'Machine Learning', 'Safety', 'IoT', 'SIH 2025'],
-    category: ['AI','IoT','Full Stack'],
+      'AI rockfall prediction system for open-pit mines that monitors hazards in real time, triggers alerts, and improves worker safety through machine learning and IoT sensing.',
+    tags: [
+      'Machine Learning',
+      'Safety',
+      'IoT',
+      'SIH 2025',
+      'Hazard Detection',
+      'Real-Time',
+      'Mining',
+      'AI'
+    ],
+    category: ['AI', 'IoT', 'Full Stack'],
     github: 'https://github.com/Jayasurya09s/AntarAtmaa',
     demo: 'https://ganiai.vercel.app/',
     caseStudy: '#',
@@ -191,8 +343,17 @@
   {
     title: 'UniTech — Student Productivity Suite',
     description:
-      'A unified student productivity and utility solution offering various tools and features to enhance academic performance and campus life management.',
-    tags: ['React', 'Node.js', 'Productivity', 'Firebase', 'MongoDB'],
+      'Student productivity suite combining campus utilities, academic tools, and task support, delivering a unified experience that helps users manage studies, schedules, and day-to-day needs.',
+    tags: [
+      'React',
+      'Node.js',
+      'Firebase',
+      'MongoDB',
+      'Productivity',
+      'Student Tools',
+      'Utilities',
+      'Frontend'
+    ],
     category: ['Frontend'],
     github: 'https://github.com/Jayasurya09s/ByteXync-Hunter_Squad',
     demo: '/projects/unitech',
@@ -202,8 +363,17 @@
   {
     title: 'Roomigo — PG Finder',
     description:
-      ' A comprehensive PG/Hostel accommodation finder platform with verified listings, real-time updates, and direct owner communication for students and working professionals.',
-    tags: ['React', 'Firebase', 'Maps API', 'Real-time', 'Location'],
+      'PG and hostel finder with verified listings, real-time updates, maps, and direct owner contact, helping students and professionals discover safe, nearby accommodation quickly.',
+    tags: [
+      'React',
+      'Firebase',
+      'Maps API',
+      'Real-Time',
+      'Location',
+      'Listings',
+      'Verification',
+      'Messaging'
+    ],
     category: 'Full Stack',
     github: '#',
     demo: '/projects/roomigo',
@@ -213,9 +383,18 @@
   {
     title: 'RAAHI — Hazard-Informed Routing',
     description:
-      'An AI-powered disaster-aware navigation system providing hazard-informed routing, real-time alerts, emergency hotspots, offline mode, and a multilingual voice safety assistant.',
-    tags: ['React', 'AI', 'Google Maps', 'FastAPI', 'Disaster Management'],
-    category: ['AI','Full Stack'],
+      'Disaster-aware navigation system that provides hazard-informed routing, real-time alerts, emergency hotspots, offline access, and multilingual voice guidance to support safer travel during crises.',
+    tags: [
+      'React',
+      'AI',
+      'Google Maps',
+      'FastAPI',
+      'Disaster Management',
+      'Offline Mode',
+      'Alerts',
+      'Routing'
+    ],
+    category: ['AI', 'Full Stack'],
     github: 'https://github.com/Jayasurya09s/Raahi-hazard',
     demo: '/projects/raahi',
     caseStudy: '/rvce participation certificate 12.png',
@@ -224,9 +403,18 @@
   {
     title: 'Crop Mentor — AI Agritech Platform',
     description:
-      'An AI-driven agritech system offering soil analysis, crop selection, IoT sensors, fertilizer optimization, voice IVR, yield prediction, and market insights for farmers.',
-    tags: ['React', 'AI', 'IoT', 'FastAPI', 'ML', 'Agriculture'],
-    category: ['AI','IoT','Full Stack'],
+      'AI agritech platform offering soil analysis, crop selection, IoT sensing, fertilizer guidance, yield prediction, and market insights, delivering practical decision support for farmers.',
+    tags: [
+      'React',
+      'AI',
+      'IoT',
+      'FastAPI',
+      'ML',
+      'Agriculture',
+      'Yield Prediction',
+      'Market Insights'
+    ],
+    category: ['AI', 'IoT', 'Full Stack'],
     github: 'https://github.com/Jayasurya09s/Yodha',
     demo: '/projects/cropmentor',
     caseStudy: 'hackman sem iii.pdf',
@@ -234,4 +422,4 @@
   },
 ];
 
-export const categories = ['All', 'AI', 'Full Stack', 'Robotics', 'IoT','Frontend'];
+export const categories = ['All', 'AI', 'Full Stack', 'Robotics', 'IoT', 'Frontend'];

@@ -18,6 +18,8 @@ import NotFound from "./pages/NotFound";
 import PCFR from "./pages/PCFR";
 import GmailToSheets from "./pages/GmailToSheets";
 import PhoenixSystem from "./pages/PhoenixSystem";
+import ProjectsPage from "./pages/ProjectsPage";
+import HackathonsPage from "./pages/HackathonsPage";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +32,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/skills" element={<Skills />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/hackathons" element={<HackathonsPage />} />
           <Route path="/projects/glider" element={<Glider />} />
           <Route path="/projects/ecoai" element={<EcoAI />} />
           <Route path="/projects/unitech" element={<UniTech />} />

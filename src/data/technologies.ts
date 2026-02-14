@@ -13,11 +13,12 @@ export const technologies: Technology[] = [
   { name: 'JavaScript', icon: 'JS', category: 'Frontend', color: '#f7df1e', mastery: 92 },
   { name: 'TypeScript', icon: 'TS', category: 'Frontend', color: '#3178c6', mastery: 85 },
   { name: 'React', icon: '⚛', category: 'Frontend', color: '#61dafb', mastery: 95 },
-  // { name: 'Next.js', icon: '▲', category: 'Frontend', color: '#000000', mastery: 82 },
+  { name: 'Next.js', icon: '▲', category: 'Frontend', color: '#000000', mastery: 82 },
   // { name: 'Vue.js', icon: '💚', category: 'Frontend', color: '#42b883', mastery: 75 },
   { name: 'Angular', icon: '∠', category: 'Frontend', color: '#dd0031', mastery: 70 },
   { name: 'TailwindCSS', icon: '◈', category: 'Frontend', color: '#06b6d4', mastery: 90 },
   { name: 'Bootstrap', icon: 'B', category: 'Frontend', color: '#7952b3', mastery: 85 },
+  { name: 'Material UI', icon: 'MUI', category: 'Frontend', color: '#007fff', mastery: 84 },
   { name: 'jQuery', icon: 'jQ', category: 'Frontend', color: '#0769ad', mastery: 80 },
   // { name: 'Redux', icon: '🔄', category: 'Frontend', color: '#764abc', mastery: 80 },
   { name: 'Framer Motion', icon: 'FM', category: 'Frontend', color: '#ff0055', mastery: 88 },
@@ -35,6 +36,13 @@ export const technologies: Technology[] = [
   { name: 'FastAPI', icon: '⚡', category: 'Backend', color: '#009688', mastery: 82 },
   // {{ name: 'Flask', icon: '🧪', category: 'Backend', color: '#000000', mastery: 80 },
   { name: 'REST APIs', icon: 'API', category: 'Backend', color: '#61dafb', mastery: 90 },
+  { name: 'Socket.io', icon: 'SIO', category: 'Backend', color: '#010101', mastery: 82 },
+  { name: 'JWT', icon: 'JWT', category: 'Backend', color: '#f97316', mastery: 86 },
+  { name: 'OAuth 2.0', icon: 'OA', category: 'Backend', color: '#1d4ed8', mastery: 82 },
+  { name: 'Gmail API', icon: 'GM', category: 'Backend', color: '#ea4335', mastery: 78 },
+  { name: 'Google Sheets API', icon: 'GS', category: 'Backend', color: '#34a853', mastery: 78 },
+  { name: 'Mongoose', icon: 'Mg', category: 'Backend', color: '#880000', mastery: 82 },
+  { name: 'Zod', icon: 'Z', category: 'Backend', color: '#3b82f6', mastery: 80 },
   // { name: 'GraphQL', icon: '📊', category: 'Backend', color: '#e10098', mastery: 75 },
   { name: 'WebSockets', icon: 'WS', category: 'Backend', color: '#ff0055', mastery: 82 },
   // { name: 'Java', icon: '☕', category: 'Backend', color: '#007396', mastery: 80 },
@@ -48,8 +56,10 @@ export const technologies: Technology[] = [
   { name: 'Pandas', icon: 'Pd', category: 'AI/ML', color: '#150458', mastery: 88 },
   { name: 'NumPy', icon: 'NP', category: 'AI/ML', color: '#013243', mastery: 87 },
   { name: 'OpenCV', icon: 'CV', category: 'AI/ML', color: '#5c3ee8', mastery: 78 },
+  { name: 'YOLO', icon: 'YO', category: 'AI/ML', color: '#22c55e', mastery: 76 },
   // { name: 'Keras', icon: '🎯', category: 'AI/ML', color: '#d00000', mastery: 80 },
   { name: 'OpenAI API', icon: 'OAI', category: 'AI/ML', color: '#412991', mastery: 85 },
+  { name: 'OpenRouter', icon: 'OR', category: 'AI/ML', color: '#9333ea', mastery: 80 },
   { name: 'Generative AI', icon: '✨', category: 'AI/ML', color: '#6f42c1', mastery: 85 },
   // { name: 'LangChain', icon: '🦜', category: 'AI/ML', color: '#1c3c3c', mastery: 82 },
   { name: 'Hugging Face', icon: '🤗', category: 'AI/ML', color: '#ff9d00', mastery: 75 },
@@ -64,11 +74,9 @@ export const technologies: Technology[] = [
   { name: 'IPFS', icon: '◆', category: 'Blockchain', color: '#65c2cb', mastery: 75 },
   // { name: 'Truffle', icon: '🍫', category: 'Blockchain', color: '#5e464d', mastery: 72 },
 
-  // // Cloud & DevOps
-  // { name: 'AWS', icon: '☁️', category: 'Cloud & DevOps', color: '#ff9900', mastery: 85 },
-  // { name: 'Azure', icon: '🔷', category: 'Cloud & DevOps', color: '#0089d6', mastery: 78 },
-  // { name: 'Google Cloud', icon: '🌩️', category: 'Cloud & DevOps', color: '#4285f4', mastery: 80 },
-  // { name: 'Docker', icon: '🐳', category: 'Cloud & DevOps', color: '#2496ed', mastery: 88 },
+  // Cloud & DevOps
+  { name: 'Docker', icon: '🐳', category: 'Cloud & DevOps', color: '#2496ed', mastery: 86 },
+  { name: 'Vercel', icon: '▲', category: 'Cloud & DevOps', color: '#000000', mastery: 84 },
   // { name: 'Kubernetes', icon: '☸️', category: 'Cloud & DevOps', color: '#326ce5', mastery: 75 },
   // { name: 'Jenkins', icon: '🔨', category: 'Cloud & DevOps', color: '#d24939', mastery: 72 },
   // { name: 'GitHub Actions', icon: '🚀', category: 'Cloud & DevOps', color: '#2088ff', mastery: 85 },
@@ -86,6 +94,9 @@ export const technologies: Technology[] = [
   { name: 'Raspberry Pi', icon: 'RPi', category: 'IoT & Robotics', color: '#c51a4a', mastery: 80 },
   { name: 'MQTT', icon: '◉', category: 'IoT & Robotics', color: '#660066', mastery: 78 },
   { name: 'Sensors', icon: '⊙', category: 'IoT & Robotics', color: '#0066cc', mastery: 85 },
+  { name: 'MPU6050', icon: 'IMU', category: 'IoT & Robotics', color: '#38bdf8', mastery: 78 },
+  { name: 'SG90 Servo', icon: 'SRV', category: 'IoT & Robotics', color: '#f59e0b', mastery: 80 },
+  { name: 'Rain Sensor', icon: 'RS', category: 'IoT & Robotics', color: '#60a5fa', mastery: 76 },
   // { name: 'ROS', icon: '🦾', category: 'IoT & Robotics', color: '#22314e', mastery: 70 },
 
   // // Cybersecurity
@@ -115,6 +126,7 @@ export const technologies: Technology[] = [
   // { name: 'Jira', icon: '📋', category: 'Tools & IDEs', color: '#0052cc', mastery: 75 },
   // { name: 'Slack', icon: '💬', category: 'Tools & IDEs', color: '#4a154b', mastery: 88 },
   { name: 'Notion', icon: 'N', category: 'Tools & IDEs', color: '#06b6d4', mastery: 85 },
+  { name: 'Chrome Extensions', icon: 'CE', category: 'Tools & IDEs', color: '#10b981', mastery: 80 },
   
   // GenAI Tools
   { name: 'Cursor', icon: '⌘', category: 'GenAI Tools', color: '#000000', mastery: 90 },
@@ -128,14 +140,10 @@ export const technologies: Technology[] = [
 
 export const categories = [
   'All',
-  'Frontend',
-  'Backend',
-  'AI/ML',
-  'Blockchain',
-  
-  'IoT & Robotics',
-  'Cybersecurity',
-  'Databases',
-  'Tools & IDEs',
-  'GenAI Tools'
+  ...technologies.reduce<string[]>((acc, tech) => {
+    if (!acc.includes(tech.category)) {
+      acc.push(tech.category);
+    }
+    return acc;
+  }, []),
 ];

@@ -1,62 +1,80 @@
 import { motion, useMotionValue, animate } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 
-import { SplineScene } from "./SplineScene";
+const LazySplineScene = lazy(() => import("./SplineScene").then((mod) => ({ default: mod.SplineScene })));
 import { ArrowRight, Code2, Cpu, Database } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useNavigate  }  from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { technologies } from '@/data/technologies';
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiTypescript,
+  SiFramer,
+  SiThreedotjs,
+  SiVite,
+  SiNodedotjs,
+  SiExpress,
+  SiFastapi,
+  SiPython,
+  SiC,
+  SiCplusplus,
+  SiMongodb,
+  SiPostgresql,
+  SiMysql,
+  SiSqlite,
+  SiFirebase,
+  SiDocker,
+  SiVercel,
+  SiSocketdotio,
+  SiJsonwebtokens,
+  SiOpenai,
+  SiPandas,
+  SiNumpy,
+  SiScikitlearn,
+  SiTensorflow,
+  SiArduino,
+  SiRaspberrypi,
+} from 'react-icons/si';
 
-/* ---------------------------------------------
-   FULL 32-TECH LIST 
---------------------------------------------- */
-const techItems = [
-  // Frontend
-  { name: "React.js", icon: "⚛️" },
-  { name: "Next.js", icon: "▲" },
-  { name: "Tailwind CSS", icon: "💨" },
-  { name: "HTML5", icon: "🌐" },
-  { name: "CSS3", icon: "🎨" },
-  { name: "Framer Motion", icon: "🎬" },
-
-  // Backend
-  { name: "Node.js", icon: "🟢" },
-  { name: "Express.js", icon: "🚀" },
-  { name: "FastAPI", icon: "⚡" },
-  { name: "REST APIs", icon: "🔗" },
-
-  // Authentication & Cloud
-  { name: "Firebase Auth", icon: "🛡️" },
-  { name: "JWT Authentication", icon: "🔐" },
-  { name: "MongoDB", icon: "🍃" },
-  { name: "Firebase Firestore", icon: "🔥" },
-  { name: "SQLite", icon: "🗄️" },
-  { name: "Vercel", icon: "▲" },
-
-  // AI & ML
-  { name: "scikit-learn", icon: "📊" },
-  { name: "TensorFlow Lite", icon: "🧠" },
-  { name: "YOLO (Object Detection)", icon: "🎯" },
-  { name: "OpenCV", icon: "👁️" },
-  { name: "TorchScript", icon: "🔥" },
-  
-
-  // IoT & Embedded
-  { name: "Arduino Uno", icon: "🛠️" },
-  { name: "ESP32", icon: "📡" },
-  { name: "IoT Sensors (DHT11, Rain, Soil)", icon: "🧪" },
-  { name: "MPU6050", icon: "📐" },
-  { name: "SG90 Servo", icon: "⚙️" },
-
-  // Tools & DevOps
-  { name: "Chrome Extensions", icon: "🧩" },
-  { name: "Git & GitHub", icon: "🐙" },
-  { name: "Postman", icon: "📮" },
-
-  // Web3
-  { name: "Solidity", icon: "⚙️" },
-  { name: "Hardhat", icon: "⛏️" },
-  { name: "IPFS", icon: "📦" }
-];
+const techIconMap: Record<string, React.ComponentType> = {
+  React: SiReact,
+  'Next.js': SiNextdotjs,
+  TailwindCSS: SiTailwindcss,
+  HTML: SiHtml5,
+  CSS: SiCss3,
+  JavaScript: SiJavascript,
+  TypeScript: SiTypescript,
+  'Framer Motion': SiFramer,
+  'Three.js': SiThreedotjs,
+  Vite: SiVite,
+  'Node.js': SiNodedotjs,
+  'Express.js': SiExpress,
+  FastAPI: SiFastapi,
+  Python: SiPython,
+  C: SiC,
+  'C++': SiCplusplus,
+  MongoDB: SiMongodb,
+  PostgreSQL: SiPostgresql,
+  MySQL: SiMysql,
+  SQLite: SiSqlite,
+  Firebase: SiFirebase,
+  Docker: SiDocker,
+  Vercel: SiVercel,
+  'Socket.io': SiSocketdotio,
+  JWT: SiJsonwebtokens,
+  'OpenAI API': SiOpenai,
+  Pandas: SiPandas,
+  NumPy: SiNumpy,
+  'Scikit-learn': SiScikitlearn,
+  TensorFlow: SiTensorflow,
+  Arduino: SiArduino,
+  'Raspberry Pi': SiRaspberrypi,
+};
 
 /* ---------------------------------------------
    GENERATE 32 CIRCULAR POSITIONS (CLOCKWISE)
@@ -84,38 +102,26 @@ function generateCircularPositions(radius = 380, count = 32, isMobile = false) {
 /* ---------------------------------------------
    GENERATE 32 SQUARE POSITIONS (CLOCKWISE)
 --------------------------------------------- */
-function generateSquarePositions(size = 380, isMobile = false) {
+function generateSquarePositions(size = 380, count = 32, isMobile = false) {
   // Adjust size for mobile
   const adjustedSize = isMobile ? size * 0.4 : size;
   const positions = [];
 
-  const topY = -adjustedSize;
-  const bottomY = adjustedSize;
-  const leftX = -adjustedSize;
-  const rightX = adjustedSize;
+  const half = adjustedSize;
+  const perimeter = 8 * half;
 
-  // TOP (9)
-  for (let i = 0; i < 9; i++) {
-    const x = leftX + (i * (2 * adjustedSize)) / 8;
-    positions.push({ x, y: topY });
-  }
+  for (let i = 0; i < count; i++) {
+    const distance = (i * perimeter) / count;
 
-  // RIGHT (7)
-  for (let i = 1; i <= 7; i++) {
-    const y = topY + (i * (2 * adjustedSize)) / 8;
-    positions.push({ x: rightX, y });
-  }
-
-  // BOTTOM (9)
-  for (let i = 8; i >= 0; i--) {
-    const x = leftX + (i * (2 * adjustedSize)) / 8;
-    positions.push({ x, y: bottomY });
-  }
-
-  // LEFT (7)
-  for (let i = 7; i >= 1; i--) {
-    const y = topY + (i * (2 * adjustedSize)) / 8;
-    positions.push({ x: leftX, y });
+    if (distance < 2 * half) {
+      positions.push({ x: -half + distance, y: -half });
+    } else if (distance < 4 * half) {
+      positions.push({ x: half, y: -half + (distance - 2 * half) });
+    } else if (distance < 6 * half) {
+      positions.push({ x: half - (distance - 4 * half), y: half });
+    } else {
+      positions.push({ x: -half, y: half - (distance - 6 * half) });
+    }
   }
 
   return positions;
@@ -182,9 +188,14 @@ function OrbitingTech({ items, positions }) {
             y: motionPoints[i].y
           }}
         >
-          <div className="glass-panel p-2 sm:p-4 rounded-full border-2 border-neon-violet/40 w-14 h-14 sm:w-20 sm:h-20 lg:w-24 lg:h-24 flex flex-col items-center justify-center hover:scale-110 transition-transform duration-300 group">
-            <div className="text-lg sm:text-2xl lg:text-3xl text-center mb-0 sm:mb-1">{tech.icon}</div>
-            <div className="text-[8px] sm:text-[10px] font-semibold text-neon-violet text-center opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-6 sm:-bottom-8 whitespace-nowrap">
+          <div
+            className="glass-panel p-2 sm:p-4 rounded-full border-2 w-14 h-14 sm:w-20 sm:h-20 lg:w-24 lg:h-24 flex flex-col items-center justify-center hover:scale-110 transition-transform duration-300 group"
+            style={{ borderColor: `${tech.color}66`, boxShadow: `0 0 18px ${tech.color}33` }}
+          >
+            <div className="text-lg sm:text-2xl lg:text-3xl text-center mb-0 sm:mb-1" style={{ color: tech.color }}>
+              <tech.Icon />
+            </div>
+            <div className="text-[8px] sm:text-[10px] font-semibold text-center opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-6 sm:-bottom-8 whitespace-nowrap" style={{ color: tech.color }}>
               {tech.name}
             </div>
           </div>
@@ -202,6 +213,12 @@ export function TechShowcase() {
   const [isCircular, setIsCircular] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
+  const techItems = technologies.slice(0, 32).map((tech) => ({
+    name: tech.name,
+    color: tech.color,
+    Icon: techIconMap[tech.name] ?? SiReact,
+  }));
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1024);
@@ -211,8 +228,8 @@ export function TechShowcase() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const circularPositions = generateCircularPositions(380, 32, isMobile);
-  const squarePositions = generateSquarePositions(380, isMobile);
+  const circularPositions = generateCircularPositions(380, techItems.length, isMobile);
+  const squarePositions = generateSquarePositions(380, techItems.length, isMobile);
   const currentPositions = isCircular ? circularPositions : squarePositions;
 
   const handleInteraction = () => {
@@ -258,10 +275,16 @@ export function TechShowcase() {
               }
             }}
           >
-            <SplineScene
-              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-              className="w-full h-full"
-            />
+            <Suspense
+              fallback={
+                <div className="w-full h-full rounded-full bg-neon-blue/10 border border-neon-blue/20 animate-pulse" />
+              }
+            >
+              <LazySplineScene
+                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                className="w-full h-full"
+              />
+            </Suspense>
           </div>
 
 

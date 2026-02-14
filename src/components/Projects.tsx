@@ -3,19 +3,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, FileText } from 'lucide-react';
-import { useState } from 'react';
-import { projectsData, categories } from '@/data/projects';
+import { Link } from 'react-router-dom';
+import { projectsData } from '@/data/projects';
 
 export const Projects = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-
-  const filteredProjects = selectedCategory === 'All' 
-    ? projectsData 
-    : projectsData.filter(p => 
-        Array.isArray(p.category) 
-          ? p.category.includes(selectedCategory) 
-          : p.category === selectedCategory
-      );
+  const visibleProjects = projectsData.slice(0, 6);
 
   return (
     <section id="projects" className="relative py-20">
@@ -28,33 +20,17 @@ export const Projects = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-neon-blue text-glow-blue">Featured</span>{' '}
+            <span className="text-neon-blue text-glow-blue">Recent</span>{' '}
             <span className="text-neon-violet text-glow-violet">Projects</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Cutting-edge applications showcasing innovation across multiple domains
           </p>
 
-          {/* Category Filters */}
-          <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                variant={selectedCategory === category ? 'default' : 'outline'}
-                className={selectedCategory === category 
-                  ? 'bg-neon-blue text-space-dark border-neon-blue neon-border' 
-                  : 'border-neon-violet text-neon-violet hover:bg-neon-violet/10'
-                }
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {filteredProjects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -175,6 +151,18 @@ export const Projects = () => {
             </motion.div>
           ))}
         </div>
+
+        {projectsData.length > 6 && (
+          <div className="flex justify-center mt-10">
+            <Button
+              asChild
+              variant="outline"
+              className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan/10"
+            >
+              <Link to="/projects">More Projects</Link>
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
