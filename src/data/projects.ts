@@ -1,5 +1,27 @@
 export const projectsData = [
   {
+  title: 'KanbanAI – Realtime WebSocket-Powered Project Management Platform',
+  description:
+    'A production-grade real-time Kanban management platform built with WebSockets for multi-user collaboration, featuring drag-and-drop task workflows, cloud file attachments, analytics visualization, activity logging, and comprehensive unit/integration/E2E testing. Designed with a modern SaaS dashboard UI and deployed with scalable backend architecture.',
+  tags: [
+    'React',
+    'Node.js',
+    'MongoDB',
+    'Socket.IO',
+    'WebSockets',
+    'Cloudinary',
+    'JWT',
+    'Vitest',
+    'Playwright',
+    'TailwindCSS'
+  ],
+  category: ['Full Stack Development', 'Realtime Systems', 'Testing'],
+  github: 'https://github.com/Jayasurya09s/websocket-kanban-vitest-playwright-2026',
+  demo: 'https://kanbanflow-xi.vercel.app/',
+  caseStudy: '#',
+  gradient: 'from-indigo-600 to-pink-600',
+},
+  {
   title: 'Indian Chess Academy (ICA) – AI-Powered Academy Management Platform',
   description:
     'Full-stack academy management platform that automates onboarding, enrollment, and payments with RBAC, event-driven workflows, and a RAG-based assistant for role-aware support and operations insight.',
