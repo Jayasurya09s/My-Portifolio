@@ -1,5 +1,27 @@
 export const projectsData = [
   {
+  title: 'SyncDraft – AI-Powered Notion-Style Blog Editor Platform',
+  description:
+    'A production-grade full-stack blog editing platform built with Lexical and Zustand for structured state management, featuring intelligent debounced auto-save, AI-powered summarization and grammar correction, JWT authentication, draft-to-publish workflows, and public article viewing. Designed with a modern SaaS-inspired UI and deployed with scalable FastAPI backend architecture.',
+  tags: [
+    'React',
+    'TypeScript',
+    'FastAPI',
+    'MongoDB',
+    'Zustand',
+    'Lexical',
+    'OpenRouter',
+    'JWT',
+    'TailwindCSS',
+    'Render'
+  ],
+  category: ['Full Stack Development', 'AI Integration', 'System Architecture'],
+  github: 'https://github.com/Jayasurya09s/Writr',
+  demo: 'https://writr-two.vercel.app/',
+  caseStudy: '#',
+  gradient: 'from-emerald-600 to-teal-600',
+},
+  {
   title: 'KanbanAI – Realtime WebSocket-Powered Project Management Platform',
   description:
     'A production-grade real-time Kanban management platform built with WebSockets for multi-user collaboration, featuring drag-and-drop task workflows, cloud file attachments, analytics visualization, activity logging, and comprehensive unit/integration/E2E testing. Designed with a modern SaaS dashboard UI and deployed with scalable backend architecture.',
