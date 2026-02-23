@@ -153,7 +153,7 @@ export const Contact = () => {
                       disabled={isSending}
                     >
                       <Send className="mr-2" size={20} />
-                      {isSending ? 'Sending...' : 'Send via Contact API'}
+                      {isSending ? 'Sending...' : 'Send via Gmail '}
                     </Button>
 
                     {statusMessage && (
