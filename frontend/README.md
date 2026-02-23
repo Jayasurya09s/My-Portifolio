@@ -1,172 +1,230 @@
-# Jayanth - Portfolio Website
+# Frontend Documentation — Jayanth Galaxy Portfolio
 
-A modern, interactive portfolio website showcasing full-stack projects, AI/ML applications, robotics systems, and IoT innovations. Built with React, TypeScript, Tailwind CSS, and Three.js for an immersive visual experience.
+This folder contains the complete React + Vite frontend for the portfolio website.
 
-## 🌟 Features
+## 1) Stack and Runtime
 
-- **Interactive Hero Section** - Animated nebula background with custom cursor effects
-- **Project Showcase** - Detailed case studies for 10+ projects across multiple categories
-- **Tech Stack Display** - Visual representation of technical skills with mastery levels
-- **Smooth Animations** - Framer Motion animations and Three.js 3D scenes
-- **Responsive Design** - Fully responsive across desktop, tablet, and mobile devices
-- **Contact Integration** - Easy way to get in touch with form validation
-- **Dark Theme** - Modern dark-themed UI with neon accent colors
+- React 18 + TypeScript
+- Vite 5
+- Tailwind CSS + shadcn/ui + Radix primitives
+- Framer Motion animations
+- React Router v6
 
-##  Quick Start
-
-### Prerequisites
-- Node.js 16+ or Bun
-- npm, yarn, or bun package manager
-
-### Installation
+## 2) Quick Start
 
 ```bash
-# Clone the repository
-git clone <repository-url>
-
-# Navigate to project directory
-cd jayanth-galaxy
-
-# Install dependencies
+cd frontend
 npm install
-# or
-bun install
-```
-
-### Development
-
-```bash
-# Start development server
 npm run dev
-# or
-bun run dev
 ```
 
-The site will be available at `http://localhost:5173`
-
-### Build
+Build for production:
 
 ```bash
-# Production build
 npm run build
-# or
-bun run build
-
-# Preview production build
 npm run preview
 ```
 
-## 📁 Project Structure
+## 3) Frontend File Map
 
+### Core files
+
+- `src/main.tsx`: app bootstrap
+- `src/App.tsx`: all route definitions
+- `src/index.css`: global design tokens and utility styling
+- `src/lib/utils.ts`: shared utility helpers
+- `src/lib/api.ts`: backend API client for contact + resume chat
+
+### Data-driven content (dynamic)
+
+- `src/data/projects.ts`: single source of truth for project cards
+- `src/data/hackathons.ts`: hackathon entries
+- `src/data/technologies.ts`: tech stack data
+
+If you add projects in `projects.ts`, they automatically appear in:
+
+- Homepage recent projects section (`Projects.tsx`)
+- Full archive page (`ProjectsPage.tsx`)
+- Animated counters (`AnimatedStats.tsx`)
+
+### Components
+
+- `Navbar.tsx`: top navigation
+- `Hero.tsx`: landing section
+- `AnimatedStats.tsx` + `CounterStat.tsx`: numeric counters
+- `Projects.tsx`: recent projects (first 6 from data)
+- `TechShowcase.tsx`: skill/technology display
+- `Hackathons.tsx`: hackathon highlight section
+- `ResumeChat.tsx`: AI chat UI connected to backend `/api/resume-chat`
+- `Contact.tsx`: contact form connected to backend `/api/contact` (with mailto fallback)
+- Visual/background effects:
+	- `Starfield.tsx`
+	- `NebulaBackground.tsx`
+	- `FloatingParticles.tsx`
+	- `CustomCursor.tsx`
+
+### Hooks
+
+- `useSmoothScroll.ts`: smooth scroll behavior
+- `use-mobile.tsx`: mobile viewport helper
+- `use-toast.ts`: toast state integration
+
+## 4) Route Documentation (All Pages)
+
+Defined in `src/App.tsx`.
+
+### Main routes
+
+- `/` → `Index.tsx` (home page)
+- `/skills` → `Skills.tsx`
+- `/projects` → `ProjectsPage.tsx` (search + category filters)
+- `/hackathons` → `HackathonsPage.tsx`
+
+### Project detail routes
+
+- `/projects/glider` → `Glider.tsx`
+- `/projects/ecoai` → `EcoAI.tsx`
+- `/projects/unitech` → `UniTech.tsx`
+- `/projects/studyai` → `StudyAI.tsx`
+- `/projects/roomigo` → `Roomigo.tsx`
+- `/projects/raahi` → `Raahi.tsx`
+- `/projects/cropmentor` → `CropMentor.tsx`
+- `/projects/cpu-scheduler` → `CpuScheduler.tsx`
+- `/projects/nerobot` → `NeroBot.tsx`
+- `/projects/pcfr` → `PCFR.tsx`
+- `/projects/gmail-to-sheets` → `GmailToSheets.jsx`
+- `/projects/phoenix-system` → `PhoenixSystem.tsx`
+
+### Fallback
+
+- `*` → `NotFound.tsx`
+
+## 5) Environment Variables
+
+Use `.env` (template available in `.env.example`):
+
+```env
+VITE_API_BASE_URL=http://localhost:8080
 ```
-src/
-├── components/          # React components
-│   ├── Hero.tsx        # Landing section
-│   ├── Projects.tsx    # Projects showcase
-│   ├── TechShowcase.tsx # Technology stack
-│   ├── Hackathons.tsx  # Hackathon achievements
-│   ├── Contact.tsx     # Contact form
-│   ├── Navbar.tsx      # Navigation
-│   ├── AnimatedStats.tsx # Statistics display
-│   ├── CustomCursor.tsx # Custom cursor effect
-│   ├── FloatingParticles.tsx # Particle animations
-│   ├── NebulaBackground.tsx # Background effects
-│   ├── Starfield.tsx   # Star animation
-│   └── ui/             # Shadcn UI components
-├── pages/              # Project detail pages
-├── data/               # Static data
-│   ├── projects.ts     # Project information
-│   ├── technologies.ts # Tech stack
-│   └── hackathons.ts   # Hackathon data
-├── hooks/              # Custom React hooks
-├── lib/                # Utility functions
-├── App.tsx             # Main app component
-└── main.tsx            # Entry point
+
+Behavior:
+
+- If `VITE_API_BASE_URL` is set, API calls go to that origin.
+- If not set, frontend calls relative paths (`/api/...`) so same-domain deployments work.
+
+## 6) Backend Integration Contract (for your backend implementation)
+
+Frontend now expects these endpoints:
+
+### A) Contact API (Brevo-ready)
+
+- `POST /api/contact`
+- Request body:
+
+```json
+{
+	"name": "string",
+	"email": "string",
+	"message": "string"
+}
 ```
 
-## 🛠️ Tech Stack
+- Success response:
 
-### Frontend
-- **React 18** - UI library
-- **TypeScript** - Type safety
-- **Vite** - Build tool & dev server
-- **Tailwind CSS** - Utility-first CSS
-- **Framer Motion** - Animations
-- **Three.js** - 3D graphics
-- **shadcn/ui** - Component library
-- **Radix UI** - Headless UI components
-
-### Development Tools
-- **ESLint** - Code linting
-- **PostCSS** - CSS processing
-- **Tailwind CSS** - Style framework
-
-## 📋 Available Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Create production build |
-| `npm run build:dev` | Build in development mode |
-| `npm run lint` | Run ESLint checks |
-| `npm run preview` | Preview production build locally |
-
-##  Customization
-
-### Colors & Themes
-Modify the Tailwind configuration in `tailwind.config.ts` to change color schemes and theme.
-
-### Content
-Update project data in `src/data/projects.ts` and technology data in `src/data/technologies.ts`.
-
-### Animations
-Adjust animation settings in individual component files using Framer Motion props.
-
-## 📱 Responsive Breakpoints
-
-- Mobile: < 640px
-- Tablet: 640px - 1024px
-- Desktop: > 1024px
-
-##  Deployment
-
-The project is configured for easy deployment on Vercel:
-
-```bash
-# Deploy to Vercel
-npm run build
+```json
+{
+	"ok": true,
+	"message": "Message sent successfully"
+}
 ```
 
-Or use the `vercel.json` configuration file for automatic deployments.
+- Error response:
 
-##  Performance
+```json
+{
+	"ok": false,
+	"message": "Readable error message"
+}
+```
 
-- Optimized asset loading with Vite
-- Tree-shaking for minimal bundle size
-- Lazy loading of heavy components
-- Optimized animations using GPU acceleration
+Brevo backend suggestion:
 
-## 🤝 Contributing
+- Use Brevo transactional email API with sender verification.
+- Validate input server-side.
+- Add basic rate limiting.
 
-Feel free to fork, modify, and use this portfolio template for your own purposes.
+### B) Resume AI Chat API
 
-##  License
+- `POST /api/resume-chat`
+- Request body:
 
-This project is open source and available under the MIT License.
+```json
+{
+	"question": "string",
+	"history": [
+		{ "role": "user", "content": "..." },
+		{ "role": "assistant", "content": "..." }
+	]
+}
+```
 
-##  About
+- Success response:
 
-This portfolio website showcases:
-- **Full Stack Development** - MERN stack projects
-- **AI/ML Applications** - Prompt optimization, artifact verification
-- **Robotics & IoT** - Underwater robotics, autonomous systems
-- **System Design** - CPU scheduling, OS concepts
-- **Hackathons** - Smart India Hackathon, campus competitions
+```json
+{
+	"answer": "string",
+	"sources": ["optional source names"]
+}
+```
 
-##  Get In Touch
+Implementation suggestion for accurate resume answers:
 
-Visit the Contact section on the website or reach out through the contact form to discuss collaborations and opportunities.
+- Ingest and chunk resume content (e.g., `public/lastresume.pdf`).
+- Create embeddings and store in vector DB.
+- On each question, retrieve top-k chunks and generate answer with grounded context.
+- Return concise answer + optional sources.
 
----
+## 7) Vercel Deployment (Fixed for your monorepo structure)
 
-**Built  using React, TypeScript, and Tailwind CSS**
+Your error happened because Vercel tried to run `npm install` at repo root, but `package.json` is inside `frontend`.
+
+Fix applied:
+
+- Root `vercel.json` added to run install/build from `frontend`.
+- Frontend `vercel.json` rewrite corrected for SPA routing.
+
+### Recommended Vercel Project Settings
+
+- Root Directory: repository root (default)
+- Build uses root `vercel.json`:
+	- `installCommand`: `cd frontend && npm install`
+	- `buildCommand`: `cd frontend && npm run build`
+	- `outputDirectory`: `frontend/dist`
+
+For backend + frontend together later:
+
+- Option 1: Keep frontend on Vercel and backend on Render/Railway/Fly; set `VITE_API_BASE_URL`.
+- Option 2: Add Vercel Functions in repo for `/api/contact` and `/api/resume-chat`.
+
+## 8) How to Add New Projects Correctly
+
+Add a new object to `src/data/projects.ts` with these keys:
+
+- `title`
+- `description`
+- `tags` (string array)
+- `category` (string or string array)
+- `github`
+- `demo`
+- `caseStudy`
+- `gradient`
+
+The UI automatically updates in project sections and counters.
+
+## 9) Scripts
+
+- `npm run dev`: local dev server
+- `npm run build`: production build
+- `npm run build:dev`: development-mode build
+- `npm run lint`: lint checks
+- `npm run preview`: preview built app

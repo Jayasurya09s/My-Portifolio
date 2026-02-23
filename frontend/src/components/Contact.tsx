@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Github, Linkedin, Twitter, Send, ExternalLink } from 'lucide-react';
+import { sendContactMessage } from '@/lib/api';
 
 const socialLinks = [
   { icon: Github, label: 'GitHub', href: 'https://github.com/Jayasurya09s', color: 'neon-blue' },
@@ -21,6 +22,8 @@ export const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isSending, setIsSending] = useState(false);
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
 
   // ----------------------------
   // EMAIL CLIENT HANDLER
@@ -30,6 +33,35 @@ export const Contact = () => {
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
     const mailtoLink = `mailto:jayanthjay751@gmail.com?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
+  };
+
+  const handleBackendSubmit = async () => {
+    const payload = {
+      name: name.trim(),
+      email: email.trim(),
+      message: message.trim(),
+    };
+
+    if (!payload.name || !payload.email || !payload.message) {
+      setStatusMessage('Please fill name, email, and message before sending.');
+      return;
+    }
+
+    try {
+      setIsSending(true);
+      setStatusMessage(null);
+      const response = await sendContactMessage(payload);
+      setStatusMessage(response.message || 'Message sent successfully.');
+      setMessage('');
+    } catch (error) {
+      setStatusMessage(
+        error instanceof Error
+          ? `${error.message} (You can still use direct email below.)`
+          : 'Failed to send via backend. You can still use direct email below.',
+      );
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -115,13 +147,18 @@ export const Contact = () => {
                   <div className="flex flex-col gap-3">
                     <Button
                       type="button"
-                      onClick={handleEmailClient}
+                      onClick={handleBackendSubmit}
                       size="lg"
                       className="w-full bg-neon-blue text-space-dark hover:bg-neon-cyan border-2 border-neon-blue hover:border-neon-cyan neon-border font-semibold"
+                      disabled={isSending}
                     >
-                      <Mail className="mr-2" size={20} />
-                      Open in Gmail/Outlook
+                      <Send className="mr-2" size={20} />
+                      {isSending ? 'Sending...' : 'Send via Contact API'}
                     </Button>
+
+                    {statusMessage && (
+                      <p className="text-sm text-muted-foreground">{statusMessage}</p>
+                    )}
 
                     <div className="relative">
                       <div className="absolute inset-0 flex items-center">
@@ -141,9 +178,10 @@ export const Contact = () => {
                         variant="outline"
                         size="lg"
                         className="w-full border-neon-violet/30 hover:border-neon-violet hover:bg-neon-violet/10"
+                        onClick={handleEmailClient}
                       >
                         <ExternalLink className="mr-2" size={20} />
-                        jayanthjay751@gmail.com
+                        Open in Gmail/Outlook
                       </Button>
                     </a>
                   </div>
