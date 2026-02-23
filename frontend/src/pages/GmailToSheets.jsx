@@ -142,7 +142,7 @@ const GmailToSheets = () => {
 
               <div className="rounded-lg overflow-hidden border border-border/40">
                 <video
-                  src="/videos/gmail-to-sheets-demo.mp4"
+                    src="/videos/gmail-to-sheets-demo.mp4"
                   controls
                   className="w-full"
                 />

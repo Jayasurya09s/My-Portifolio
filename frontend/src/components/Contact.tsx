@@ -253,7 +253,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm mb-1 text-neon-blue">Current Status</p>
-                  <p className="font-medium text-foreground">3rd Semester Undergraduate Student</p>
+                  <p className="font-medium text-foreground">4th Semester Undergraduate Student</p>
                 </div>
                 <div>
                   <p className="text-sm mb-1 text-neon-cyan">Availability</p>

@@ -99,7 +99,7 @@ export const Hero = () => {
                 size="lg"
                 variant="outline"
                 className="border-2 border-neon-violet text-neon-violet hover:bg-neon-violet/10 hover:text-neon-violet transition-all duration-300 font-semibold text-base sm:text-lg"
-                onClick={() => window.open("/lastresume.pdf", "_blank")}
+                onClick={() => window.open('/lastresume.pdf', '_blank')}
               >
                 <Download className="mr-2" size={20} />
                 Download Resume

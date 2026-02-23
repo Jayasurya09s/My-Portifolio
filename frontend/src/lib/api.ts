@@ -31,6 +31,8 @@ const postJson = async <TResponse>(
     const message =
       (body && typeof body === 'object' && 'message' in body && typeof body.message === 'string'
         ? body.message
+        : body && typeof body === 'object' && 'detail' in body && typeof body.detail === 'string'
+          ? body.detail
         : null) ||
       'Request failed. Please try again.';
     throw new Error(message);

@@ -5,7 +5,6 @@ import { AnimatedStats } from '@/components/AnimatedStats';
 import { Projects } from '@/components/Projects';
 import { Hackathons } from '@/components/Hackathons';
 import { Contact } from '@/components/Contact';
-import { ResumeChat } from '@/components/ResumeChat';
 import { TechShowcase } from '@/components/TechShowcase';
 import { CustomCursor } from '@/components/CustomCursor';
 import { FloatingParticles } from '@/components/FloatingParticles';
@@ -32,7 +31,6 @@ const Index = () => {
       <Projects />
       <TechShowcase />
       <Hackathons />
-      <ResumeChat />
       <Contact />
       
       {/* Footer */}
