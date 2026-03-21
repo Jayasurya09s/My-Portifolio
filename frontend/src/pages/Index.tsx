@@ -9,12 +9,12 @@ import { TechShowcase } from '@/components/TechShowcase';
 import { CustomCursor } from '@/components/CustomCursor';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
+import { usePortfolioData } from '@/hooks/usePortfolioData';
 import { technologies } from '@/data/technologies';
-import { projectsData } from '@/data/projects';
-import { hackathonsData } from '@/data/hackathons';
 
 const Index = () => {
   useSmoothScroll();
+  const { stats } = usePortfolioData();
 
   return (
     <div className="relative min-h-screen">
@@ -24,9 +24,9 @@ const Index = () => {
       <Navbar />
       <Hero />
       <AnimatedStats
-        projectsCount={projectsData.length}
-        hackathonsCount={hackathonsData.length}
-        techCount={technologies.length}
+        projectsCount={stats.projectsCount}
+        hackathonsCount={stats.hackathonsCount}
+        techCount={stats.technologiesCount || technologies.length}
       />
       <Projects />
       <TechShowcase />

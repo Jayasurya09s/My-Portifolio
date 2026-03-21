@@ -193,7 +193,13 @@ function OrbitingTech({ items, positions }) {
             style={{ borderColor: `${tech.color}66`, boxShadow: `0 0 18px ${tech.color}33` }}
           >
             <div className="text-lg sm:text-2xl lg:text-3xl text-center mb-0 sm:mb-1" style={{ color: tech.color }}>
-              <tech.Icon />
+              {tech.Icon ? (
+                <tech.Icon />
+              ) : (
+                <span className="text-[10px] sm:text-sm lg:text-base font-bold leading-none">
+                  {tech.fallbackIcon}
+                </span>
+              )}
             </div>
             <div className="text-[8px] sm:text-[10px] font-semibold text-center opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-6 sm:-bottom-8 whitespace-nowrap" style={{ color: tech.color }}>
               {tech.name}
@@ -216,7 +222,8 @@ export function TechShowcase() {
   const techItems = technologies.slice(0, 32).map((tech) => ({
     name: tech.name,
     color: tech.color,
-    Icon: techIconMap[tech.name] ?? SiReact,
+    Icon: techIconMap[tech.name],
+    fallbackIcon: tech.icon,
   }));
 
   useEffect(() => {

@@ -70,38 +70,6 @@ def _query_tokens(question: str) -> set[str]:
     return tokens
 
 
-def _is_general_question(question: str) -> bool:
-    """Check if question is a general greeting or small talk."""
-    q = question.lower().strip()
-    general_patterns = [
-        "hello", "hi", "hey", "greetings",
-        "what's up", "how are you", "how r u",
-        "who are you", "what are you", "introduce yourself",
-        "tell me about yourself", "who is this",
-        "nice to meet you", "hey there",
-        "hola", "namaste", "sup",
-    ]
-    return any(pattern in q for pattern in general_patterns) and len(q.split()) <= 5
-
-
-def _respond_to_general_question(question: str, name: str, personal: dict[str, Any]) -> str:
-    """Generate friendly responses for general greetings."""
-    q = question.lower().strip()
-    role = _to_text(personal.get("role")) or "Full Stack Developer"
-    
-    if any(word in q for word in ["hello", "hi", "hey", "greetings", "sup", "hola", "namaste"]):
-        return f"Hey there! 👋 I'm {name}, a {role}. How can I help you explore my portfolio?"
-    
-    if any(word in q for word in ["who are you", "introduce yourself", "tell me about yourself"]):
-        about = _to_text(personal.get("about")) or f"{name} is a passionate full-stack developer with expertise in AI/ML and production-grade applications."
-        return f"I'm {name}, {role} based in {_to_text(personal.get('location')) or 'India'}.\n\n{about}\n\nFeel free to ask me about my projects, skills, hackathons, or experience!"
-    
-    if any(word in q for word in ["how are you", "how r u", "what's up"]):
-        return f"I'm doing great, thanks for asking! 😊 I'm {name}, and I'd love to tell you about my work. What interests you most—projects, skills, or hackathons?"
-    
-    return f"Hi! I'm {name}, {role}. Feel free to ask me anything about my portfolio, projects, or background!"
-
-
 def _detect_intents(question: str) -> list[str]:
     q = question.lower()
     intents = []
@@ -110,7 +78,7 @@ def _detect_intents(question: str) -> list[str]:
         "resume": ["resume", "cv", "profile", "about", "background", "introduce"],
         "projects": ["project", "build", "portfolio", "work", "repo"],
         "skills": ["skill", "stack", "technology", "tech"],
-        "hackathons": ["hackathon", "achievement", "award", "competition"],
+        "hackathons": ["hackathon", "achievement", "award", "competition", "participating"],
         "hire_fit": ["hire", "fit", "choose", "why you", "why him"],
     }
     for intent, keys in patterns.items():
@@ -228,7 +196,7 @@ def _retrieve_context(resume_data: dict[str, Any], intents: list[str], entities:
             matched_hackathons.append(hackathon)
 
     if not matched_hackathons and hackathons:
-        matched_hackathons = [hackathon for hackathon in hackathons[:5] if isinstance(hackathon, dict)]
+        matched_hackathons = [hackathon for hackathon in hackathons[:12] if isinstance(hackathon, dict)]
 
     matched_skills: dict[str, list[str]] = {}
     for section, values in skills.items():
@@ -256,7 +224,7 @@ def _retrieve_context(resume_data: dict[str, Any], intents: list[str], entities:
         "education": education,
         "professional_summary": _to_text(resume_data.get("professional_summary")),
         "matched_projects": matched_projects[:6],
-        "matched_hackathons": matched_hackathons[:6],
+        "matched_hackathons": matched_hackathons[:12],
         "matched_skills": matched_skills,
         "github_snapshot": github_snapshot,
     }
@@ -296,7 +264,7 @@ def _build_context_summary(context: dict[str, Any]) -> str:
 
     if hackathons:
         hackathon_titles = [_to_text(h.get("title") or h.get("name")) for h in hackathons if isinstance(h, dict)]
-        hackathon_titles = [title for title in hackathon_titles if title][:4]
+        hackathon_titles = [title for title in hackathon_titles if title][:6]
         if hackathon_titles:
             lines.append(f"- Relevant Hackathons: {', '.join(hackathon_titles)}")
 
@@ -323,6 +291,60 @@ def _build_context_summary(context: dict[str, Any]) -> str:
     return "\n".join(lines) if lines else "- No context data found."
 
 
+def _generate_hackathon_answer(hackathons: list[dict[str, Any]], question: str) -> str | None:
+    """Generate natural answer about hackathons without the 'Here's what I found' prefix"""
+    if not hackathons:
+        return None
+    
+    q_lower = question.lower()
+    
+    # Check if asking about specific count/number of hackathons
+    if any(word in q_lower for word in ["how many", "count", "total", "participated"]):
+        total = len(hackathons)
+        answer = f"Jayanth has participated in {total}+ national-level hackathons with multiple top placements."
+        if hackathons:
+            titles = [_to_text(h.get("title")) for h in hackathons[:3] if isinstance(h, dict)]
+            titles = [t for t in titles if t]
+            if titles:
+                answer += f"\n\nSome notable ones include: {', '.join(titles)}"
+        return answer
+    
+    # Check if asking about achievements/awards
+    if any(word in q_lower for word in ["achievement", "award", "win", "placement", "top", "best"]):
+        answer_parts = []
+        winners = [h for h in hackathons if isinstance(h, dict) and h.get("type") in ["Winner", "Qualified"]]
+        if winners:
+            answer_parts.append(f"Jayanth has achieved multiple top placements across {len(hackathons)}+ hackathons:")
+            for hack in winners[:4]:
+                title = _to_text(hack.get("title"))
+                status = _to_text(hack.get("status"))
+                if title:
+                    answer_parts.append(f"• {title} - {status}")
+        else:
+            answer_parts.append(f"Participated in {len(hackathons)}+ hackathons with consistent top placements and recognition")
+        return "\n".join(answer_parts) if answer_parts else None
+    
+    # General hackathon question - emphasize 12+ participation + tier-1 events
+    national_hacks = [h for h in hackathons if isinstance(h, dict) and "national" in _to_text(h.get("status")).lower()]
+    if national_hacks:
+        answer = f"Jayanth has participated in {len(national_hacks)}+ national-level hackathons including tier-1 events like CodeUtsava 9.0 (NIT Raipur), Smart India Hackathon 2025 qualification, and Ctrl+Alt+Compete (RVCE)."
+    else:
+        answer = f"Participated in {len(hackathons)}+ hackathons across various domains"
+    
+    # Add details about recent/notable achievements
+    if hackathons:
+        recent = [h for h in hackathons if isinstance(h, dict) and h.get("date") in ["2025", "2026"]]
+        if recent:
+            answer += f"\n\nRecent highlights ({len(recent)} in 2025-2026):"
+            for hack in recent[:4]:
+                title = _to_text(hack.get("title"))
+                project = _to_text(hack.get("project"))
+                if title:
+                    answer += f"\n• {title}: {project}" if project else f"\n• {title}"
+    
+    return answer
+
+
 def build_fallback_answer(resume_data: dict[str, Any], question: str) -> str:
     intents = _detect_intents(question)
     entities = _extract_entities(question, resume_data)
@@ -330,6 +352,28 @@ def build_fallback_answer(resume_data: dict[str, Any], question: str) -> str:
     context = _retrieve_context(resume_data, intents, entities, tokens)
     context_summary = _build_context_summary(context)
 
+    profile = context.get("personal", {}) if isinstance(context.get("personal"), dict) else {}
+    name = _to_text(profile.get("name")) or "Jayanth"
+    
+    # Special handling for hackathon queries - returns natural response without "Here's what I found..." prefix
+    if "hackathons" in intents:
+        hackathons = context.get("matched_hackathons", [])
+        if hackathons:
+            hackathon_answer = _generate_hackathon_answer(hackathons, question)
+            if hackathon_answer:
+                lines = [hackathon_answer]
+                linkedin = _to_text(profile.get("linkedin"))
+                github = _to_text(profile.get("github"))
+                if linkedin or github:
+                    lines.append("")
+                    lines.append("Useful links:")
+                    if linkedin:
+                        lines.append(f"- LinkedIn: {linkedin}")
+                    if github:
+                        lines.append(f"- GitHub: {github}")
+                return "\n".join(lines)
+    
+    # For other queries, use the "Here's what I found" format
     facts = _extract_facts(resume_data)
     scored = []
     for fact in facts:
@@ -352,10 +396,7 @@ def build_fallback_answer(resume_data: dict[str, Any], question: str) -> str:
         answer_lines.append("- I could not find exact matching details in the current portfolio data.")
         answer_lines.append("- Try asking with specific keywords (project name, skill, hackathon, or profile link).")
 
-    profile = context.get("personal", {}) if isinstance(context.get("personal"), dict) else {}
-    name = _to_text(profile.get("name")) or "Jayanth"
-
-    compact_lines = [f"Here’s what I found about {name}:"]
+    compact_lines = [f"Here's what I found about {name}:"]
     for line in answer_lines[:6]:
         compact_lines.append(line)
 
@@ -374,18 +415,6 @@ def build_fallback_answer(resume_data: dict[str, Any], question: str) -> str:
 @router.post("/resume-chat")
 def resume_chat(req: ChatRequest):
     resume_data = load_resume_data()
-    personal = resume_data.get("personal", {}) if isinstance(resume_data.get("personal"), dict) else {}
-    name = _to_text(personal.get("name")) or "Jayanth"
-    
-    # Check if this is a general greeting/small talk question
-    if _is_general_question(req.question):
-        answer = _respond_to_general_question(req.question, name, personal)
-        return {
-            "answer": answer,
-            "sources": ["Natural Response"]
-        }
-    
-    # Otherwise, use the full NLP pipeline
     intents = _detect_intents(req.question)
     entities = _extract_entities(req.question, resume_data)
     tokens = _query_tokens(req.question)

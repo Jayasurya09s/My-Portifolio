@@ -44,21 +44,31 @@ const mapProjects = () =>
   projectsData.map((project) => ({
     title: project.title,
     description: project.description,
+    tags: project.tags,
     technologies: project.tags,
     github: project.github,
     demo: project.demo,
+    caseStudy: project.caseStudy,
     category: project.category,
+    gradient: project.gradient,
     highlights: project.tags.slice(0, 6),
   }));
 
 const mapHackathons = () =>
   hackathonsData.map((hackathon) => ({
     name: hackathon.title,
+    title: hackathon.title,
     achievement: hackathon.position,
+    position: hackathon.position,
     project: hackathon.project,
     description: hackathon.description,
     year: hackathon.date,
+    date: hackathon.date,
     status: hackathon.status,
+    icon: hackathon.icon,
+    color: hackathon.color,
+    type: hackathon.type,
+    links: hackathon.links,
   }));
 
 const existing = JSON.parse(readFileSync(backendDataPath, 'utf-8'));

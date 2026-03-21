@@ -250,6 +250,7 @@ export const Contact = () => {
                   <p className="text-sm mb-1 text-neon-pink">Academic Performance</p>
                   <p className="font-medium text-foreground">Semester 1 GPA: 9.70</p>
                   <p className="font-medium text-foreground">Semester 2 GPA: 9.65</p>
+                  <p className="font-medium text-foreground">Semester 3 GPA: 9.75</p>
                 </div>
                 <div>
                   <p className="text-sm mb-1 text-neon-blue">Current Status</p>

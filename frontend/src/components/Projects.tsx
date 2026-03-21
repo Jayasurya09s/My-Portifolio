@@ -4,10 +4,11 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { projectsData } from '@/data/projects';
+import { usePortfolioData } from '@/hooks/usePortfolioData';
 
 export const Projects = () => {
-  const visibleProjects = projectsData.slice(0, 6);
+  const { projects } = usePortfolioData();
+  const visibleProjects = projects.slice(0, 6);
 
   return (
     <section id="projects" className="relative py-20">
@@ -40,7 +41,7 @@ export const Projects = () => {
               viewport={{ once: true }}
             >
               <Card 
-                className="group h-full glass-panel border-border/50 hover:border-neon-blue/50 transition-all duration-300 overflow-hidden relative perspective-1000"
+                className="group h-full glass-panel border-border/50 hover:border-neon-blue/50 transition-all duration-300 overflow-hidden relative perspective-1000 flex flex-col"
                 style={{
                   transform: 'perspective(1000px)',
                 }}
@@ -72,17 +73,22 @@ export const Projects = () => {
                 </div>
                 
                 <CardHeader className="relative z-10">
-                  <CardTitle className="text-xl sm:text-2xl text-neon-cyan group-hover:text-glow-cyan transition-all">
+                  <CardTitle className="text-xl sm:text-2xl text-neon-cyan group-hover:text-glow-cyan transition-all min-h-[92px]"
+                    style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+                  >
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-muted-foreground">
+                  <CardDescription
+                    className="text-muted-foreground min-h-[112px]"
+                    style={{ display: '-webkit-box', WebkitLineClamp: 4, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+                  >
                     {project.description}
                   </CardDescription>
                 </CardHeader>
                 
-                <CardContent className="space-y-4 relative z-10">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, i) => (
+                <CardContent className="space-y-4 relative z-10 flex flex-col flex-1">
+                  <div className="flex flex-wrap gap-2 min-h-[72px] content-start">
+                    {project.tags.slice(0, 8).map((tag, i) => (
                       <Badge 
                         key={i} 
                         variant="outline" 
@@ -91,9 +97,14 @@ export const Projects = () => {
                         {tag}
                       </Badge>
                     ))}
+                    {project.tags.length > 8 && (
+                      <Badge variant="outline" className="border-neon-blue/50 text-neon-blue/80">
+                        +{project.tags.length - 8}
+                      </Badge>
+                    )}
                   </div>
                   
-                  <div className="flex gap-2 pt-4">
+                  <div className="flex gap-2 pt-4 mt-auto">
                     {project.github !== '#' && (
                       <Button
                         size="sm"
@@ -153,7 +164,7 @@ export const Projects = () => {
           ))}
         </div>
 
-        {projectsData.length > 6 && (
+        {projects.length > 6 && (
           <div className="flex justify-center mt-10">
             <Button
               asChild

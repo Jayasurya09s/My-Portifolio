@@ -2,6 +2,36 @@ type ApiRequestOptions = {
   signal?: AbortSignal;
 };
 
+const getJson = async <TResponse>(
+  path: string,
+  options?: ApiRequestOptions,
+): Promise<TResponse> => {
+  const response = await fetch(toApiUrl(path), {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    signal: options?.signal,
+  });
+
+  const contentType = response.headers.get('content-type') || '';
+  const isJson = contentType.includes('application/json');
+  const body = isJson ? await response.json() : null;
+
+  if (!response.ok) {
+    const message =
+      (body && typeof body === 'object' && 'message' in body && typeof body.message === 'string'
+        ? body.message
+        : body && typeof body === 'object' && 'detail' in body && typeof body.detail === 'string'
+          ? body.detail
+        : null) ||
+      'Request failed. Please try again.';
+    throw new Error(message);
+  }
+
+  return (body || {}) as TResponse;
+};
+
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
 
 const toApiUrl = (path: string) => {
@@ -71,3 +101,16 @@ export const askResumeAssistant = (
   payload: ResumeChatRequestPayload,
   options?: ApiRequestOptions,
 ) => postJson<ResumeChatResponse>('/api/resume-chat', payload, options);
+
+export type PortfolioDataResponse = {
+  featured_projects?: Array<Record<string, unknown>>;
+  hackathons?: Array<Record<string, unknown>>;
+  stats?: {
+    projects_count?: number;
+    hackathons_count?: number;
+    technologies_count?: number;
+  };
+};
+
+export const fetchPortfolioData = (options?: ApiRequestOptions) =>
+  getJson<PortfolioDataResponse>('/api/portfolio-data', options);

@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Trophy, Award, Medal, ExternalLink, FileText, Code } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { hackathonsData } from '@/data/hackathons';
+import { usePortfolioData } from '@/hooks/usePortfolioData';
 
 const iconMap = {
   Trophy,
@@ -13,7 +13,8 @@ const iconMap = {
 } as const;
 
 export const Hackathons = () => {
-  const recentHackathons = hackathonsData.slice(0, 6);
+  const { hackathons } = usePortfolioData();
+  const recentHackathons = hackathons.slice(0, 6);
 
   return (
     <section id="hackathons" className="relative py-20">
@@ -45,7 +46,7 @@ export const Hackathons = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full glass-panel border-border/50 hover:border-neon-cyan/50 transition-all duration-300 group relative overflow-hidden">
+                <Card className="h-full glass-panel border-border/50 hover:border-neon-cyan/50 transition-all duration-300 group relative overflow-hidden flex flex-col">
                   <div className={`absolute inset-0 bg-gradient-to-br from-${hackathon.color}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
 
                   <div className="absolute inset-0 pointer-events-none">
@@ -70,7 +71,7 @@ export const Hackathons = () => {
                     ))}
                   </div>
 
-                  <CardHeader className="relative z-10">
+                  <CardHeader className="relative z-10 min-h-[260px]">
                     <div className="flex items-start justify-between mb-4">
                       <Icon 
                         size={44} 
@@ -86,11 +87,17 @@ export const Hackathons = () => {
                       </div>
                     </div>
 
-                    <CardTitle className="text-xl sm:text-2xl text-foreground mb-2">
+                    <CardTitle
+                      className="text-xl sm:text-2xl text-foreground mb-2 min-h-[72px]"
+                      style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+                    >
                       {hackathon.title}
                     </CardTitle>
 
-                    <CardDescription className={`text-${hackathon.color} font-semibold text-base mb-1`}>
+                    <CardDescription
+                      className={`text-${hackathon.color} font-semibold text-base mb-1 min-h-[48px]`}
+                      style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+                    >
                       {hackathon.position}
                     </CardDescription>
 
@@ -99,15 +106,25 @@ export const Hackathons = () => {
                     </Badge>
                   </CardHeader>
 
-                  <CardContent className="space-y-4 relative z-10">
+                  <CardContent className="space-y-4 relative z-10 flex flex-col flex-1">
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">Project:</p>
-                      <p className="text-neon-cyan font-medium">{hackathon.project}</p>
+                      <p
+                        className="text-neon-cyan font-medium min-h-[48px]"
+                        style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+                      >
+                        {hackathon.project}
+                      </p>
                     </div>
 
-                    <p className="text-sm text-muted-foreground">{hackathon.description}</p>
+                    <p
+                      className="text-sm text-muted-foreground min-h-[84px]"
+                      style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+                    >
+                      {hackathon.description}
+                    </p>
 
-                    <div className="flex gap-2 pt-2">
+                    <div className="flex gap-2 pt-2 mt-auto">
                       {hackathon.links.project !== '#' && (
                         <Button
                           size="sm"
@@ -156,7 +173,7 @@ export const Hackathons = () => {
           })}
         </div>
 
-        {hackathonsData.length > 6 && (
+        {hackathons.length > 6 && (
           <div className="flex justify-center mt-10">
             <Button
               asChild

@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes.chat import router as chat_router
 from routes.contact import router as contact_router
+from routes.portfolio import router as portfolio_router
 
 app = FastAPI(title="Jayanth Portfolio API")
 
@@ -21,6 +22,7 @@ app.add_middleware(
 
 app.include_router(chat_router, prefix="/api")
 app.include_router(contact_router, prefix="/api")
+app.include_router(portfolio_router, prefix="/api")
 
 @app.get("/")
 def home():

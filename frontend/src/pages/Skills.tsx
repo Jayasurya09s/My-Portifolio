@@ -7,9 +7,8 @@ import { CustomCursor } from '@/components/CustomCursor';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 import { NebulaBackground } from '@/components/NebulaBackground';
+import { usePortfolioData } from '@/hooks/usePortfolioData';
 import { technologies, categories } from '@/data/technologies';
-import { projectsData } from '@/data/projects';
-import { hackathonsData } from '@/data/hackathons';
 import { CounterStat } from '@/components/CounterStat';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -68,6 +67,7 @@ import {
 
 export default function Skills() {
   useSmoothScroll();
+  const { stats } = usePortfolioData();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -123,13 +123,13 @@ export default function Skills() {
             {/* Animated Counter Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
               <CounterStat
-                end={projectsData.length}
+                end={stats.projectsCount}
                 label="Projects Completed"
                 icon={Rocket}
                 color="hsl(var(--neon-cyan))"
               />
               <CounterStat
-                end={hackathonsData.length}
+                end={stats.hackathonsCount}
                 label="Hackathons Participated"
                 icon={Trophy}
                 color="hsl(var(--neon-violet))"

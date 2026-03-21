@@ -1,5 +1,45 @@
 export const projectsData = [
   {
+    title: 'DarkGuardians — Blockchain-First IPFS Threat Detection with ZK Reporting',
+    description:
+      'Security-focused system that checks CID reputation on-chain first, then runs an AI pipeline for new IPFS content with realtime decisioning (block/allow), zero-knowledge proof generation, CID hash-map updates, and asynchronous blockchain submission through a browser-extension-integrated workflow.',
+    tags: [
+      'Python',
+      'Node.js',
+      'AI Classification',
+      'ZK Proofs',
+      'Blockchain',
+      'Browser Extension',
+      'IPFS',
+      'Hardhat'
+    ],
+    category: ['AI', 'Full Stack'],
+    github: 'https://github.com/Jayasurya09s/DarkGuardians',
+    demo: 'https://www.youtube.com/watch?v=PN9ITC7zXiU',
+    caseStudy: '#',
+    gradient: 'from-slate-700 to-purple-700',
+  },
+  {
+    title: 'ClickToSelect — AI Interview & Skill Verification Platform',
+    description:
+      'Multi-service interview platform for candidate screening and recruiter workflows, combining FastAPI backend services, a React/Vite frontend, PostgreSQL persistence, and a dedicated RAG/LLM service for interview question generation, verification sessions, and AI-assisted scoring.',
+    tags: [
+      'React',
+      'Vite',
+      'FastAPI',
+      'PostgreSQL',
+      'RAG',
+      'LLM',
+      'JWT',
+      'Docker'
+    ],
+    category: ['AI', 'Full Stack'],
+    github: 'https://github.com/Jayasurya09s/ClickToSelect',
+    demo: '#',
+    caseStudy: '#',
+    gradient: 'from-indigo-700 to-cyan-700',
+  },
+  {
   title: 'SyncDraft – AI-Powered Notion-Style Blog Editor Platform',
   description:
     'A production-grade full-stack blog editing platform built with Lexical and Zustand for structured state management, featuring intelligent debounced auto-save, AI-powered summarization and grammar correction, JWT authentication, draft-to-publish workflows, and public article viewing. Designed with a modern SaaS-inspired UI and deployed with scalable FastAPI backend architecture.',
@@ -83,6 +123,7 @@ export const projectsData = [
     caseStudy: '#',
     gradient: 'from-purple-600 to-pink-700',
   },
+
   {
     title: 'SentimentAlpha – Trader Behavior Intelligence Engine',
     description:

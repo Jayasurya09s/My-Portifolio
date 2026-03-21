@@ -8,7 +8,7 @@ import { CustomCursor } from '@/components/CustomCursor';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { NebulaBackground } from '@/components/NebulaBackground';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
-import { hackathonsData } from '@/data/hackathons';
+import { usePortfolioData } from '@/hooks/usePortfolioData';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -22,20 +22,21 @@ const iconMap = {
 
 export default function HackathonsPage() {
   useSmoothScroll();
+  const { hackathons } = usePortfolioData();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedType, setSelectedType] = useState('All');
 
   const typeOptions = useMemo(() => {
     const set = new Set<string>();
-    hackathonsData.forEach((hackathon) => {
+    hackathons.forEach((hackathon) => {
       if (hackathon.type) {
         set.add(hackathon.type);
       }
     });
     return ['All', ...Array.from(set)];
-  }, []);
+  }, [hackathons]);
 
-  const filteredHackathons = hackathonsData.filter((hackathon) => {
+  const filteredHackathons = hackathons.filter((hackathon) => {
     const matchesType = selectedType === 'All' || hackathon.type === selectedType;
 
     const query = searchQuery.trim().toLowerCase();
@@ -144,7 +145,7 @@ export default function HackathonsPage() {
                   transition={{ duration: 0.5, delay: index * 0.08 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="h-full glass-panel border-border/50 hover:border-neon-cyan/50 transition-all duration-300 group relative overflow-hidden">
+                  <Card className="h-full glass-panel border-border/50 hover:border-neon-cyan/50 transition-all duration-300 group relative overflow-hidden flex flex-col">
                     <div className={`absolute inset-0 bg-gradient-to-br from-${hackathon.color}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
                     <div className="absolute inset-0 pointer-events-none">
@@ -166,7 +167,7 @@ export default function HackathonsPage() {
                       ))}
                     </div>
 
-                    <CardHeader className="relative z-10">
+                    <CardHeader className="relative z-10 min-h-[260px]">
                       <div className="flex items-start justify-between mb-4">
                         <Icon size={44} className={`text-${hackathon.color} group-hover:scale-110 transition-transform`} />
                         <div className="text-right">
@@ -179,11 +180,17 @@ export default function HackathonsPage() {
                         </div>
                       </div>
 
-                      <CardTitle className="text-xl sm:text-2xl text-foreground mb-2">
+                      <CardTitle
+                        className="text-xl sm:text-2xl text-foreground mb-2 min-h-[72px]"
+                        style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+                      >
                         {hackathon.title}
                       </CardTitle>
 
-                      <CardDescription className={`text-${hackathon.color} font-semibold text-base mb-1`}>
+                      <CardDescription
+                        className={`text-${hackathon.color} font-semibold text-base mb-1 min-h-[48px]`}
+                        style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+                      >
                         {hackathon.position}
                       </CardDescription>
 
@@ -192,15 +199,25 @@ export default function HackathonsPage() {
                       </Badge>
                     </CardHeader>
 
-                    <CardContent className="space-y-4 relative z-10">
+                    <CardContent className="space-y-4 relative z-10 flex flex-col flex-1">
                       <div>
                         <p className="text-sm text-muted-foreground mb-1">Project:</p>
-                        <p className="text-neon-cyan font-medium">{hackathon.project}</p>
+                        <p
+                          className="text-neon-cyan font-medium min-h-[48px]"
+                          style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+                        >
+                          {hackathon.project}
+                        </p>
                       </div>
 
-                      <p className="text-sm text-muted-foreground">{hackathon.description}</p>
+                      <p
+                        className="text-sm text-muted-foreground min-h-[84px]"
+                        style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+                      >
+                        {hackathon.description}
+                      </p>
 
-                      <div className="flex gap-2 pt-2">
+                      <div className="flex gap-2 pt-2 mt-auto">
                         {hackathon.links.project !== '#' && (
                           <Button size="sm" variant="outline" className={`flex-1 border-${hackathon.color} text-${hackathon.color}`} asChild>
                             <a

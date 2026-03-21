@@ -8,7 +8,7 @@ import { CustomCursor } from '@/components/CustomCursor';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { NebulaBackground } from '@/components/NebulaBackground';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
-import { projectsData } from '@/data/projects';
+import { usePortfolioData } from '@/hooks/usePortfolioData';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -17,6 +17,7 @@ import { ExternalLink, FileText, Github } from 'lucide-react';
 
 export default function ProjectsPage() {
   useSmoothScroll();
+  const { projects } = usePortfolioData();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -42,7 +43,7 @@ export default function ProjectsPage() {
     }
     return 'Full Stack';
   };
-  const getProjectDomains = (project: (typeof projectsData)[number]) => {
+  const getProjectDomains = (project: (typeof projects)[number]) => {
     const categories = Array.isArray(project.category) ? project.category : [project.category];
     const domains = categories
       .filter(Boolean)
@@ -53,14 +54,14 @@ export default function ProjectsPage() {
 
   const categoryOptions = useMemo(() => {
     const set = new Set<string>();
-    projectsData.forEach((project) => {
+    projects.forEach((project) => {
       getProjectDomains(project).forEach((domain) => set.add(domain));
     });
     const ordered = domainOrder.filter((domain) => set.has(domain));
     return ['All', ...ordered];
-  }, [projectsData]);
+  }, [projects]);
 
-  const filteredProjects = projectsData.filter((project) => {
+  const filteredProjects = projects.filter((project) => {
     const matchesCategory =
       selectedCategory === 'All'
         ? true
@@ -163,7 +164,7 @@ export default function ProjectsPage() {
                 viewport={{ once: true }}
               >
                 <Card
-                  className="group h-full glass-panel border-border/50 hover:border-neon-blue/50 transition-all duration-300 overflow-hidden relative perspective-1000"
+                  className="group h-full glass-panel border-border/50 hover:border-neon-blue/50 transition-all duration-300 overflow-hidden relative perspective-1000 flex flex-col"
                   style={{ transform: 'perspective(1000px)' }}
                 >
                   <div
@@ -193,17 +194,23 @@ export default function ProjectsPage() {
                   </div>
 
                   <CardHeader className="relative z-10">
-                    <CardTitle className="text-xl sm:text-2xl text-neon-cyan group-hover:text-glow-cyan transition-all">
+                    <CardTitle
+                      className="text-xl sm:text-2xl text-neon-cyan group-hover:text-glow-cyan transition-all min-h-[92px]"
+                      style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+                    >
                       {project.title}
                     </CardTitle>
-                    <CardDescription className="text-muted-foreground">
+                    <CardDescription
+                      className="text-muted-foreground min-h-[112px]"
+                      style={{ display: '-webkit-box', WebkitLineClamp: 4, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+                    >
                       {project.description}
                     </CardDescription>
                   </CardHeader>
 
-                  <CardContent className="space-y-4 relative z-10">
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
+                  <CardContent className="space-y-4 relative z-10 flex flex-col flex-1">
+                    <div className="flex flex-wrap gap-2 min-h-[72px] content-start">
+                      {project.tags.slice(0, 8).map((tag) => (
                         <Badge
                           key={tag}
                           variant="outline"
@@ -212,9 +219,14 @@ export default function ProjectsPage() {
                           {tag}
                         </Badge>
                       ))}
+                      {project.tags.length > 8 && (
+                        <Badge variant="outline" className="border-neon-blue/50 text-neon-blue/80">
+                          +{project.tags.length - 8}
+                        </Badge>
+                      )}
                     </div>
 
-                    <div className="flex gap-2 pt-4">
+                    <div className="flex gap-2 pt-4 mt-auto">
                       {project.github !== '#' && (
                         <Button
                           size="sm"

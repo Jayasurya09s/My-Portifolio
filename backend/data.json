@@ -175,8 +175,100 @@
   },
   "featured_projects": [
     {
+      "title": "DarkGuardians — Blockchain-First IPFS Threat Detection with ZK Reporting",
+      "description": "Security-focused system that checks CID reputation on-chain first, then runs an AI pipeline for new IPFS content with realtime decisioning (block/allow), zero-knowledge proof generation, CID hash-map updates, and asynchronous blockchain submission through a browser-extension-integrated workflow.",
+      "tags": [
+        "Python",
+        "Node.js",
+        "AI Classification",
+        "ZK Proofs",
+        "Blockchain",
+        "Browser Extension",
+        "IPFS",
+        "Hardhat"
+      ],
+      "technologies": [
+        "Python",
+        "Node.js",
+        "AI Classification",
+        "ZK Proofs",
+        "Blockchain",
+        "Browser Extension",
+        "IPFS",
+        "Hardhat"
+      ],
+      "github": "https://github.com/Jayasurya09s/DarkGuardians",
+      "demo": "https://www.youtube.com/watch?v=PN9ITC7zXiU",
+      "caseStudy": "#",
+      "category": [
+        "AI",
+        "Full Stack"
+      ],
+      "gradient": "from-slate-700 to-purple-700",
+      "highlights": [
+        "Python",
+        "Node.js",
+        "AI Classification",
+        "ZK Proofs",
+        "Blockchain",
+        "Browser Extension"
+      ]
+    },
+    {
+      "title": "ClickToSelect — AI Interview & Skill Verification Platform",
+      "description": "Multi-service interview platform for candidate screening and recruiter workflows, combining FastAPI backend services, a React/Vite frontend, PostgreSQL persistence, and a dedicated RAG/LLM service for interview question generation, verification sessions, and AI-assisted scoring.",
+      "tags": [
+        "React",
+        "Vite",
+        "FastAPI",
+        "PostgreSQL",
+        "RAG",
+        "LLM",
+        "JWT",
+        "Docker"
+      ],
+      "technologies": [
+        "React",
+        "Vite",
+        "FastAPI",
+        "PostgreSQL",
+        "RAG",
+        "LLM",
+        "JWT",
+        "Docker"
+      ],
+      "github": "https://github.com/Jayasurya09s/ClickToSelect",
+      "demo": "#",
+      "caseStudy": "#",
+      "category": [
+        "AI",
+        "Full Stack"
+      ],
+      "gradient": "from-indigo-700 to-cyan-700",
+      "highlights": [
+        "React",
+        "Vite",
+        "FastAPI",
+        "PostgreSQL",
+        "RAG",
+        "LLM"
+      ]
+    },
+    {
       "title": "SyncDraft – AI-Powered Notion-Style Blog Editor Platform",
       "description": "A production-grade full-stack blog editing platform built with Lexical and Zustand for structured state management, featuring intelligent debounced auto-save, AI-powered summarization and grammar correction, JWT authentication, draft-to-publish workflows, and public article viewing. Designed with a modern SaaS-inspired UI and deployed with scalable FastAPI backend architecture.",
+      "tags": [
+        "React",
+        "TypeScript",
+        "FastAPI",
+        "MongoDB",
+        "Zustand",
+        "Lexical",
+        "OpenRouter",
+        "JWT",
+        "TailwindCSS",
+        "Render"
+      ],
       "technologies": [
         "React",
         "TypeScript",
@@ -191,11 +283,13 @@
       ],
       "github": "https://github.com/Jayasurya09s/Writr",
       "demo": "https://writr-two.vercel.app/",
+      "caseStudy": "#",
       "category": [
         "Full Stack Development",
         "AI Integration",
         "System Architecture"
       ],
+      "gradient": "from-emerald-600 to-teal-600",
       "highlights": [
         "React",
         "TypeScript",
@@ -208,6 +302,18 @@
     {
       "title": "KanbanAI – Realtime WebSocket-Powered Project Management Platform",
       "description": "A production-grade real-time Kanban management platform built with WebSockets for multi-user collaboration, featuring drag-and-drop task workflows, cloud file attachments, analytics visualization, activity logging, and comprehensive unit/integration/E2E testing. Designed with a modern SaaS dashboard UI and deployed with scalable backend architecture.",
+      "tags": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Socket.IO",
+        "WebSockets",
+        "Cloudinary",
+        "JWT",
+        "Vitest",
+        "Playwright",
+        "TailwindCSS"
+      ],
       "technologies": [
         "React",
         "Node.js",
@@ -222,11 +328,13 @@
       ],
       "github": "https://github.com/Jayasurya09s/websocket-kanban-vitest-playwright-2026",
       "demo": "https://kanbanflow-xi.vercel.app/",
+      "caseStudy": "#",
       "category": [
         "Full Stack Development",
         "Realtime Systems",
         "Testing"
       ],
+      "gradient": "from-indigo-600 to-pink-600",
       "highlights": [
         "React",
         "Node.js",
@@ -239,6 +347,16 @@
     {
       "title": "Indian Chess Academy (ICA) – AI-Powered Academy Management Platform",
       "description": "Full-stack academy management platform that automates onboarding, enrollment, and payments with RBAC, event-driven workflows, and a RAG-based assistant for role-aware support and operations insight.",
+      "tags": [
+        "Next.js",
+        "React",
+        "MongoDB",
+        "JWT",
+        "RBAC",
+        "RAG Chatbot",
+        "Razorpay",
+        "Vercel"
+      ],
       "technologies": [
         "Next.js",
         "React",
@@ -251,10 +369,12 @@
       ],
       "github": "https://github.com/Jayasurya09s/Indian-Chess-Academy",
       "demo": "https://ica.vercel.app/",
+      "caseStudy": "#",
       "category": [
         "Full Stack Development",
         "AI Integration"
       ],
+      "gradient": "from-blue-600 to-indigo-600",
       "highlights": [
         "Next.js",
         "React",
@@ -267,6 +387,16 @@
     {
       "title": "PromptPilot – Deterministic Multi-Agent AI UI Generator",
       "description": "Deterministic AI UI generator that turns prompts into validated component trees with live preview, multi-agent planning, strict registry rules, Zod validation, injection defense, version diffs, and fallback handling.",
+      "tags": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "MongoDB",
+        "JWT",
+        "Zod",
+        "OpenRouter",
+        "Multi-Agent"
+      ],
       "technologies": [
         "Next.js",
         "React",
@@ -279,10 +409,12 @@
       ],
       "github": "https://github.com/Jayasurya09s/PromptPilot",
       "demo": "https://promptpilotstudio.vercel.app/",
+      "caseStudy": "#",
       "category": [
         "AI Application",
         "Full Stack Web Application"
       ],
+      "gradient": "from-purple-600 to-pink-700",
       "highlights": [
         "Next.js",
         "React",
@@ -295,6 +427,16 @@
     {
       "title": "SentimentAlpha – Trader Behavior Intelligence Engine",
       "description": "Sentiment-aware trading analytics that aligns Hyperliquid activity with Bitcoin fear/greed regimes, compares statistical performance, engineers risk metrics, and segments trader archetypes to produce behavior-driven strategy guidance.",
+      "tags": [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "SciPy",
+        "Time-Series",
+        "Statistical Testing",
+        "Behavioral Finance",
+        "Quantitative Analysis"
+      ],
       "technologies": [
         "Python",
         "Pandas",
@@ -307,11 +449,13 @@
       ],
       "github": "https://github.com/Jayasurya09s/EmitionTrade",
       "demo": "#",
+      "caseStudy": "#",
       "category": [
         "Data Science",
         "Quantitative Finance",
         "AI/ML Application"
       ],
+      "gradient": "from-blue-600 to-indigo-700",
       "highlights": [
         "Python",
         "Pandas",
@@ -324,6 +468,16 @@
     {
       "title": "SocialX – Full-Stack Social Feed Platform",
       "description": "Full-stack social feed with JWT auth, posts, media, emojis, polls, and real-time engagement; includes filtering, pagination, and auto-refresh to keep interactions fast and responsive across devices.",
+      "tags": [
+        "React",
+        "Material UI",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "JWT",
+        "REST APIs",
+        "Real-Time"
+      ],
       "technologies": [
         "React",
         "Material UI",
@@ -336,10 +490,12 @@
       ],
       "github": "https://github.com/Jayasurya09s/SocialX",
       "demo": "https://socialx-seven.vercel.app/",
+      "caseStudy": "#",
       "category": [
         "Frontend",
         "Full Stack Web Application"
       ],
+      "gradient": "from-blue-600 to-indigo-700",
       "highlights": [
         "React",
         "Material UI",
@@ -352,6 +508,16 @@
     {
       "title": "TaskEngine – Intelligent Task Management Platform",
       "description": "Task management platform with premium UI and backend-first design, featuring JWT auth, MongoDB persistence, structured APIs, pagination, filtering, and validation for a scalable, polished productivity workflow.",
+      "tags": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "JWT",
+        "REST APIs"
+      ],
       "technologies": [
         "React",
         "Vite",
@@ -364,10 +530,12 @@
       ],
       "github": "https://github.com/Jayasurya09s/TaskEngine",
       "demo": "https://task-engine-three.vercel.app/",
+      "caseStudy": "#",
       "category": [
         "Frontend",
         "Full Stack Web Application"
       ],
+      "gradient": "from-slate-900 to-indigo-600",
       "highlights": [
         "React",
         "Vite",
@@ -380,6 +548,16 @@
     {
       "title": "Phoenix AI Call Agent – Resilience System",
       "description": "AI call processing system built for resilience with circuit breakers, retries, health checks, monitoring, and multi-channel alerts, supporting reliable real-time communication workflows under failure conditions.",
+      "tags": [
+        "Node.js",
+        "React",
+        "Socket.io",
+        "Docker",
+        "Monitoring",
+        "Resilience",
+        "APIs",
+        "DevOps"
+      ],
       "technologies": [
         "Node.js",
         "React",
@@ -392,10 +570,12 @@
       ],
       "github": "https://github.com/Jayasurya09s/Phoenix-System",
       "demo": "/projects/phoenix-system",
+      "caseStudy": "#",
       "category": [
         "AI",
         "Full Stack / System Engineering"
       ],
+      "gradient": "from-neon-purple to-neon-pink",
       "highlights": [
         "Node.js",
         "React",
@@ -408,6 +588,16 @@
     {
       "title": "ProxyPlay – API-First Secure Video Streaming Platform",
       "description": "API-first mobile video platform with a thin-client design, JWT auth, rate limits, short-lived playback tokens, and admin video control, built for secure streaming at scale.",
+      "tags": [
+        "React Native",
+        "Expo",
+        "Flask",
+        "MongoDB",
+        "JWT",
+        "Rate Limiting",
+        "Docker",
+        "Render"
+      ],
       "technologies": [
         "React Native",
         "Expo",
@@ -420,10 +610,12 @@
       ],
       "github": "https://github.com/Jayasurya09s/ProxyPlay",
       "demo": "https://proxyplay.onrender.com",
+      "caseStudy": "#",
       "category": [
         "Full Stack Development",
         "Mobile Application"
       ],
+      "gradient": "from-purple-600 to-pink-600",
       "highlights": [
         "React Native",
         "Expo",
@@ -436,6 +628,16 @@
     {
       "title": "Gmail → Google Sheets Automation",
       "description": "Python automation that ingests unread Gmail via API, extracts structured fields, writes to Google Sheets, avoids duplicates with persistent state, and uses secure OAuth 2.0 authentication.",
+      "tags": [
+        "Python",
+        "Gmail API",
+        "Google Sheets API",
+        "OAuth 2.0",
+        "Automation",
+        "FastAPI",
+        "State Management",
+        "AI"
+      ],
       "technologies": [
         "Python",
         "Gmail API",
@@ -448,10 +650,12 @@
       ],
       "github": "https://github.com/Jayasurya09s/gmail-to-sheets",
       "demo": "/projects/gmail-to-sheets",
+      "caseStudy": "#",
       "category": [
         "AI",
         "Backend / Automation"
       ],
+      "gradient": "from-neon-cyan to-neon-blue",
       "highlights": [
         "Python",
         "Gmail API",
@@ -464,6 +668,16 @@
     {
       "title": "User-Level Custom CPU Scheduler",
       "description": "Web-based CPU scheduling visualizer that simulates ready queues, Gantt charts, and utilization graphs, comparing multiple algorithms in real time for clear, interactive learning and analysis.",
+      "tags": [
+        "C",
+        "React",
+        "Socket.IO",
+        "Gantt",
+        "OS",
+        "Visualization",
+        "Node.js",
+        "SQLite"
+      ],
       "technologies": [
         "C",
         "React",
@@ -476,7 +690,9 @@
       ],
       "github": "https://github.com/Jayasurya09s/User-Level-CPU-sheduler",
       "demo": "/projects/cpu-scheduler",
+      "caseStudy": "#",
       "category": "Full Stack",
+      "gradient": "from-neon-blue to-neon-violet",
       "highlights": [
         "C",
         "React",
@@ -489,6 +705,16 @@
     {
       "title": "JAR - AI Artwork Ownership System",
       "description": "Artwork ownership system for AI-generated media that fingerprints, watermarks, binds prompts to identity, and issues secure proofs, enabling verifiable originality and protection for digital creators.",
+      "tags": [
+        "AI Verification",
+        "Fingerprinting",
+        "Watermarking",
+        "Prompt Binding",
+        "Proof System",
+        "Blockchain-Ready",
+        "Digital Art",
+        "Security"
+      ],
       "technologies": [
         "AI Verification",
         "Fingerprinting",
@@ -501,7 +727,9 @@
       ],
       "github": "https://github.com/Jayasurya09s/BrahmaCoders",
       "demo": "https://brahmacoders.vercel.app/",
+      "caseStudy": "/nit raipur.png",
       "category": "AI",
+      "gradient": "from-neon-pink to-neon-violet",
       "highlights": [
         "AI Verification",
         "Fingerprinting",
@@ -514,6 +742,16 @@
     {
       "title": "MyNotes — Full Stack Notes Application",
       "description": "Full-stack notes app with authentication, cloud sync, and secure storage, enabling users to create, edit, and organize notes across devices with guest support and reliable access.",
+      "tags": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Firebase",
+        "Auth",
+        "Sync",
+        "Notes"
+      ],
       "technologies": [
         "React",
         "Node.js",
@@ -526,7 +764,9 @@
       ],
       "github": "https://github.com/Jayasurya09s/MyNotes",
       "demo": "https://my-notes-jka8.vercel.app/",
+      "caseStudy": "#",
       "category": "Full Stack",
+      "gradient": "from-neon-blue to-neon-cyan",
       "highlights": [
         "React",
         "Node.js",
@@ -539,6 +779,16 @@
     {
       "title": "NeroBot — Underwater Robotics System",
       "description": "Jellyfish-inspired underwater robot that detects and collects marine plastic using YOLO-based vision, Arduino control, and servo grasping, targeting sustainable cleanup missions in aquatic environments.",
+      "tags": [
+        "YOLO",
+        "OpenCV",
+        "Arduino Uno",
+        "SG90 Servo",
+        "Robotics",
+        "Vision",
+        "Marine Cleanup",
+        "Embedded"
+      ],
       "technologies": [
         "YOLO",
         "OpenCV",
@@ -551,7 +801,9 @@
       ],
       "github": "#",
       "demo": "/projects/nerobot",
+      "caseStudy": "#",
       "category": "Robotics",
+      "gradient": "from-neon-teal to-neon-green",
       "highlights": [
         "YOLO",
         "OpenCV",
@@ -564,6 +816,16 @@
     {
       "title": "EcoAI",
       "description": "Sustainable AI platform that optimizes prompts to reduce tokens and compute, pairing backend intelligence with browser integration to lower cost and environmental impact in daily AI usage.",
+      "tags": [
+        "Prompt Optimization",
+        "Chrome Extension",
+        "Node.js",
+        "Firebase",
+        "Efficiency",
+        "Sustainability",
+        "AI",
+        "Backend"
+      ],
       "technologies": [
         "Prompt Optimization",
         "Chrome Extension",
@@ -576,7 +838,9 @@
       ],
       "github": "https://github.com/Jayasurya09s/enhanced-prompt",
       "demo": "/projects/ecoai",
+      "caseStudy": "/dsatm ecoai certificate.jpg",
       "category": "AI",
+      "gradient": "from-neon-green to-neon-cyan",
       "highlights": [
         "Prompt Optimization",
         "Chrome Extension",
@@ -589,6 +853,16 @@
     {
       "title": "Glider — Autonomous Flight Stabilization",
       "description": "Autonomous flight stabilization for a custom glider using IMU sensing and servo feedback to correct control surfaces in real time, improving orientation tracking during test flights.",
+      "tags": [
+        "Arduino Uno",
+        "MPU6050",
+        "SG90 Servo",
+        "Control Systems",
+        "Embedded",
+        "IMU",
+        "Flight",
+        "Autonomy"
+      ],
       "technologies": [
         "Arduino Uno",
         "MPU6050",
@@ -601,7 +875,9 @@
       ],
       "github": "/hardwarehack.png",
       "demo": "/projects/glider",
+      "caseStudy": "/aero certificate.jpg",
       "category": "Robotics",
+      "gradient": "from-neon-yellow to-neon-orange",
       "highlights": [
         "Arduino Uno",
         "MPU6050",
@@ -614,6 +890,16 @@
     {
       "title": "StudyAI",
       "description": "AI study assistant that organizes notes, generates summaries, answers questions, and builds flashcards, delivering personalized learning support and efficient revision workflows for students.",
+      "tags": [
+        "React",
+        "Node.js",
+        "Tailwind",
+        "MongoDB",
+        "Firebase",
+        "AI",
+        "Summarization",
+        "Flashcards"
+      ],
       "technologies": [
         "React",
         "Node.js",
@@ -626,7 +912,9 @@
       ],
       "github": "#",
       "demo": "/projects/studyai",
+      "caseStudy": "/hackathon @pes in 1st sem.png",
       "category": "Full Stack",
+      "gradient": "from-neon-cyan to-neon-blue",
       "highlights": [
         "React",
         "Node.js",
@@ -639,6 +927,16 @@
     {
       "title": "PCFR — Protecting Clothes From Rain (IoT)",
       "description": "IoT home automation that detects rainfall and protects drying clothes using sensors and Arduino-driven servos, providing reliable, low-cost safety for everyday household use.",
+      "tags": [
+        "Arduino Uno",
+        "Rain Sensor",
+        "SG90 Servo",
+        "IoT",
+        "Automation",
+        "Home Safety",
+        "Sensors",
+        "Embedded"
+      ],
       "technologies": [
         "Arduino Uno",
         "Rain Sensor",
@@ -651,7 +949,9 @@
       ],
       "github": "#",
       "demo": "/projects/pcfr",
+      "caseStudy": "#",
       "category": "IoT",
+      "gradient": "from-neon-cyan to-neon-pink",
       "highlights": [
         "Arduino Uno",
         "Rain Sensor",
@@ -664,6 +964,16 @@
     {
       "title": "AntarAtmaa — AI Rockfall Prediction System",
       "description": "AI rockfall prediction system for open-pit mines that monitors hazards in real time, triggers alerts, and improves worker safety through machine learning and IoT sensing.",
+      "tags": [
+        "Machine Learning",
+        "Safety",
+        "IoT",
+        "SIH 2025",
+        "Hazard Detection",
+        "Real-Time",
+        "Mining",
+        "AI"
+      ],
       "technologies": [
         "Machine Learning",
         "Safety",
@@ -676,11 +986,13 @@
       ],
       "github": "https://github.com/Jayasurya09s/AntarAtmaa",
       "demo": "https://ganiai.vercel.app/",
+      "caseStudy": "#",
       "category": [
         "AI",
         "IoT",
         "Full Stack"
       ],
+      "gradient": "from-neon-blue to-neon-violet",
       "highlights": [
         "Machine Learning",
         "Safety",
@@ -693,6 +1005,16 @@
     {
       "title": "UniTech — Student Productivity Suite",
       "description": "Student productivity suite combining campus utilities, academic tools, and task support, delivering a unified experience that helps users manage studies, schedules, and day-to-day needs.",
+      "tags": [
+        "React",
+        "Node.js",
+        "Firebase",
+        "MongoDB",
+        "Productivity",
+        "Student Tools",
+        "Utilities",
+        "Frontend"
+      ],
       "technologies": [
         "React",
         "Node.js",
@@ -705,9 +1027,11 @@
       ],
       "github": "https://github.com/Jayasurya09s/ByteXync-Hunter_Squad",
       "demo": "/projects/unitech",
+      "caseStudy": "/hackathon1 dsce participation certificate.jpg",
       "category": [
         "Frontend"
       ],
+      "gradient": "from-neon-yellow to-neon-cyan",
       "highlights": [
         "React",
         "Node.js",
@@ -720,6 +1044,16 @@
     {
       "title": "Roomigo — PG Finder",
       "description": "PG and hostel finder with verified listings, real-time updates, maps, and direct owner contact, helping students and professionals discover safe, nearby accommodation quickly.",
+      "tags": [
+        "React",
+        "Firebase",
+        "Maps API",
+        "Real-Time",
+        "Location",
+        "Listings",
+        "Verification",
+        "Messaging"
+      ],
       "technologies": [
         "React",
         "Firebase",
@@ -732,7 +1066,9 @@
       ],
       "github": "#",
       "demo": "/projects/roomigo",
+      "caseStudy": "/techtrack dsce 8hr certificate.jpg",
       "category": "Full Stack",
+      "gradient": "from-neon-violet to-neon-pink",
       "highlights": [
         "React",
         "Firebase",
@@ -745,6 +1081,16 @@
     {
       "title": "RAAHI — Hazard-Informed Routing",
       "description": "Disaster-aware navigation system that provides hazard-informed routing, real-time alerts, emergency hotspots, offline access, and multilingual voice guidance to support safer travel during crises.",
+      "tags": [
+        "React",
+        "AI",
+        "Google Maps",
+        "FastAPI",
+        "Disaster Management",
+        "Offline Mode",
+        "Alerts",
+        "Routing"
+      ],
       "technologies": [
         "React",
         "AI",
@@ -757,10 +1103,12 @@
       ],
       "github": "https://github.com/Jayasurya09s/Raahi-hazard",
       "demo": "/projects/raahi",
+      "caseStudy": "/rvce participation certificate 12.png",
       "category": [
         "AI",
         "Full Stack"
       ],
+      "gradient": "from-neon-cyan to-neon-blue",
       "highlights": [
         "React",
         "AI",
@@ -773,6 +1121,16 @@
     {
       "title": "Crop Mentor — AI Agritech Platform",
       "description": "AI agritech platform offering soil analysis, crop selection, IoT sensing, fertilizer guidance, yield prediction, and market insights, delivering practical decision support for farmers.",
+      "tags": [
+        "React",
+        "AI",
+        "IoT",
+        "FastAPI",
+        "ML",
+        "Agriculture",
+        "Yield Prediction",
+        "Market Insights"
+      ],
       "technologies": [
         "React",
         "AI",
@@ -785,11 +1143,13 @@
       ],
       "github": "https://github.com/Jayasurya09s/Yodha",
       "demo": "/projects/cropmentor",
+      "caseStudy": "hackman sem iii.pdf",
       "category": [
         "AI",
         "IoT",
         "Full Stack"
       ],
+      "gradient": "from-neon-green to-neon-yellow",
       "highlights": [
         "React",
         "AI",
@@ -834,76 +1194,232 @@
   ],
   "hackathons": [
     {
+      "name": "Hack Nocturne 2",
+      "title": "Hack Nocturne 2",
+      "achievement": "AI Interview Platform Track",
+      "position": "AI Interview Platform Track",
+      "project": "ClickToSelect — AI Interview Platform",
+      "description": "Developed ClickToSelect: AI-powered interview and skill-verification platform with automated recruiter-candidate workflow orchestration using ML assessment engines.",
+      "year": "2026",
+      "date": "2026",
+      "status": "Recruiter-Candidate Workflow",
+      "icon": "Medal",
+      "color": "neon-blue",
+      "type": "Participation",
+      "links": {
+        "project": "https://github.com/Jayasurya09s/ClickToSelect",
+        "demo": "#",
+        "certificate": "#"
+      }
+    },
+    {
+      "name": "Aegis Sandbox",
+      "title": "Aegis Sandbox",
+      "achievement": "Security + Blockchain Innovation Track",
+      "position": "Security + Blockchain Innovation Track",
+      "project": "WhisperGuard — Decentralized Security Platform",
+      "description": "Built WhisperGuard: blockchain-first IPFS threat detection system with AI-powered malware classification and zero-knowledge proof verification for secure incident reporting.",
+      "year": "2026",
+      "date": "2026",
+      "status": "Blockchain-IPFS Threat Detection",
+      "icon": "Award",
+      "color": "neon-cyan",
+      "type": "Participation",
+      "links": {
+        "project": "https://github.com/Jayasurya09s/DarkGuardians",
+        "demo": "https://www.youtube.com/watch?v=PN9ITC7zXiU",
+        "certificate": "/Sandbox v2.0 Participation Certificate .pdf"
+      }
+    },
+    {
+      "name": "Indian Chess Academy Online Hackathon",
+      "title": "Indian Chess Academy Online Hackathon",
+      "achievement": "48-Hour Company Hackathon",
+      "position": "48-Hour Company Hackathon",
+      "project": "ICA — Academy Management Platform",
+      "description": "Developed ICA: comprehensive academy management platform built in 48 hours using MERN stack with student onboarding, class scheduling, payment integration, and operational workflows.",
+      "year": "2026",
+      "date": "2026",
+      "status": "Full-Stack Academy Platform",
+      "icon": "Trophy",
+      "color": "neon-violet",
+      "type": "Participation",
+      "links": {
+        "project": "https://github.com/Jayasurya09s/Indian-Chess-Academy",
+        "demo": "https://ica.vercel.app/",
+        "certificate": "#"
+      }
+    },
+    {
       "name": "Smart India Hackathon 2025",
-      "achievement": "Internal Round Selection",
-      "project": "Problem Solving — Team Project",
-      "description": "Qualified for national-level SIH finals through college internal rounds.",
+      "title": "Smart India Hackathon 2025",
+      "achievement": "National-Level Finalist",
+      "position": "National-Level Finalist",
+      "project": "AntarAtmaa — AI-Powered Solution",
+      "description": "Qualified for national-level SIH 2025 finals by winning college internal rounds with an innovative AI-powered problem-solving solution addressing real-world challenges.",
       "year": "2025",
-      "status": "Qualified for Nationals"
+      "date": "2025",
+      "status": "Qualified for SIH Nationals",
+      "icon": "Trophy",
+      "color": "neon-blue",
+      "type": "Qualified",
+      "links": {
+        "project": "https://github.com/Jayasurya09s/AntarAtmaa",
+        "demo": "https://ganiai.vercel.app/",
+        "certificate": "/nocertificate.png"
+      }
     },
     {
       "name": "CodeUtsava 9.0 — NIT Raipur",
-      "achievement": "Certificate of Participation",
-      "project": "Live Demo — Problem Solving",
-      "description": "Participated in India's top-tier national hackathon with a live project demo.",
+      "title": "CodeUtsava 9.0 — NIT Raipur",
+      "achievement": "Tier-1 National Hackathon",
+      "position": "Tier-1 National Hackathon",
+      "project": "BrahmaCoders — Web Development Problem Solving",
+      "description": "Participated in CodeUtsava (India's premier national hackathon at NIT Raipur) with live demonstration of full-stack problem-solving prowess and technical innovation.",
       "year": "2024",
-      "status": "National Level Hackathon"
+      "date": "2024",
+      "status": "Live Full-Stack Demo",
+      "icon": "Award",
+      "color": "neon-violet",
+      "type": "Certified",
+      "links": {
+        "project": "https://brahmacoders.vercel.app/",
+        "demo": "https://brahmacoders.vercel.app/",
+        "certificate": "/nit raipur.png"
+      }
     },
     {
       "name": "CypherQuest Hackathon",
-      "achievement": "EcoAI — Participant",
-      "project": "EcoAI — AI Prompt Optimizer",
-      "description": "Developed EcoAI, a sustainable prompt optimization tool to reduce token cost & carbon.",
+      "title": "CypherQuest Hackathon",
+      "achievement": "AI Sustainability Challenge",
+      "position": "AI Sustainability Challenge",
+      "project": "EcoAI — Sustainable Prompt Optimizer",
+      "description": "Engineered EcoAI: AI prompt optimization engine reducing token consumption, API costs, and carbon footprint while maintaining LLM output quality for sustainable AI systems.",
       "year": "2024",
-      "status": "Certificate of Participation"
+      "date": "2024",
+      "status": "Carbon-Efficient AI Solution",
+      "icon": "Medal",
+      "color": "neon-cyan",
+      "type": "Certified",
+      "links": {
+        "project": "https://github.com/anshu2k24/enhanced-prompt",
+        "demo": "/projects/ecoai",
+        "certificate": "/dsatm ecoai certificate.jpg"
+      }
     },
     {
       "name": "MakerBlitz Hackathon",
-      "achievement": "Appreciation Prize",
-      "project": "Glider — Autonomous Stabilization",
-      "description": "Built an autonomous stabilization system for a custom-designed glider.",
+      "title": "MakerBlitz Hackathon",
+      "achievement": "Hardware Innovation Champion",
+      "position": "Hardware Innovation Champion",
+      "project": "Glider — Autonomous Stabilization System",
+      "description": "Built autonomous stabilization system for custom-designed glider using embedded systems, PID control algorithms, and real-time sensor integration for autonomous flight.",
       "year": "2024",
-      "status": "🥇 Hardware Innovation"
+      "date": "2024",
+      "status": "🥇 Autonomous Systems Winner",
+      "icon": "Trophy",
+      "color": "neon-green",
+      "type": "Winner",
+      "links": {
+        "project": "/hardwarehack.png",
+        "demo": "/projects/glider",
+        "certificate": "/aero certificate.jpg"
+      }
     },
     {
-      "name": "ByteXync Hackathon",
-      "achievement": "Certificate of Participation",
-      "project": "UniTech — Team Project",
-      "description": "Developed UniTech, a unified student productivity/utility solution.",
+      "name": "ByteXync Hackathon — DSCE",
+      "title": "ByteXync Hackathon — DSCE",
+      "achievement": "EdTech Innovation Track",
+      "position": "EdTech Innovation Track",
+      "project": "UniTech — Unified Campus Solution",
+      "description": "Developed UniTech: unified student productivity platform integrating attendance, schedules, assignments, and campus resources—a comprehensive MERN-based EdTech solution.",
       "year": "2024",
-      "status": "Tech Innovation"
+      "date": "2024",
+      "status": "Student Productivity Platform",
+      "icon": "Award",
+      "color": "neon-yellow",
+      "type": "Certified",
+      "links": {
+        "project": "https://github.com/Jayasurya09s/ByteXync-Hunter_Squad",
+        "demo": "/projects/unitech",
+        "certificate": "/hackathon1 dsce participation certificate.jpg"
+      }
     },
     {
-      "name": "Confluence Hackathon",
-      "achievement": "Certificate of Participation",
-      "project": "StudyAI — Learning Assistant",
-      "description": "Created StudyAI, an AI-powered note analyzer and study companion.",
+      "name": "Confluence Hackathon — PES",
+      "title": "Confluence Hackathon — PES",
+      "achievement": "AI EdTech Innovation",
+      "position": "AI EdTech Innovation",
+      "project": "StudyAI — AI-Powered Study Companion",
+      "description": "Created StudyAI: AI-powered note analyzer and study assistant using NLP for automatic summarization, concept extraction, and personalized learning recommendations.",
       "year": "2023",
-      "status": "Tech Event"
+      "date": "2023",
+      "status": "Intelligent Learning Assistant",
+      "icon": "Medal",
+      "color": "neon-cyan",
+      "type": "Certified",
+      "links": {
+        "project": "/pendingproject.png",
+        "demo": "/projects/studyai",
+        "certificate": "/hackathon @pes in 1st sem.png"
+      }
     },
     {
-      "name": "TechTrek Hackathon",
-      "achievement": "Certificate of Participation",
-      "project": "Roomigo — PG Finder",
-      "description": "Built Roomigo — PG/Hostel accommodation finder with real-time listing features.",
+      "name": "TechTrek Hackathon — DSCE",
+      "title": "TechTrek Hackathon — DSCE",
+      "achievement": "Real Estate Tech Challenge",
+      "position": "Real Estate Tech Challenge",
+      "project": "Roomigo — Smart PG/Hostel Finder",
+      "description": "Built Roomigo: real-time accommodation finder with live listing features, property mapping, and instant booking integration for student housing discovery.",
       "year": "2024",
-      "status": "Tech Event"
+      "date": "2024",
+      "status": "Real-Time Accommodation Platform",
+      "icon": "Award",
+      "color": "neon-violet",
+      "type": "Certified",
+      "links": {
+        "project": "/pendingproject.png",
+        "demo": "/projects/roomigo",
+        "certificate": "/techtrack dsce 8hr certificate.jpg"
+      }
     },
     {
-      "name": "Ctrl + Alt + Compete — RV College of Engineering",
-      "achievement": "Participants — Team Achievement",
-      "project": "RAAHI — Real-time AI Assistant for Hazard-Informed Routing",
-      "description": "RAAHI is an AI-powered disaster-aware navigation system providing hazard-informed routing.",
+      "name": "Ctrl + Alt + Compete — RVCE",
+      "title": "Ctrl + Alt + Compete — RVCE",
+      "achievement": "AI Emergency Services Track",
+      "position": "AI Emergency Services Track",
+      "project": "RAAHI — Smart Emergency Routing System",
+      "description": "Engineered RAAHI: AI-powered disaster-aware navigation system using real-time hazard detection, geospatial analysis, and ML routing algorithms for emergency response optimization.",
       "year": "2025",
-      "status": "AI Innovation"
+      "date": "2025",
+      "status": "Disaster-Aware Navigation",
+      "icon": "Award",
+      "color": "neon-cyan",
+      "type": "Participation",
+      "links": {
+        "project": "https://github.com/Jayasurya09s/Raahi-hazard",
+        "demo": "/projects/raahi",
+        "certificate": "/rvce participation certificate 12.png"
+      }
     },
     {
-      "name": "HackMan — Dayananda Sagar College of Engineering",
-      "achievement": "Participants — Team Achievement",
-      "project": "Crop Mentor — AI-driven Agritech Platform",
-      "description": "Crop Mentor is an AI-driven agritech system offering soil analysis and crop optimization.",
+      "name": "HackMan — DSCE",
+      "title": "HackMan — DSCE",
+      "achievement": "AgriTech AI + IoT Innovation",
+      "position": "AgriTech AI + IoT Innovation",
+      "project": "Crop Mentor — AI-Driven Agriculture Platform",
+      "description": "Developed Crop Mentor: AI-driven agritech platform combining soil analysis, crop disease detection, yield prediction, and IoT sensor integration for intelligent farming.",
       "year": "2024",
-      "status": "AI + IoT Innovation"
+      "date": "2024",
+      "status": "Intelligent Crop Management",
+      "icon": "Medal",
+      "color": "neon-green",
+      "type": "Participation",
+      "links": {
+        "project": "https://github.com/Jayasurya09s/Yodha",
+        "demo": "/projects/cropmentor",
+        "certificate": "hackman sem iii.pdf"
+      }
     }
   ],
   "experience": [
@@ -938,8 +1454,8 @@
   ],
   "why_hire": "I bring a unique combination of full-stack expertise, AI/ML capabilities, and system design experience validated by a 9.7 CGPA and 12+ national hackathons. My portfolio demonstrates 20+ production-grade applications with clean architecture, comprehensive testing, and real-world deployment. I excel at building scalable systems from scratch - whether it's implementing circuit breakers for resilience, integrating payment systems like Razorpay, creating real-time collaboration tools with WebSockets, or developing RAG-based AI assistants. My experience spans the entire stack: responsive React frontends, robust Node.js/FastAPI backends, MongoDB database design, JWT/RBAC authentication, and cloud deployment. I've proven I can rapidly prototype under hackathon pressure while maintaining code quality (Top 3 in hardware innovation, SIH 2025 qualification). Whether it's a complex web application, AI-powered system, real-time dashboard, or IoT project, I have the technical depth, practical experience, and problem-solving mindset to deliver results. I'm seeking opportunities to contribute to scalable web applications and continue growing as a full-stack engineer.",
   "stats": {
-    "projects_count": 23,
-    "hackathons_count": 9,
+    "projects_count": 25,
+    "hackathons_count": 12,
     "technologies_count": 75
   },
   "generated_from_frontend_data": true
