@@ -466,6 +466,46 @@
       ]
     },
     {
+      "title": "Advanced Algorithmic Trading Platform",
+      "description": "Production-style Python trading platform for Binance Futures Testnet with clean architecture, CLI order execution, risk controls, OMS lifecycle tracking, backtesting metrics, WebSocket streaming, and a resilient Streamlit analytics dashboard.",
+      "tags": [
+        "Python",
+        "Binance Futures",
+        "Streamlit",
+        "Risk Engine",
+        "Backtesting",
+        "WebSocket",
+        "CLI",
+        "Order Management"
+      ],
+      "technologies": [
+        "Python",
+        "Binance Futures",
+        "Streamlit",
+        "Risk Engine",
+        "Backtesting",
+        "WebSocket",
+        "CLI",
+        "Order Management"
+      ],
+      "github": "#",
+      "demo": "https://jaytradingbot.streamlit.app/",
+      "caseStudy": "#",
+      "category": [
+        "AI",
+        "Full Stack"
+      ],
+      "gradient": "from-slate-800 to-emerald-600",
+      "highlights": [
+        "Python",
+        "Binance Futures",
+        "Streamlit",
+        "Risk Engine",
+        "Backtesting",
+        "WebSocket"
+      ]
+    },
+    {
       "title": "SocialX – Full-Stack Social Feed Platform",
       "description": "Full-stack social feed with JWT auth, posts, media, emojis, polls, and real-time engagement; includes filtering, pagination, and auto-refresh to keep interactions fast and responsive across devices.",
       "tags": [
@@ -1209,7 +1249,7 @@
       "links": {
         "project": "https://github.com/Jayasurya09s/ClickToSelect",
         "demo": "#",
-        "certificate": "#"
+        "certificate": "/hacknocture.png"
       }
     },
     {
@@ -1454,7 +1494,7 @@
   ],
   "why_hire": "I bring a unique combination of full-stack expertise, AI/ML capabilities, and system design experience validated by a 9.7 CGPA and 12+ national hackathons. My portfolio demonstrates 20+ production-grade applications with clean architecture, comprehensive testing, and real-world deployment. I excel at building scalable systems from scratch - whether it's implementing circuit breakers for resilience, integrating payment systems like Razorpay, creating real-time collaboration tools with WebSockets, or developing RAG-based AI assistants. My experience spans the entire stack: responsive React frontends, robust Node.js/FastAPI backends, MongoDB database design, JWT/RBAC authentication, and cloud deployment. I've proven I can rapidly prototype under hackathon pressure while maintaining code quality (Top 3 in hardware innovation, SIH 2025 qualification). Whether it's a complex web application, AI-powered system, real-time dashboard, or IoT project, I have the technical depth, practical experience, and problem-solving mindset to deliver results. I'm seeking opportunities to contribute to scalable web applications and continue growing as a full-stack engineer.",
   "stats": {
-    "projects_count": 25,
+    "projects_count": 26,
     "hackathons_count": 12,
     "technologies_count": 75
   },

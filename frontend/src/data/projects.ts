@@ -1,5 +1,25 @@
 export const projectsData = [
   {
+    title: 'Advanced Algorithmic Trading Platform',
+    description:
+      'Production-style Python trading platform for Binance Futures Testnet with clean architecture, CLI order execution, risk controls, OMS lifecycle tracking, backtesting metrics, WebSocket streaming, and a resilient Streamlit analytics dashboard.',
+    tags: [
+      'Python',
+      'Binance Futures',
+      'Streamlit',
+      'Risk Engine',
+      'Backtesting',
+      'WebSocket',
+      'CLI',
+      'Order Management'
+    ],
+    category: ['AI', 'Full Stack'],
+    github: 'https://github.com/Jayasurya09s/Trading-Bot',
+    demo: 'https://jaytradingbot.streamlit.app/',
+    caseStudy: '#',
+    gradient: 'from-slate-800 to-emerald-600',
+  },
+  {
     title: 'DarkGuardians — Blockchain-First IPFS Threat Detection with ZK Reporting',
     description:
       'Security-focused system that checks CID reputation on-chain first, then runs an AI pipeline for new IPFS content with realtime decisioning (block/allow), zero-knowledge proof generation, CID hash-map updates, and asynchronous blockchain submission through a browser-extension-integrated workflow.',
@@ -144,7 +164,7 @@ export const projectsData = [
     caseStudy: '#',
     gradient: 'from-blue-600 to-indigo-700',
   },
-  {
+    {
     title: 'SocialX – Full-Stack Social Feed Platform',
     description:
       'Full-stack social feed with JWT auth, posts, media, emojis, polls, and real-time engagement; includes filtering, pagination, and auto-refresh to keep interactions fast and responsive across devices.',

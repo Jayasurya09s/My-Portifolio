@@ -2,7 +2,18 @@ import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float, MeshDistortMaterial } from '@react-three/drei';
 import { Download, ArrowDown } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
 
 function ProfileOrb() {
   return (
@@ -23,8 +34,15 @@ function ProfileOrb() {
 }
 
 export const Hero = () => {
+  const [isResumeDialogOpen, setIsResumeDialogOpen] = useState(false);
+
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const openResume = (resumePath: string) => {
+    window.open(resumePath, '_blank');
+    setIsResumeDialogOpen(false);
   };
 
   return (
@@ -99,10 +117,10 @@ export const Hero = () => {
                 size="lg"
                 variant="outline"
                 className="border-2 border-neon-violet text-neon-violet hover:bg-neon-violet/10 hover:text-neon-violet transition-all duration-300 font-semibold text-base sm:text-lg"
-                onClick={() => window.open('/lastresume.pdf', '_blank')}
+                onClick={() => setIsResumeDialogOpen(true)}
               >
                 <Download className="mr-2" size={20} />
-                Download Resume
+                Download Resumes
               </Button>
 
             </motion.div>
@@ -200,6 +218,26 @@ export const Hero = () => {
           <ArrowDown size={32} />
         </motion.div>
       </motion.div>
+
+      <AlertDialog open={isResumeDialogOpen} onOpenChange={setIsResumeDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Choose Resume Type</AlertDialogTitle>
+            <AlertDialogDescription>
+              Select which resume you want to open.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={() => openResume('/lastresume.pdf')}>
+              Full Stack Resume
+            </AlertDialogAction>
+            <AlertDialogAction onClick={() => openResume('/pythonresume.pdf')}>
+              Python Resume
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </section>
   );
 };

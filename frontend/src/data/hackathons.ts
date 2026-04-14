@@ -12,7 +12,7 @@ export const hackathonsData = [
     links: {
       project: 'https://github.com/Jayasurya09s/ClickToSelect',
       demo: '#',
-      certificate: '#',
+      certificate: '/hacknocture.png',
     }
   },
   {
